@@ -1,0 +1,41 @@
+// Home1 Testimonial Slider
+.slick-slider {
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  // Home1 Main slider
+.main-slider{
+  .content-wrap{
+    position: absolute;
+    top: 35%;
+    width: 100%;
+}
+.social-links{
+  z-index: 999;
+}
+.tp-caption{
+  .text{
+    margin: 20px auto;
+  }
+}
+.btn-box{
+  margin: 20px auto;
+}
+
+.tparrows:before {
+  font-family: revicons;
+  font-size: 15px;
+  color: #fff;
+  // display: block;
+  line-height: 40px;
+  text-align: center;
+}
+.tparrows.tp-leftarrow:before {
+  content: '\e824';
+}
+.tparrows.tp-rightarrow:before {
+  content: '\e825';
+}
+}
+
