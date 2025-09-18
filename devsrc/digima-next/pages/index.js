@@ -19,7 +19,7 @@ export default function Home2() {
   return (
       <>
           <Layout HeaderStyle="two">
-              {/* <Home2_Section1_slider2 /> */}
+              <Home2_Section1_slider2 />
               {/* <Home2_Section2_about3 /> */}
               {/* <Home2_Section3_features2 /> */}
               {/* <Home2_Section4_services2 /> */}
