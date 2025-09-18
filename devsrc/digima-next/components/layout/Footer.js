@@ -11,7 +11,7 @@ const Footer = () => {
                         <div className="row">
                             {/*  */}
                             <div className="contact-info logo-box col-lg-4 col-md-12 wow fadeInUp text-center">
-                                <div className="logo"><a href="#"><img src="images/logo.png" alt /></a></div>
+                                <div className="logo"><a href="#"><img src="images/logo-4.png" alt /></a></div>
                             </div>
                             {/* Contact Info */}
                             <div className="contact-info col-lg-4 col-md-12 wow fadeInRight">
@@ -95,7 +95,7 @@ const Footer = () => {
                     <div className="auto-container">
                         <div className="inner-container">
                             <div className="copyright-text">
-                                <p>© Copyright 2023 by  <a href="index.html">Company.com</a></p>
+                                <p>© Copyright 2025 by k3media.in</p>
                             </div>
                         </div>
                     </div>

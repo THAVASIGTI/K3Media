@@ -4,6 +4,7 @@ import React from 'react';
 import MobileMenu from './MobileMenu';
 import LogoWhite from './../../public/images/logo.png';
 import LogoDark from './../../public/images/logo-2.png';
+import LogoGenr from './../../public/images/logo-5.png';
 
 const Header2 = ({ handleOpen, handleRemove, searchToggle, handleToggle, scroll }) => {
 
@@ -14,7 +15,7 @@ const Header2 = ({ handleOpen, handleRemove, searchToggle, handleToggle, scroll 
                 {/* Main box */}
                 <div className="main-box">
                     <div className="logo-box">
-                        <div className="logo"><Link href="/"><Image src={LogoWhite} title='K3Media' /></Link></div>
+                        <div className="logo"><Link href="/"><Image src={LogoGenr} title='K3Media' /></Link></div>
                         <button className="ui-btn ui-btn search-btn" onClick={handleToggle} >
                             <span className="icon lnr lnr-icon-search" />
                         </button>
@@ -91,7 +92,7 @@ const Header2 = ({ handleOpen, handleRemove, searchToggle, handleToggle, scroll 
                     {/*Here Menu Will Come Automatically Via Javascript / Same Menu as in Header*/}
                     <nav className="menu-box">
                         <div className="upper-box">
-                            <div className="nav-logo"><Link href="/"><Image src={LogoWhite} title='K3Media' /></Link></div>
+                            <div className="nav-logo"><Link href="/"><Image src={LogoGenr} title='K3Media' /></Link></div>
                             <div className="close-btn" onClick={handleRemove}><i className="icon fa fa-times" /></div>
                         </div>
                         <MobileMenu />
@@ -148,7 +149,7 @@ const Header2 = ({ handleOpen, handleRemove, searchToggle, handleToggle, scroll 
                         <div className="inner-container">
                             {/*Logo*/}
                             <div className="logo">
-                                <Link href="/" title><Image src={LogoDark} title='Digima' /></Link>
+                                <Link href="/" title><Image src={LogoGenr} title='K3Media' /></Link>
                             </div>
                             {/*Right Col*/}
                             <div className="nav-outer">
