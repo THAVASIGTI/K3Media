@@ -22,7 +22,7 @@ export default function Home1_Section13() {
                   <div className="inner">
                     <i className="icon fa fa-phone" />
                     <h6 className="title">Have any question?</h6>
-                    <div className="text">Free <a href="tel:230009850">+23 (000)-9850</a></div>
+                    <div className="text">Free <a href="tel:+919047355000">+91 9047355000</a></div>
                   </div>
                 </div>
                 {/* Contact Info block */}
@@ -30,7 +30,7 @@ export default function Home1_Section13() {
                   <div className="inner">
                     <i className="icon fa fa-envelope" />
                     <h6 className="title">Send email</h6>
-                    <div className="text"><a href="mailto:needhelp@company.com">needhelp@company.com</a></div>
+                    <div className="text"><a href="mailto:prem@k3media.in">prem@k3media.in</a></div>
                   </div>
                 </div>
                 {/* Contact Info block */}
@@ -38,7 +38,7 @@ export default function Home1_Section13() {
                   <div className="inner">
                     <i className="icon fa fa-map-marker-alt" />
                     <h6 className="title">Visit anytime</h6>
-                    <div className="text">30 broklyn golden street. New York</div>
+                    <div className="text">120, 1st floor, Bahathsingh Street, Ramamoorthy Nagar, Vilangudi, Madurai - 625 018</div>
                   </div>
                 </div>
               </div>
