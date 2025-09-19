@@ -20,19 +20,19 @@ export default function Home2() {
       <>
           <Layout HeaderStyle="two">
               <Home2_Section1_slider2 />
-              {/* <Home2_Section2_about3 /> */}
-              {/* <Home2_Section3_features2 /> */}
-              {/* <Home2_Section4_services2 /> */}
-              {/* <Home2_Section5_testimonial2 /> */}
-              {/* <Home2_Section6_services3 /> */}
-              {/* <Home2_Section7_clients2 /> */}
-              {/* <Home2_Section8_projects2 /> */}
-              {/* <Home2_Section9_why_choose_us2 /> */}
-              {/* <Home2_Section10_funfact2 /> */}
-              {/* <Home2_Section11_work_section1 /> */}
-              {/* <Home2_Section12_work_section2 /> */}
-              {/* <Home2_Section13_news2 /> */}
-              {/* <Home2_Section14_map1 /> */}
+              <Home2_Section2_about3 />
+              <Home2_Section3_features2 />
+              <Home2_Section4_services2 />
+              <Home2_Section5_testimonial2 />
+              <Home2_Section6_services3 />
+              <Home2_Section7_clients2 />
+              <Home2_Section8_projects2 />
+              <Home2_Section9_why_choose_us2 />
+              <Home2_Section10_funfact2 />
+              <Home2_Section11_work_section1 />
+              <Home2_Section12_work_section2 />
+              <Home2_Section13_news2 />
+              <Home2_Section14_map1 />
           </Layout>
       </>
   );
