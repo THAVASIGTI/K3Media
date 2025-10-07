@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "lint": "next lint",
     "sass": "sass --watch public/scss/style.scss:public/css/style.css",
     "deploy": "next build && next export && gh-pages -d out"
