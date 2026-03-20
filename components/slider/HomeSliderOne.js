@@ -71,7 +71,7 @@ export default function SliderArea() {
                             </SwiperSlide>
                             <SwiperSlide>
                                 <li data-animation="fadeInUp" data-delay="0.9s" style={{  
-                                  backgroundImage: "url(" + "images/main-slider/1.jpg" + ")",
+                                  backgroundImage: "url(" + "images/main-slider/home-page-6.png" + ")",
                                   backgroundPosition: 'center',
                                   backgroundSize: 'cover',
                                   backgroundRepeat: 'no-repeat'
@@ -94,7 +94,7 @@ export default function SliderArea() {
                             </SwiperSlide>
                             <SwiperSlide>
                                 <li data-animation="fadeInUp" data-delay="0.9s" style={{  
-                                  backgroundImage: "url(" + "images/main-slider/1.jpg" + ")",
+                                  backgroundImage: "url(" + "images/main-slider/home-page-7.png" + ")",
                                   backgroundPosition: 'center',
                                   backgroundSize: 'cover',
                                   backgroundRepeat: 'no-repeat'

@@ -26,7 +26,7 @@ export default function Home2() {
               <Home2_Section5_testimonial2 />
               <Home2_Section6_services3 />
               {/* <Home2_Section7_clients2 /> */}
-              <Home2_Section8_projects2 />
+              {/* <Home2_Section8_projects2 /> */}
               <Home2_Section9_why_choose_us2 />
               <Home2_Section10_funfact2 />
               {/* <Home2_Section11_work_section1 /> */}
