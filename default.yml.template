@@ -1,4 +1,4 @@
-name: Deploy Next.js to GitHub Pages
+name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
   push:
@@ -20,26 +20,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
         with:
-          node-version: 20
-          cache: "npm"
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Next.js app
-        run: npm run build
-
-      - name: Export static site
-        run: npm run export
-
-      - name: Upload artifact for GitHub Pages
+          source: ./
+          destination: ./_site
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
 
   deploy:
     environment:
@@ -51,4 +40,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
