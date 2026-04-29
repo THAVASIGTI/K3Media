@@ -25,7 +25,7 @@ const NavLinks = ({ extraClassName }) => {
                     <li><Link href="/page-testimonial">Testimonial</Link></li>
                     <li><Link href="/page-pricing">Pricing</Link></li>
                     <li><Link href="/page-faq">FAQ</Link></li>
-                    <li><Link href="/page-404">Page 404</Link></li>
+                    {/* <li><Link href="/page-404">Page 404</Link></li> */}
                 </ul>
             </li>
             <li class="dropdown"><Link href="/page-services">Services</Link>

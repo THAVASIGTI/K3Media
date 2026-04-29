@@ -60,7 +60,7 @@ const MobileMenu = () => {
 <li><Link href="/page-testimonial">Testimonial</Link></li>
                         <li><Link href="/page-pricing">Pricing</Link></li>
                         <li><Link href="/page-faq">FAQ</Link></li>
-                        <li><Link href="/page-404">Page 404</Link></li>
+                        {/* <li><Link href="/page-404">Page 404</Link></li> */}
                     </ul>
                     <div className={isActive.key === 2 ? "dropdown-btn active" : "dropdown-btn"} onClick={() => handleClick(2)}>
                         <i class="fa fa-angle-down"></i>
