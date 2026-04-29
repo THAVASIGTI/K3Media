@@ -3,8 +3,9 @@ import React from 'react';
 
 
 const PageTitle = (props) => {
+  const bg = props.bgImage || 'images/resource/page-title.jpg';
   return (
-            <section className="page-title" style={{ backgroundImage: 'url(images/resource/page-title.jpg)' }}>
+            <section className="page-title" style={{ backgroundImage: `url(${bg})` }}>
                 <div className="auto-container">
                     <div className="title-outer">
                         <h1 className="title">{props.pageName}</h1>

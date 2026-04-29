@@ -95,7 +95,7 @@ const Footer = () => {
                     <div className="auto-container">
                         <div className="inner-container">
                             <div className="copyright-text">
-                                <p>© Copyright 2025 by k3media.in</p>
+                                <p>© Copyright 2026 by k3media.in</p>
                             </div>
                         </div>
                     </div>

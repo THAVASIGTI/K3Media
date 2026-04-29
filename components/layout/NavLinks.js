@@ -13,13 +13,7 @@ const NavLinks = ({ extraClassName }) => {
             <li class="dropdown"><Link href="/page-about">Pages</Link>
                 <ul>
                     <li><Link href="/page-about">About</Link></li>
-                    <li class="dropdown"><Link href="/page-team">Team</Link>
-                        <ul>
-                            <li><Link href="/page-team">Team Grid</Link></li>
-                            <li><Link href="/page-team-details">Team Details</Link></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown"><Link href="/shop-products">Shop</Link>
+<li class="dropdown"><Link href="/shop-products">Shop</Link>
                         <ul>
                             <li><Link href="/shop-products">Products</Link></li>
                             <li><Link href="/shop-products-sidebar">Products with Sidebar</Link></li>
@@ -37,21 +31,21 @@ const NavLinks = ({ extraClassName }) => {
             <li class="dropdown"><Link href="/page-services">Services</Link>
                 <ul>
                     <li><Link href="/page-services">Services Grid</Link></li>
-                    <li><Link href="/page-service-details">Service Details</Link></li>
+                    {/* <li><Link href="/page-service-details">Service Details</Link></li> */}
                 </ul>
             </li>
-            <li class="dropdown"><Link href="/page-projects">Portfolio</Link>
+            {/* <li class="dropdown"><Link href="/page-projects">Portfolio</Link>
                 <ul>
                     <li><Link href="/page-projects">Portfolio Grid</Link></li>
                     <li><Link href="/page-project-details">Portfolio Details</Link></li>
                 </ul>
-            </li>
-            <li class="dropdown"><Link href="/news-grid">News</Link>
+            </li> */}
+            {/* <li class="dropdown"><Link href="/news-grid">News</Link>
                 <ul>
                     <li><Link href="/news-grid">News Grid</Link></li>
                     <li><Link href="/news-details">News Details</Link></li>
                 </ul>
-            </li>
+            </li> */}
             <li><Link href="/page-contact">Contact</Link></li>
         </ul>
     );

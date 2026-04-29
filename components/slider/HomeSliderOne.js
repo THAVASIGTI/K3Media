@@ -15,6 +15,11 @@ SwiperCore.use([Autoplay, Navigation, Pagination, EffectFade]);
 export default function SliderArea() {
     return (
         <section className="main-slider">
+            <style>{`
+                .main-slider .swiper { height: 840px; }
+                @media (max-width: 991px) { .main-slider .swiper { height: 600px; } }
+                @media (max-width: 575px) { .main-slider .swiper { height: 420px; } }
+            `}</style>
             <div className="fullwidthbanner-container" >
                 <div className="fullwidthabanner">
                     <Swiper
@@ -22,6 +27,7 @@ export default function SliderArea() {
                         style={{
                             "--swiper-navigation-color": "#fff",
                             "--swiper-pagination-color": "#fff",
+                            height: "840px",
                         }}
                         spaceBetween={2}
                         slidesPerView={1}
@@ -51,7 +57,9 @@ export default function SliderArea() {
                                   backgroundImage: "url(" + "images/main-slider/home-page-5.png" + ")",
                                   backgroundPosition: 'center',
                                   backgroundSize: 'cover',
-                                  backgroundRepeat: 'no-repeat'
+                                  backgroundRepeat: 'no-repeat',
+                                  height: '100%',
+                                  display: 'block'
                                 }}>
                                     <div className='content-wrap' data-animation="fadeInUp" data-delay="1.5s" >
                                         <div className="tp-caption tp-heading" >
@@ -74,7 +82,9 @@ export default function SliderArea() {
                                   backgroundImage: "url(" + "images/main-slider/home-page-6.png" + ")",
                                   backgroundPosition: 'center',
                                   backgroundSize: 'cover',
-                                  backgroundRepeat: 'no-repeat'
+                                  backgroundRepeat: 'no-repeat',
+                                  height: '100%',
+                                  display: 'block'
                                 }}>
                                     <div className='content-wrap' data-animation="fadeInUp" data-delay="1.5s" >
                                         <div className="tp-caption tp-heading" >
@@ -97,7 +107,9 @@ export default function SliderArea() {
                                   backgroundImage: "url(" + "images/main-slider/home-page-7.png" + ")",
                                   backgroundPosition: 'center',
                                   backgroundSize: 'cover',
-                                  backgroundRepeat: 'no-repeat'
+                                  backgroundRepeat: 'no-repeat',
+                                  height: '100%',
+                                  display: 'block'
                                 }}>
                                     <div className='content-wrap' data-animation="fadeInUp" data-delay="1.5s" >
                                         <div className="tp-caption tp-heading" >

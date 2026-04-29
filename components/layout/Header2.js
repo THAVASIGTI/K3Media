@@ -17,9 +17,6 @@ const Header2 = ({ handleOpen, handleRemove, searchToggle, handleToggle, scroll 
                 <div className="main-box">
                     <div className="logo-box">
                         <div className="logo"><Link href="/"><Image src={LogoWGenr} title='K3Media' /></Link></div>
-                        <button className="ui-btn ui-btn search-btn" onClick={handleToggle} >
-                            <span className="icon lnr lnr-icon-search" />
-                        </button>
                     </div>
 
                     {/*Nav Box*/}
@@ -35,13 +32,7 @@ const Header2 = ({ handleOpen, handleRemove, searchToggle, handleToggle, scroll 
                                 <li class="dropdown"><Link href="/page-about">Pages</Link>
                                     <ul>
                                         <li><Link href="/page-about">About</Link></li>
-                                        <li class="dropdown"><Link href="/page-team">Team</Link>
-                                            <ul>
-                                                <li><Link href="/page-team">Team Grid</Link></li>
-                                                <li><Link href="/page-team-details">Team Details</Link></li>
-                                            </ul>
-                                        </li>
-                                        <li><Link href="/page-testimonial">Testimonial</Link></li>
+<li><Link href="/page-testimonial">Testimonial</Link></li>
                                         <li><Link href="/page-pricing">Pricing</Link></li>
                                         <li><Link href="/page-faq">FAQ</Link></li>
                                         {/* <li><Link href="/page-404">Page 404</Link></li> */}
@@ -50,36 +41,27 @@ const Header2 = ({ handleOpen, handleRemove, searchToggle, handleToggle, scroll 
                                 <li class="dropdown"><Link href="/page-services">Services</Link>
                                     <ul>
                                         <li><Link href="/page-services">Services Grid</Link></li>
-                                        <li><Link href="/page-service-details">Service Details</Link></li>
+                                        {/* <li><Link href="/page-service-details">Service Details</Link></li> */}
                                     </ul>
                                 </li>
-                                <li class="dropdown"><Link href="/page-projects">Portfolio</Link>
+                                {/* <li class="dropdown"><Link href="/page-projects">Portfolio</Link>
                                     <ul>
                                         <li><Link href="/page-projects">Portfolio Grid</Link></li>
                                         <li><Link href="/page-project-details">Portfolio Details</Link></li>
                                     </ul>
-                                </li>
-                                <li class="dropdown"><Link href="/news-grid">News</Link>
+                                </li> */}
+                                {/* <li class="dropdown"><Link href="/news-grid">News</Link>
                                     <ul>
                                         <li><Link href="/news-grid">News Grid</Link></li>
                                         <li><Link href="/news-details">News Details</Link></li>
                                     </ul>
-                                </li>
+                                </li> */}
                                 <li><Link href="/page-contact">Contact</Link></li>
                             </ul>
                         </nav>
                         {/* Main Menu End*/}
                     </div>
                     <div className="outer-box">
-                        <div className="d-flex">
-                            <Link href="tel:+91 9047355000" className="info-btn-two">
-                                <i className="icon fa fa-phone" />
-                                <small>Call Anytime</small><br /> +91 9047355000
-                            </Link>
-                            <a className="theme-btn btn-style-one"><span className="btn-title">get a qoute</span></a>
-                        </div>
-
-
                         {/* Mobile Nav toggler */}
                         <div className="mobile-nav-toggler" onClick={handleOpen}><span className="icon lnr-icon-bars" /></div>
                     </div>
