@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useReducedMotion, type Variants } from "motion/react";
+import { motion, type Variants } from "motion/react";
 
 const word: Variants = {
   hidden: { y: "110%", rotate: 4 },
@@ -25,7 +25,6 @@ export default function SplitWords({
   /** animate immediately on mount (above-the-fold) instead of when scrolled into view */
   onMount?: boolean;
 }) {
-  const reduce = useReducedMotion();
   const container: Variants = {
     hidden: {},
     show: { transition: { delayChildren: delay, staggerChildren: 0.045 } },
@@ -34,7 +33,7 @@ export default function SplitWords({
     <motion.span
       className={className}
       variants={container}
-      initial={reduce ? false : "hidden"}
+      initial={"hidden"}
       {...(onMount ? { animate: "show" } : { whileInView: "show", viewport: { once: true, amount: 0.4 } })}
     >
       {lines.map((line, li) => {

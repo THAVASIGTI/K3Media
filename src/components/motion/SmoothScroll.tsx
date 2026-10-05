@@ -4,7 +4,7 @@ import { ReactLenis, type LenisRef } from "lenis/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef } from "react";
-import { useReducedMotion } from "motion/react";
+import { MotionConfig, useReducedMotion } from "motion/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,15 +26,16 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     };
   }, [reduce]);
 
-  if (reduce) return <>{children}</>;
-
+  // Same tree on server and client (no remount after hydration); reduced motion just turns smoothing off.
   return (
-    <ReactLenis
-      root
-      ref={lenisRef}
-      options={{ autoRaf: false, lerp: 0.085, smoothWheel: true, anchors: { offset: -24 } }}
-    >
-      {children}
-    </ReactLenis>
+    <MotionConfig reducedMotion="user">
+      <ReactLenis
+        root
+        ref={lenisRef}
+        options={{ autoRaf: false, lerp: reduce ? 1 : 0.085, smoothWheel: !reduce, anchors: { offset: -24 } }}
+      >
+        {children}
+      </ReactLenis>
+    </MotionConfig>
   );
 }

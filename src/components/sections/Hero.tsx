@@ -23,7 +23,7 @@ export default function Hero() {
     <section id="top" ref={ref} className="relative flex min-h-[100dvh] items-end overflow-hidden pb-14 pt-28 md:pb-20">
       <motion.div
         className="absolute inset-0"
-        initial={reduce ? false : { clipPath: "inset(12% 8% 12% 8% round 2rem)" }}
+        initial={{ clipPath: "inset(12% 8% 12% 8% round 2rem)" }}
         animate={{ clipPath: "inset(0% 0% 0% 0% round 0rem)" }}
         transition={{ duration: 1.6, ease, delay: 0.1 }}
       >
@@ -48,7 +48,7 @@ export default function Hero() {
               <SplitWords lines={["Stories that move people.", "Systems that move business."]} accentLine={1} delay={0.5} onMount />
             </h1>
             <motion.p
-              initial={reduce ? false : { opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease, delay: 1 }}
               className="mt-7 max-w-xl text-base leading-relaxed text-muted md:text-lg"
@@ -56,7 +56,7 @@ export default function Hero() {
               K3 Media is a creative studio and a software lab. Shoots, campaigns and events, plus the CRM that turns attention into sales.
             </motion.p>
             <motion.div
-              initial={reduce ? false : { opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease, delay: 1.15 }}
               className="mt-9 flex flex-wrap gap-3"
@@ -71,7 +71,7 @@ export default function Hero() {
           <motion.a
             href="#services"
             aria-label="Explore services"
-            initial={reduce ? false : { opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease, delay: 1.3 }}
             className="absolute bottom-0 right-0 hidden size-36 place-items-center md:grid"

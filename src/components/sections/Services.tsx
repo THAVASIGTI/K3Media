@@ -66,7 +66,7 @@ export default function Services() {
         <AnimatePresence mode="wait">
           <motion.p
             key={pillar}
-            initial={reduce ? false : { opacity: 0, y: 10 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.5, ease }}
@@ -85,7 +85,7 @@ export default function Services() {
                   <motion.li
                     key={s.slug}
                     layout={!reduce}
-                    initial={reduce ? false : { opacity: 0, x: -24 }}
+                    initial={{ opacity: 0, x: -24 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: 24 }}
                     transition={{ duration: 0.6, ease, delay: i * 0.05 }}
@@ -148,7 +148,7 @@ export default function Services() {
                   <motion.div
                     key={active.slug}
                     className="absolute inset-0"
-                    initial={reduce ? false : { clipPath: "inset(100% 0 0 0)", scale: 1.15 }}
+                    initial={{ clipPath: "inset(100% 0 0 0)", scale: 1.15 }}
                     animate={{ clipPath: "inset(0% 0 0 0)", scale: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.9, ease: [0.32, 0.72, 0, 1] }}

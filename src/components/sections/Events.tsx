@@ -65,7 +65,7 @@ export default function Events() {
 
       <div
         ref={track}
-        className="mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] md:mt-16 md:px-10 md:motion-safe:w-max md:motion-safe:snap-none md:motion-safe:overflow-visible md:motion-safe:pb-0"
+        className="mt-12 flex snap-x snap-mandatory scroll-px-5 gap-5 overflow-x-auto px-5 pb-4 [scrollbar-width:none] md:mt-16 md:px-10 md:motion-safe:w-max md:motion-safe:snap-none md:motion-safe:overflow-visible md:motion-safe:pb-0"
       >
         {EVENT_TYPES.map((ev, i) => (
           <article
