@@ -3,6 +3,9 @@ import ClientMarquee from "@/components/sections/ClientMarquee";
 import Manifesto from "@/components/sections/Manifesto";
 import Services from "@/components/sections/Services";
 import Events from "@/components/sections/Events";
+import Stats from "@/components/sections/Stats";
+import Work from "@/components/sections/Work";
+import Process from "@/components/sections/Process";
 
 export default function Home() {
   return (
@@ -12,6 +15,9 @@ export default function Home() {
       <Manifesto />
       <Services />
       <Events />
+      <Stats />
+      <Work />
+      <Process />
     </main>
   );
 }

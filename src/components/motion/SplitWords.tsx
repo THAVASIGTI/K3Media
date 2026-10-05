@@ -1,8 +1,16 @@
 "use client";
 
-import { motion, useReducedMotion } from "motion/react";
+import { motion, useReducedMotion, type Variants } from "motion/react";
 
-/** Line-masked word reveal for headlines. Each line slides up from behind a mask. */
+const word: Variants = {
+  hidden: { y: "110%", rotate: 4 },
+  show: { y: "0%", rotate: 0, transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] } },
+};
+
+/**
+ * Line-masked word reveal for headlines. The in-view trigger sits on the wrapper:
+ * masked words have no visible area, so observing them directly never fires.
+ */
 export default function SplitWords({
   lines,
   className,
@@ -18,26 +26,34 @@ export default function SplitWords({
   onMount?: boolean;
 }) {
   const reduce = useReducedMotion();
+  const container: Variants = {
+    hidden: {},
+    show: { transition: { delayChildren: delay, staggerChildren: 0.045 } },
+  };
   return (
-    <span className={className}>
-      {lines.map((line, li) => (
-        <span key={li} className="block overflow-hidden pb-[0.08em]">
-          {line.split(" ").map((word, wi) => (
-            <motion.span
-              key={wi}
-              className={`inline-block will-change-transform ${li === accentLine ? "text-accent" : ""}`}
-              initial={reduce ? false : { y: "110%", rotate: 4 }}
-              {...(onMount
-                ? { animate: { y: "0%", rotate: 0 } }
-                : { whileInView: { y: "0%", rotate: 0 }, viewport: { once: true, amount: 0.5 } })}
-              transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1], delay: delay + li * 0.12 + wi * 0.04 }}
-            >
-              {word}
-              {wi < line.split(" ").length - 1 ? " " : ""}
-            </motion.span>
-          ))}
-        </span>
-      ))}
-    </span>
+    <motion.span
+      className={className}
+      variants={container}
+      initial={reduce ? false : "hidden"}
+      {...(onMount ? { animate: "show" } : { whileInView: "show", viewport: { once: true, amount: 0.4 } })}
+    >
+      {lines.map((line, li) => {
+        const words = line.split(" ");
+        return (
+          <span key={li} className="block overflow-hidden pb-[0.08em]">
+            {words.map((w, wi) => (
+              <motion.span
+                key={wi}
+                variants={word}
+                className={`inline-block will-change-transform ${li === accentLine ? "text-accent" : ""}`}
+              >
+                {w}
+                {wi < words.length - 1 ? " " : ""}
+              </motion.span>
+            ))}{" "}
+          </span>
+        );
+      })}
+    </motion.span>
   );
 }
