@@ -10,6 +10,7 @@ import { CONTACT, CTA_LABEL, HERO_SLIDES } from "@/lib/content";
 import SplitWords from "@/components/motion/SplitWords";
 import MagneticButton from "@/components/motion/MagneticButton";
 import Container from "@/components/ui/Container";
+import HeroGraphics from "./HeroGraphics";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 const wipe = [0.76, 0, 0.24, 1] as const;
@@ -101,8 +102,13 @@ export default function Hero() {
               </AnimatePresence>
             </motion.div>
 
+            {/* Concept graphics for the current topic */}
+            <AnimatePresence mode="wait" initial={false}>
+              <HeroGraphics key={slide.graphic} graphic={slide.graphic} />
+            </AnimatePresence>
+
             {/* Topic label + progress */}
-            <div className="absolute bottom-4 left-[46%] right-4 flex items-center gap-3 rounded-full bg-black/40 py-2 pl-4 pr-2 text-white backdrop-blur-md md:bottom-5 md:right-5">
+            <div className="absolute bottom-4 left-[46%] right-4 z-20 flex items-center gap-3 rounded-full bg-black/40 py-2 pl-4 pr-2 text-white backdrop-blur-md md:bottom-5 md:right-5">
               <span className="hidden font-mono text-[11px] tabular-nums text-white/70 sm:inline">
                 {String(index + 1).padStart(2, "0")} / {String(HERO_SLIDES.length).padStart(2, "0")}
               </span>
@@ -191,7 +197,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.2, ease, delay: 1.1 }}
-            className="absolute -top-8 right-4 grid size-28 place-items-center md:-right-6 md:size-32"
+            className="absolute -right-6 -top-8 hidden size-32 place-items-center md:grid"
           >
             <svg viewBox="0 0 100 100" className="absolute inset-0 animate-spin-slow" aria-hidden>
               <defs>

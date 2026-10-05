@@ -154,16 +154,18 @@ export const SERVICES: Service[] = [
   },
 ];
 
-export type HeroSlide = { topic: string; caption: string; main: ImageKey; card: ImageKey; href: string };
+export type HeroGraphic = "camera" | "social" | "crm" | "event" | "video" | "web";
+
+export type HeroSlide = { topic: string; caption: string; main: ImageKey; card: ImageKey; href: string; graphic: HeroGraphic };
 
 /** Hero slideshow: one paired photo set per service topic. */
 export const HERO_SLIDES: HeroSlide[] = [
-  { topic: "Photo & weddings", caption: "Wedding & event films", main: "hero-1", card: "hero-2", href: "/services/photo-shoot" },
-  { topic: "Social media", caption: "Reels & creator content", main: "social-media", card: "social-media-2", href: "/services/social-media" },
-  { topic: "CRM & WhatsApp", caption: "WhatsApp CRM inbox", main: "crm-erp", card: "whatsapp-crm", href: "/services/whatsapp-crm" },
-  { topic: "Events", caption: "Corporate events", main: "event-corporate", card: "event-corporate-2", href: "/services/events" },
-  { topic: "Video & ads", caption: "Ad campaigns", main: "video-editing", card: "advertising", href: "/services/advertising" },
-  { topic: "Websites & software", caption: "Websites that sell", main: "software-team", card: "website-dev", href: "/services/website" },
+  { topic: "Photo & weddings", caption: "Wedding & event films", main: "hero-1", card: "hero-2", href: "/services/photo-shoot", graphic: "camera" },
+  { topic: "Social media", caption: "Reels & creator content", main: "social-media", card: "social-media-2", href: "/services/social-media", graphic: "social" },
+  { topic: "CRM & WhatsApp", caption: "WhatsApp CRM inbox", main: "crm-erp", card: "whatsapp-crm", href: "/services/whatsapp-crm", graphic: "crm" },
+  { topic: "Events", caption: "Corporate events", main: "event-corporate", card: "event-corporate-2", href: "/services/events", graphic: "event" },
+  { topic: "Video & ads", caption: "Ad campaigns", main: "video-editing", card: "advertising", href: "/services/advertising", graphic: "video" },
+  { topic: "Websites & software", caption: "Websites that sell", main: "software-team", card: "website-dev", href: "/services/website", graphic: "web" },
 ];
 
 export type Stage = {
