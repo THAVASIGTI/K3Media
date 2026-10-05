@@ -12,7 +12,8 @@ import Container from "@/components/ui/Container";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 const SLIDE_MS = 1000;
-const FADE_S = 0.6;
+const FADE_S = 0.55;
+const OUT_S = 0.2;
 
 /**
  * Full-resolution JPEG source for a full-width banner. The shared IMAGES set is sized for cards, and
@@ -55,17 +56,19 @@ export default function Hero() {
       >
         <motion.div style={{ y: imgY, scale: imgScale }} className="absolute inset-0">
           <AnimatePresence initial={false}>
-            {/* Crossfade: the incoming slide fades in on top while the outgoing one stays fully opaque
-                underneath (no dip to black). Opacity + scale only, so it stays on the GPU. */}
+            {/* Dark flash: the outgoing slide drops to dark, then the incoming one fades up from dark.
+                Opacity + scale only, so it stays on the GPU. */}
             <motion.div
               key={turn}
               className="absolute inset-0 will-change-[opacity,transform]"
               style={{ zIndex: turn + 1 }}
               initial={{ opacity: 0, scale: 1.06 }}
               animate={{ opacity: 1, scale: 1 }}
-              // Animate to a value that differs slightly: a no-op exit would complete instantly and unmount the old slide.
-              exit={{ opacity: 0.99, transition: { duration: FADE_S, ease: "linear" } }}
-              transition={{ opacity: { duration: FADE_S, ease: [0.4, 0, 0.2, 1] }, scale: { duration: SLIDE_MS / 1000 + FADE_S, ease: "linear" } }}
+              exit={{ opacity: 0, transition: { duration: OUT_S, ease: [0.4, 0, 1, 1] } }}
+              transition={{
+                opacity: { duration: FADE_S, ease: [0, 0, 0.2, 1], delay: OUT_S },
+                scale: { duration: SLIDE_MS / 1000 + FADE_S, ease: "linear" },
+              }}
             >
               <Image
                 src={hiRes(IMAGES[slide.main].src)}
