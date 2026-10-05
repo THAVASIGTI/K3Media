@@ -5,10 +5,8 @@ import Services from "@/components/sections/Services";
 import Events from "@/components/sections/Events";
 import Stats from "@/components/sections/Stats";
 import Work from "@/components/sections/Work";
-import Process from "@/components/sections/Process";
 import Testimonials from "@/components/sections/Testimonials";
-import Faq from "@/components/sections/Faq";
-import Contact from "@/components/sections/Contact";
+import CtaBand from "@/components/sections/CtaBand";
 
 export default function Home() {
   return (
@@ -20,10 +18,8 @@ export default function Home() {
       <Events />
       <Stats />
       <Work />
-      <Process />
       <Testimonials />
-      <Faq />
-      <Contact />
+      <CtaBand />
     </main>
   );
 }

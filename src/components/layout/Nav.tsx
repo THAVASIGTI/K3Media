@@ -1,15 +1,22 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { useLenis } from "lenis/react";
 import { CONTACT, CTA_LABEL, NAV_LINKS } from "@/lib/content";
 import MagneticButton from "@/components/motion/MagneticButton";
 
+const MotionLink = motion.create(Link);
+
 export default function Nav() {
   const [open, setOpen] = useState(false);
   const lenis = useLenis();
+  const pathname = usePathname();
+  const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
 
   useEffect(() => {
     if (open) lenis?.stop();
@@ -25,23 +32,27 @@ export default function Nav() {
         aria-label="Primary"
         className="relative z-50 mx-auto flex h-16 max-w-[1100px] items-center justify-between rounded-full bg-canvas/75 pl-5 pr-2 ring-1 ring-black/10 backdrop-blur-xl"
       >
-        <a href="#top" className="flex items-center gap-2.5" aria-label="K3 Media home">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="K3 Media home">
           <Image src="/brand/k3-logo-dark.png" alt="" width={516} height={122} className="h-7 w-auto md:h-8" />
-        </a>
+        </Link>
         <ul className="hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
-              <a
+              <Link
                 href={l.href}
-                className="rounded-full px-4 py-2 text-sm text-muted transition-colors duration-300 hover:bg-black/5 hover:text-ink"
+                aria-current={isActive(l.href) ? "page" : undefined}
+                className={clsx(
+                  "rounded-full px-4 py-2 text-sm transition-colors duration-300 hover:bg-black/5 hover:text-ink",
+                  isActive(l.href) ? "bg-black/5 text-ink" : "text-muted",
+                )}
               >
                 {l.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
         <div className="hidden md:block">
-          <MagneticButton href="#contact">{CTA_LABEL}</MagneticButton>
+          <MagneticButton href="/contact">{CTA_LABEL}</MagneticButton>
         </div>
         <button
           type="button"
@@ -70,7 +81,7 @@ export default function Nav() {
             <ul className="space-y-2">
               {NAV_LINKS.map((l, i) => (
                 <li key={l.href} className="overflow-hidden">
-                  <motion.a
+                  <MotionLink
                     href={l.href}
                     onClick={() => setOpen(false)}
                     initial={{ y: "100%" }}
@@ -79,7 +90,7 @@ export default function Nav() {
                     className="block font-display text-5xl font-semibold tracking-tight"
                   >
                     {l.label}
-                  </motion.a>
+                  </MotionLink>
                 </li>
               ))}
             </ul>

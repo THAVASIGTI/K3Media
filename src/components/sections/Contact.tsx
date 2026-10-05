@@ -11,7 +11,8 @@ const field =
   "w-full rounded-2xl bg-canvas px-5 py-4 text-ink ring-1 ring-black/10 placeholder:text-faint transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-accent";
 
 /** No backend yet: the form composes an email to the studio inbox. */
-export default function Contact() {
+export default function Contact({ asPage = false }: { asPage?: boolean }) {
+  const Heading = asPage ? "h1" : "h2";
   const [interest, setInterest] = useState<string[]>([]);
   const toggle = (t: string) => setInterest((v) => (v.includes(t) ? v.filter((x) => x !== t) : [...v, t]));
 
@@ -30,13 +31,13 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative overflow-hidden py-24 md:py-36">
+    <section id="contact" className={asPage ? "relative overflow-hidden pb-24 pt-10 md:pb-36 md:pt-14" : "relative overflow-hidden py-24 md:py-36"}>
       <div aria-hidden className="pointer-events-none absolute -right-40 -top-40 size-[640px] rounded-full bg-accent/10 blur-[140px]" />
       <Container className="relative grid gap-16 md:grid-cols-12">
         <div className="md:col-span-5">
-          <h2 className="font-display text-[clamp(2.6rem,6vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.035em]">
-            <SplitWords lines={["Got a launch,", "an event or a", "messy CRM?"]} accentLine={2} />
-          </h2>
+          <Heading className="font-display text-[clamp(2.6rem,6vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.035em]">
+            <SplitWords lines={["Got a launch,", "an event or a", "messy CRM?"]} accentLine={2} onMount={asPage} />
+          </Heading>
           <p className="mt-6 max-w-sm text-lg text-muted">Tell us what you are planning. We reply within one working day.</p>
           <ul className="mt-10 space-y-3">
             {[

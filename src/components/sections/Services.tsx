@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "@phosphor-icons/react";
 import clsx from "clsx";
@@ -44,15 +45,10 @@ function PhotoCard({ stage, index }: { stage: Stage; index: number }) {
             const s = bySlug(slug);
             return (
               <li key={slug} className="border-t border-white/15">
-                <details className="group/d">
-                  <summary className="flex min-h-12 cursor-pointer list-none items-center justify-between gap-4 py-3 text-lg font-medium [&::-webkit-details-marker]:hidden">
-                    {s.title}
-                    <ArrowUpRight size={18} weight="light" className="shrink-0 transition-transform duration-500 ease-premium group-open/d:rotate-90" />
-                  </summary>
-                  <p className="pb-4 text-sm leading-relaxed text-white/75">
-                    {s.line} {s.points.join(" · ")}.
-                  </p>
-                </details>
+                <Link href={`/services/${slug}`} className="group/l flex min-h-12 items-center justify-between gap-4 py-3 text-lg font-medium">
+                  <span className="transition-transform duration-500 ease-premium group-hover/l:translate-x-1">{s.title}</span>
+                  <ArrowUpRight size={18} weight="light" className="shrink-0 transition-transform duration-500 ease-premium group-hover/l:-translate-y-0.5 group-hover/l:translate-x-0.5" />
+                </Link>
               </li>
             );
           })}
@@ -79,13 +75,11 @@ function SellPanel({ stage, index }: { stage: Stage; index: number }) {
         {stage.services.map((slug, i) => {
           const s = bySlug(slug);
           return (
-            <li
-              key={slug}
-              className={clsx(
-                "group flex flex-col justify-between gap-6 rounded-[1.25rem] bg-canvas p-6 ring-1 ring-black/5 transition-colors duration-500 hover:bg-accent",
-                i === 0 && "sm:col-span-2",
-              )}
-            >
+            <li key={slug} className={clsx(i === 0 && "sm:col-span-2")}>
+              <Link
+                href={`/services/${slug}`}
+                className="group flex h-full flex-col justify-between gap-6 rounded-[1.25rem] bg-canvas p-6 ring-1 ring-black/5 transition-colors duration-500 hover:bg-accent"
+              >
               <div className="flex items-start justify-between gap-4">
                 <h4 className="font-display text-xl font-semibold tracking-tight md:text-2xl">{s.title}</h4>
                 <ArrowUpRight size={20} weight="light" className="shrink-0 transition-transform duration-500 ease-premium group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -96,6 +90,7 @@ function SellPanel({ stage, index }: { stage: Stage; index: number }) {
                   {s.points.slice(0, 2).join(" / ")}
                 </p>
               </div>
+              </Link>
             </li>
           );
         })}
@@ -104,16 +99,20 @@ function SellPanel({ stage, index }: { stage: Stage; index: number }) {
   );
 }
 
-export default function Services() {
+export default function Services({ heading = true }: { heading?: boolean }) {
   return (
-    <section id="services" className="py-24 md:py-36">
+    <section id="services" className={heading ? "py-24 md:py-36" : "pb-24 md:pb-36"}>
       <Container>
+        {heading && (
+        <>
         <Eyebrow>Brand building, start to sale</Eyebrow>
         <h2 className="mt-6 max-w-5xl font-display text-[clamp(2.2rem,5vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.03em]">
           <SplitWords lines={["Four moves that turn a name", "into a brand that sells."]} accentLine={1} />
         </h2>
+        </>
+        )}
 
-        <div className="mt-14 grid grid-cols-1 gap-4 md:mt-20 md:grid-flow-dense md:grid-cols-12">
+        <div className={clsx("grid grid-cols-1 gap-4 md:grid-flow-dense md:grid-cols-12", heading && "mt-14 md:mt-20")}>
           {STAGES.map((stage, i) => (
             <motion.div
               key={stage.key}

@@ -11,11 +11,11 @@ export const CONTACT = {
 export const CTA_LABEL = "Book a call";
 
 export const NAV_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "Events", href: "#events" },
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/services" },
+  { label: "Events", href: "/events" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export type Pillar = "studio" | "lab";
@@ -200,14 +200,87 @@ export const PROCESS: Step[] = [
   { title: "Grow", body: "We measure, report and keep improving. Reels get recut, campaigns get tuned and automations get smarter every month.", tags: ["Reports", "Support", "Scale"] },
 ];
 
-export type Work = { client: string; tag: string; title: string; result: string; image: ImageKey };
+export type Work = {
+  slug: string;
+  client: string;
+  tag: string;
+  title: string;
+  result: string;
+  image: ImageKey;
+  gallery: ImageKey[];
+  services: string[];
+  challenge: string;
+  approach: string;
+  results: { value: string; label: string }[];
+};
 
+// Sample case studies; replace with real client work before launch.
 export const WORK: Work[] = [
-  { client: "Lakshmi Silks", tag: "Shoot + Social", title: "A bridal collection shot in two days", result: "4.1x reach in the launch month", image: "work-2" },
-  { client: "Coastal Motors", tag: "Event", title: "A 1,200-guest dealer meet in Chennai", result: "Planned and delivered in 19 days", image: "work-4" },
-  { client: "Brewhouse Co.", tag: "Ads + Video", title: "A summer drink launch built for reels", result: "2.3M views across 6 weeks", image: "work-6" },
-  { client: "Arun Exports", tag: "WhatsApp CRM", title: "WhatsApp follow-ups wired into a new CRM", result: "Lead response time from 6 hours to 4 minutes", image: "work-9" },
-  { client: "Metro Heritage Walk", tag: "Campaign", title: "A city night campaign for a heritage trail", result: "11,000 bookings in one season", image: "work-3" },
+  {
+    slug: "lakshmi-silks-bridal-collection",
+    client: "Lakshmi Silks",
+    tag: "Shoot + Social",
+    title: "A bridal collection shot in two days",
+    result: "4.1x reach in the launch month",
+    image: "work-2",
+    gallery: ["work-8", "advertising", "work-1"],
+    services: ["photo-shoot", "video-editing", "social-media"],
+    challenge: "A family-run silk house was launching its biggest bridal collection in years, with old catalogue photos and a quiet Instagram page.",
+    approach: "We cast models, styled 42 sarees and shot stills and reels across two days, then ran a six-week launch calendar with reels, carousels and creator collaborations.",
+    results: [{ value: "4.1x", label: "reach in launch month" }, { value: "312", label: "store visit enquiries" }, { value: "18", label: "reels delivered" }],
+  },
+  {
+    slug: "coastal-motors-dealer-meet",
+    client: "Coastal Motors",
+    tag: "Event",
+    title: "A 1,200-guest dealer meet in Chennai",
+    result: "Planned and delivered in 19 days",
+    image: "work-4",
+    gallery: ["event-corporate", "event-corporate-2", "vip-management"],
+    services: ["events", "high-profile", "video-editing"],
+    challenge: "An automobile distributor needed its annual dealer meet, awards and a new model reveal organised with less than three weeks to go.",
+    approach: "We locked the venue in two days, designed the stage and LED content, ran registrations and VIP hosting, and delivered a same-night highlight film.",
+    results: [{ value: "1,200", label: "guests hosted" }, { value: "19", label: "days from brief to show" }, { value: "0", label: "guest complaints logged" }],
+  },
+  {
+    slug: "brewhouse-summer-launch",
+    client: "Brewhouse Co.",
+    tag: "Ads + Video",
+    title: "A summer drink launch built for reels",
+    result: "2.3M views across 6 weeks",
+    image: "work-6",
+    gallery: ["social-media", "video-editing", "advertising"],
+    services: ["advertising", "video-editing", "social-media"],
+    challenge: "A new beverage brand had to win shelf attention in a crowded summer market with a modest budget.",
+    approach: "We produced a bank of 24 short ads, tested hooks on Meta and YouTube, and moved budget every week toward the three best performers.",
+    results: [{ value: "2.3M", label: "views in 6 weeks" }, { value: "₹4.20", label: "cost per engaged view" }, { value: "24", label: "ad variations tested" }],
+  },
+  {
+    slug: "arun-exports-whatsapp-crm",
+    client: "Arun Exports",
+    tag: "WhatsApp CRM",
+    title: "WhatsApp follow-ups wired into a new CRM",
+    result: "Lead response time from 6 hours to 4 minutes",
+    image: "work-9",
+    gallery: ["whatsapp-crm", "crm-erp", "software-team"],
+    services: ["whatsapp-crm", "crm-erp", "automation"],
+    challenge: "Enquiries from IndiaMART, ads and the website landed in three inboxes and two personal phones. Leads waited hours for a reply.",
+    approach: "We built a custom CRM, moved the business number to the WhatsApp Business API with a shared inbox, and automated first replies and follow-ups.",
+    results: [{ value: "4 min", label: "average first response" }, { value: "38%", label: "more leads converted" }, { value: "6", label: "sales staff on one number" }],
+  },
+  {
+    slug: "metro-heritage-walk-campaign",
+    client: "Metro Heritage Walk",
+    tag: "Campaign + Website",
+    title: "A city night campaign for a heritage trail",
+    result: "11,000 bookings in one season",
+    image: "work-3",
+    gallery: ["website-dev", "advertising", "social-media-2"],
+    services: ["advertising", "website", "social-media"],
+    challenge: "A heritage tour operator wanted locals, not only tourists, to book its evening walks.",
+    approach: "We built a fast booking website, shot the trail at night and ran outdoor and Instagram campaigns aimed at city families and students.",
+    results: [{ value: "11,000", label: "bookings in one season" }, { value: "62%", label: "bookings from mobile" }, { value: "3", label: "new walk routes added" }],
+  },
 ];
 
 export const STATS = [

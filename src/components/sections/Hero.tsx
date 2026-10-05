@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import { IMAGES } from "@/lib/images";
@@ -10,6 +11,7 @@ import MagneticButton from "@/components/motion/MagneticButton";
 import Container from "@/components/ui/Container";
 
 const ease = [0.16, 1, 0.3, 1] as const;
+const MotionLink = motion.create(Link);
 
 /** Split hero: headline on the light canvas, framed portrait collage on the right. */
 export default function Hero() {
@@ -40,7 +42,7 @@ export default function Hero() {
             transition={{ duration: 1, ease, delay: 0.95 }}
             className="mt-10 flex flex-wrap gap-3"
           >
-            <MagneticButton href="#contact">{CTA_LABEL}</MagneticButton>
+            <MagneticButton href="/contact">{CTA_LABEL}</MagneticButton>
             <MagneticButton href={CONTACT.whatsapp} variant="ghost" external>
               WhatsApp us
             </MagneticButton>
@@ -79,8 +81,8 @@ export default function Hero() {
             <figcaption className="px-2 pb-1 pt-2 text-xs text-muted">Wedding &amp; event films</figcaption>
           </motion.figure>
 
-          <motion.a
-            href="#services"
+          <MotionLink
+            href="/services"
             aria-label="Explore services"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -97,7 +99,7 @@ export default function Hero() {
               </text>
             </svg>
             <span className="relative grid size-12 place-items-center rounded-full bg-accent font-display text-lg font-bold text-accent-ink">K3</span>
-          </motion.a>
+          </MotionLink>
         </div>
       </Container>
     </section>

@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight } from "@phosphor-icons/react";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import clsx from "clsx";
@@ -72,6 +74,13 @@ export default function Work() {
                   >
                     <h3 className="max-w-lg font-display text-2xl font-semibold leading-tight tracking-tight text-white md:text-4xl">{w.title}</h3>
                     <p className="mt-3 text-accent">{w.result}</p>
+                    <Link
+                      href={`/work/${w.slug}`}
+                      className="group/c mt-6 inline-flex min-h-11 items-center gap-2 rounded-full bg-white/15 px-5 text-sm font-medium text-white ring-1 ring-white/25 backdrop-blur-md transition-colors hover:bg-white/25"
+                    >
+                      View case study
+                      <ArrowUpRight size={16} className="transition-transform duration-500 ease-premium group-hover/c:-translate-y-0.5 group-hover/c:translate-x-0.5" />
+                    </Link>
                   </motion.div>
                 </AnimatePresence>
               </div>

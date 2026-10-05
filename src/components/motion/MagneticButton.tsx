@@ -2,12 +2,15 @@
 
 import { motion, useMotionValue, useReducedMotion, useSpring } from "motion/react";
 import { ArrowUpRight } from "@phosphor-icons/react";
+import Link from "next/link";
 import clsx from "clsx";
+
+const MotionLink = motion.create(Link);
 
 type Props = {
   href: string;
   children: React.ReactNode;
-  variant?: "solid" | "ghost" | "glass";
+  variant?: "solid" | "ghost" | "glass" | "dark";
   className?: string;
   external?: boolean;
 };
@@ -30,8 +33,9 @@ export default function MagneticButton({ href, children, variant = "solid", clas
     y.set(0);
   };
 
+  const Tag = href.startsWith("/") ? MotionLink : motion.a;
   return (
-    <motion.a
+    <Tag
       href={href}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       onPointerMove={onMove}
@@ -42,6 +46,7 @@ export default function MagneticButton({ href, children, variant = "solid", clas
         variant === "solid" && "bg-accent text-accent-ink hover:bg-ink hover:text-canvas",
         variant === "ghost" && "bg-black/5 text-ink ring-1 ring-black/15 hover:bg-black/10",
         variant === "glass" && "bg-white/10 text-white ring-1 ring-white/25 backdrop-blur-md hover:bg-white/20",
+        variant === "dark" && "bg-ink text-canvas hover:bg-surface hover:text-ink",
         className,
       )}
     >
@@ -49,11 +54,11 @@ export default function MagneticButton({ href, children, variant = "solid", clas
       <span
         className={clsx(
           "grid size-9 place-items-center rounded-full transition-transform duration-500 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
-          variant === "solid" ? "bg-accent-ink text-accent" : variant === "glass" ? "bg-white/15 text-white" : "bg-black/10 text-ink",
+          variant === "solid" ? "bg-accent-ink text-accent" : variant === "dark" ? "bg-accent text-accent-ink" : variant === "glass" ? "bg-white/15 text-white" : "bg-black/10 text-ink",
         )}
       >
         <ArrowUpRight size={16} weight="regular" />
       </span>
-    </motion.a>
+    </Tag>
   );
 }
