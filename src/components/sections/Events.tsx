@@ -54,7 +54,7 @@ export default function Events() {
           <div>
             <Eyebrow>Event organisation</Eyebrow>
             <h2 className="mt-6 max-w-3xl font-display text-[clamp(2.2rem,5vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.03em]">
-              Rooms we have filled, <span className="text-accent">stages we have lit.</span>
+              Rooms we have filled, <span className="hl">stages we have lit.</span>
             </h2>
           </div>
           <p className="max-w-sm text-muted">
@@ -70,25 +70,25 @@ export default function Events() {
         {EVENT_TYPES.map((ev, i) => (
           <article
             key={ev.title}
-            className="group relative w-[82vw] shrink-0 snap-start overflow-hidden rounded-[2rem] ring-1 ring-white/10 md:w-[34vw] md:max-w-[520px]"
+            className="group relative w-[82vw] shrink-0 snap-start overflow-hidden rounded-[2rem] ring-1 ring-black/10 md:w-[34vw] md:max-w-[520px]"
           >
             <div className="relative aspect-[4/5] overflow-hidden md:aspect-auto md:h-[min(56vh,560px)]">
               <div className="ev-img absolute -inset-x-[15%] inset-y-0">
                 <Image src={IMAGES[ev.image].src} alt={IMAGES[ev.image].alt} fill sizes="(max-width: 768px) 82vw, 34vw" className="object-cover transition-transform duration-1000 ease-premium group-hover:scale-105" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/30 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
             </div>
             <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
               <p className="font-mono text-xs text-accent">{String(i + 1).padStart(2, "0")}</p>
-              <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight md:text-3xl">{ev.title}</h3>
-              <p className="mt-2 max-w-xs text-sm text-muted">{ev.detail}</p>
+              <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight text-white md:text-3xl">{ev.title}</h3>
+              <p className="mt-2 max-w-xs text-sm text-white/75">{ev.detail}</p>
             </div>
           </article>
         ))}
       </div>
 
       <div className="mx-auto mt-10 hidden w-full max-w-[1400px] px-10 md:block">
-        <div className="h-px w-full bg-white/10">
+        <div className="h-px w-full bg-black/10">
           <div ref={bar} className="h-px origin-left scale-x-0 bg-accent" />
         </div>
       </div>

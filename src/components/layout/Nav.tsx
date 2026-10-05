@@ -23,17 +23,17 @@ export default function Nav() {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 md:pt-6">
       <nav
         aria-label="Primary"
-        className="mx-auto flex h-16 max-w-[1100px] items-center justify-between rounded-full bg-canvas/60 pl-5 pr-2 ring-1 ring-white/10 backdrop-blur-xl"
+        className="relative z-50 mx-auto flex h-16 max-w-[1100px] items-center justify-between rounded-full bg-canvas/75 pl-5 pr-2 ring-1 ring-black/10 backdrop-blur-xl"
       >
         <a href="#top" className="flex items-center gap-2.5" aria-label="K3 Media home">
-          <Image src="/brand/k3-logo.png" alt="" width={516} height={122} className="h-7 w-auto md:h-8" />
+          <Image src="/brand/k3-logo-dark.png" alt="" width={516} height={122} className="h-7 w-auto md:h-8" />
         </a>
         <ul className="hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="rounded-full px-4 py-2 text-sm text-muted transition-colors duration-300 hover:bg-white/5 hover:text-ink"
+                className="rounded-full px-4 py-2 text-sm text-muted transition-colors duration-300 hover:bg-black/5 hover:text-ink"
               >
                 {l.label}
               </a>
@@ -49,7 +49,7 @@ export default function Nav() {
           aria-expanded={open}
           aria-controls="mobile-menu"
           aria-label={open ? "Close menu" : "Open menu"}
-          className="relative z-50 grid size-12 place-items-center rounded-full bg-white/5 ring-1 ring-white/10 md:hidden"
+          className="relative z-50 grid size-12 place-items-center rounded-full bg-black/5 ring-1 ring-black/10 md:hidden"
         >
           <span className={`absolute h-px w-5 bg-ink transition-transform duration-500 ease-premium ${open ? "rotate-45" : "-translate-y-1"}`} />
           <span className={`absolute h-px w-5 bg-ink transition-transform duration-500 ease-premium ${open ? "-rotate-45" : "translate-y-1"}`} />

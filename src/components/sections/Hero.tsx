@@ -24,7 +24,7 @@ export default function Hero() {
       <motion.div
         className="absolute inset-0"
         initial={{ clipPath: "inset(12% 8% 12% 8% round 2rem)" }}
-        animate={{ clipPath: "inset(0% 0% 0% 0% round 0rem)" }}
+        animate={{ clipPath: "inset(0.75rem 0.75rem 0rem 0.75rem round 2rem)" }}
         transition={{ duration: 1.6, ease, delay: 0.1 }}
       >
         <motion.div style={{ y: imgY, scale: imgScale }} className="absolute inset-0">
@@ -37,21 +37,21 @@ export default function Hero() {
             className="object-cover"
           />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/55 to-canvas/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-canvas/80 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent" />
       </motion.div>
 
       <Container className="relative">
         <motion.div style={{ y: textY }} className="relative grid items-end gap-10 md:grid-cols-12">
           <div className="md:col-span-12">
-            <h1 className="font-display text-[clamp(2.4rem,6.2vw,6.5rem)] font-semibold leading-[0.95] tracking-[-0.035em]">
-              <SplitWords lines={["Stories that move people.", "Systems that move business."]} accentLine={1} delay={0.5} onMount />
+            <h1 className="font-display text-[clamp(2.4rem,6.2vw,6.5rem)] text-white font-semibold leading-[0.95] tracking-[-0.035em]">
+              <SplitWords lines={["Stories that move people.", "Systems that move business."]} accentLine={1} accentClass="text-accent" delay={0.5} onMount />
             </h1>
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease, delay: 1 }}
-              className="mt-7 max-w-xl text-base leading-relaxed text-muted md:text-lg"
+              className="mt-7 max-w-xl text-base leading-relaxed text-white/75 md:text-lg"
             >
               K3 Media is a creative studio and a software lab. Shoots, campaigns and events, plus the CRM that turns attention into sales.
             </motion.p>
@@ -62,7 +62,7 @@ export default function Hero() {
               className="mt-9 flex flex-wrap gap-3"
             >
               <MagneticButton href="#contact">{CTA_LABEL}</MagneticButton>
-              <MagneticButton href={CONTACT.whatsapp} variant="ghost" external>
+              <MagneticButton href={CONTACT.whatsapp} variant="glass" external>
                 WhatsApp us
               </MagneticButton>
             </motion.div>
@@ -80,7 +80,7 @@ export default function Hero() {
               <defs>
                 <path id="ring" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0" />
               </defs>
-              <text className="fill-ink font-mono text-[8.5px] uppercase tracking-[0.3em]">
+              <text className="fill-white font-mono text-[8.5px] uppercase tracking-[0.3em]">
                 <textPath href="#ring">Studio · Lab · Studio · Lab · </textPath>
               </text>
             </svg>

@@ -8,7 +8,7 @@ import Container from "@/components/ui/Container";
 import SplitWords from "@/components/motion/SplitWords";
 
 const field =
-  "w-full rounded-2xl bg-white/5 px-5 py-4 text-ink ring-1 ring-white/10 placeholder:text-faint transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-accent";
+  "w-full rounded-2xl bg-canvas px-5 py-4 text-ink ring-1 ring-black/10 placeholder:text-faint transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-accent";
 
 /** No backend yet: the form composes an email to the studio inbox. */
 export default function Contact() {
@@ -48,9 +48,9 @@ export default function Contact() {
                 <a
                   href={href}
                   {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="group inline-flex min-h-11 items-center gap-4 text-ink transition-colors hover:text-accent"
+                  className="group inline-flex min-h-11 items-center gap-4 text-ink transition-colors hover:text-accent-deep"
                 >
-                  <span className="grid size-11 place-items-center rounded-full bg-white/5 ring-1 ring-white/10 transition-colors group-hover:bg-accent group-hover:text-accent-ink">
+                  <span className="grid size-11 place-items-center rounded-full bg-black/5 ring-1 ring-black/10 transition-colors group-hover:bg-accent group-hover:text-accent-ink">
                     <Icon size={18} weight="light" />
                   </span>
                   {label}
@@ -60,8 +60,8 @@ export default function Contact() {
           </ul>
         </div>
 
-        <form onSubmit={onSubmit} className="rounded-[2rem] bg-white/5 p-1.5 ring-1 ring-white/10 md:col-span-7">
-          <div className="grid gap-6 rounded-[calc(2rem-0.375rem)] bg-raised p-6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)] md:grid-cols-2 md:p-10">
+        <form onSubmit={onSubmit} className="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/10 md:col-span-7">
+          <div className="grid gap-6 rounded-[calc(2rem-0.375rem)] bg-surface p-6 shadow-[0_1px_2px_rgba(20,19,16,0.04),0_24px_48px_-24px_rgba(20,19,16,0.18)] md:grid-cols-2 md:p-10">
             <fieldset className="md:col-span-2">
               <legend className="mb-3 text-sm text-muted">What do you need?</legend>
               <div className="flex flex-wrap gap-2">
@@ -75,7 +75,7 @@ export default function Contact() {
                       onClick={() => toggle(s.title)}
                       className={clsx(
                         "min-h-10 rounded-full px-4 text-sm ring-1 transition-colors duration-300",
-                        on ? "bg-accent text-accent-ink ring-accent" : "text-ink/80 ring-white/15 hover:ring-white/40",
+                        on ? "bg-accent text-accent-ink ring-accent" : "text-ink/80 ring-black/15 hover:ring-black/40",
                       )}
                     >
                       {s.title}
@@ -103,7 +103,7 @@ export default function Contact() {
             <div className="md:col-span-2">
               <button
                 type="submit"
-                className="group inline-flex min-h-12 items-center gap-3 rounded-full bg-accent py-1.5 pl-6 pr-1.5 font-medium text-accent-ink transition-colors duration-500 ease-premium hover:bg-ink active:scale-[0.98]"
+                className="group inline-flex min-h-12 items-center gap-3 rounded-full bg-accent py-1.5 pl-6 pr-1.5 font-medium text-accent-ink transition-colors duration-500 ease-premium hover:bg-ink hover:text-canvas active:scale-[0.98]"
               >
                 {CTA_LABEL}
                 <span className="grid size-9 place-items-center rounded-full bg-accent-ink text-accent transition-transform duration-500 ease-premium group-hover:translate-x-0.5">

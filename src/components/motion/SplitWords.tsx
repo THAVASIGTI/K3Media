@@ -17,6 +17,7 @@ export default function SplitWords({
   delay = 0,
   accentLine,
   onMount = false,
+  accentClass = "hl",
 }: {
   lines: string[];
   className?: string;
@@ -24,6 +25,8 @@ export default function SplitWords({
   accentLine?: number;
   /** animate immediately on mount (above-the-fold) instead of when scrolled into view */
   onMount?: boolean;
+  /** override for headlines that sit on photos */
+  accentClass?: string;
 }) {
   const container: Variants = {
     hidden: {},
@@ -44,7 +47,7 @@ export default function SplitWords({
               <motion.span
                 key={wi}
                 variants={word}
-                className={`inline-block will-change-transform ${li === accentLine ? "text-accent" : ""}`}
+                className={`inline-block will-change-transform ${li === accentLine ? accentClass : ""}`}
               >
                 {w}
                 {wi < words.length - 1 ? " " : ""}

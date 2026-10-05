@@ -7,7 +7,7 @@ import clsx from "clsx";
 type Props = {
   href: string;
   children: React.ReactNode;
-  variant?: "solid" | "ghost";
+  variant?: "solid" | "ghost" | "glass";
   className?: string;
   external?: boolean;
 };
@@ -39,9 +39,9 @@ export default function MagneticButton({ href, children, variant = "solid", clas
       style={{ x: sx, y: sy }}
       className={clsx(
         "group inline-flex min-h-12 items-center gap-3 whitespace-nowrap rounded-full py-1.5 pl-6 pr-1.5 text-[0.95rem] font-medium transition-colors duration-500 ease-premium active:scale-[0.98]",
-        variant === "solid"
-          ? "bg-accent text-accent-ink hover:bg-ink"
-          : "bg-white/5 text-ink ring-1 ring-white/15 hover:bg-white/10",
+        variant === "solid" && "bg-accent text-accent-ink hover:bg-ink hover:text-canvas",
+        variant === "ghost" && "bg-black/5 text-ink ring-1 ring-black/15 hover:bg-black/10",
+        variant === "glass" && "bg-white/10 text-white ring-1 ring-white/25 backdrop-blur-md hover:bg-white/20",
         className,
       )}
     >
@@ -49,7 +49,7 @@ export default function MagneticButton({ href, children, variant = "solid", clas
       <span
         className={clsx(
           "grid size-9 place-items-center rounded-full transition-transform duration-500 ease-premium group-hover:translate-x-0.5 group-hover:-translate-y-0.5",
-          variant === "solid" ? "bg-accent-ink text-accent" : "bg-white/10 text-ink",
+          variant === "solid" ? "bg-accent-ink text-accent" : variant === "glass" ? "bg-white/15 text-white" : "bg-black/10 text-ink",
         )}
       >
         <ArrowUpRight size={16} weight="regular" />

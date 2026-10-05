@@ -25,7 +25,7 @@ export default function Work() {
           <div className="order-2 md:order-1 md:col-span-5">
             <ul>
               {WORK.map((item, idx) => (
-                <li key={item.client} className="border-t border-white/10 last:border-b">
+                <li key={item.client} className="border-t border-black/10 last:border-b">
                   <button
                     type="button"
                     aria-pressed={i === idx}
@@ -33,10 +33,10 @@ export default function Work() {
                     onPointerEnter={(e) => e.pointerType === "mouse" && setI(idx)}
                     className="group grid w-full grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-1 py-5 text-left"
                   >
-                    <span className={clsx("font-display text-xl font-medium tracking-tight transition-colors duration-500 md:text-2xl", i === idx ? "text-ink" : "text-white/40 group-hover:text-white/70")}>
+                    <span className={clsx("font-display text-xl font-medium tracking-tight transition-colors duration-500 md:text-2xl", i === idx ? "text-ink" : "text-black/40 group-hover:text-black/70")}>
                       {item.client}
                     </span>
-                    <span className={clsx("font-mono text-[11px] uppercase tracking-[0.18em] transition-colors duration-500", i === idx ? "text-accent" : "text-faint")}>
+                    <span className={clsx("font-mono text-[11px] uppercase tracking-[0.18em] transition-colors duration-500", i === idx ? "text-accent-deep" : "text-faint")}>
                       {item.tag}
                     </span>
                   </button>
@@ -46,7 +46,7 @@ export default function Work() {
           </div>
 
           <div className="order-1 md:order-2 md:col-span-7">
-            <div className="rounded-[2rem] bg-white/5 p-1.5 ring-1 ring-white/10">
+            <div className="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/10">
               <div className="relative aspect-[4/3] overflow-hidden rounded-[calc(2rem-0.375rem)]">
                 <AnimatePresence initial={false}>
                   <motion.div
@@ -60,7 +60,7 @@ export default function Work() {
                     <Image src={IMAGES[w.image].src} alt={IMAGES[w.image].alt} fill sizes="(max-width: 768px) 100vw, 58vw" className="object-cover" />
                   </motion.div>
                 </AnimatePresence>
-                <div className="absolute inset-0 bg-gradient-to-t from-canvas/95 via-canvas/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={w.client}
@@ -70,7 +70,7 @@ export default function Work() {
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                     className="absolute inset-x-0 bottom-0 p-6 md:p-10"
                   >
-                    <h3 className="max-w-lg font-display text-2xl font-semibold leading-tight tracking-tight md:text-4xl">{w.title}</h3>
+                    <h3 className="max-w-lg font-display text-2xl font-semibold leading-tight tracking-tight text-white md:text-4xl">{w.title}</h3>
                     <p className="mt-3 text-accent">{w.result}</p>
                   </motion.div>
                 </AnimatePresence>

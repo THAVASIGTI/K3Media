@@ -34,10 +34,10 @@ function Counter({ value, decimals = 0, suffix }: { value: number; decimals?: nu
 
 export default function Stats() {
   return (
-    <section aria-label="K3 Media in numbers" className="border-y border-white/10">
+    <section aria-label="K3 Media in numbers" className="border-y border-black/10">
       <Container className="grid grid-cols-1 md:grid-cols-2">
         {(["studio", "lab"] as const).map((p, pi) => (
-          <div key={p} className={`py-14 md:py-20 ${pi === 0 ? "md:border-r md:border-white/10 md:pr-12" : "lab-grid border-t border-white/10 md:border-t-0 md:pl-12"}`}>
+          <div key={p} className={`py-14 md:py-20 ${pi === 0 ? "md:border-r md:border-black/10 md:pr-12" : "lab-grid border-t border-black/10 md:border-t-0 md:pl-12"}`}>
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-muted">
               {PILLARS[p].name} <span className="text-faint">/ {PILLARS[p].tagline}</span>
             </p>

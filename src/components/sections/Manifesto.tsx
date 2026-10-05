@@ -39,8 +39,8 @@ export default function Manifesto() {
       <Container>
         <p className="max-w-[22ch] font-display text-[clamp(1.9rem,4.4vw,4.25rem)] font-medium leading-[1.08] tracking-[-0.025em] md:max-w-[24ch]">
           {TEXT.split(" ").map((w, i) => (
-            <span key={i} className={`mw ${w === "Studio" || w === "Lab" ? "text-accent" : ""}`}>
-              {w}{" "}
+            <span key={i}>
+              <span className={`mw ${w === "Studio" || w === "Lab" ? "hl" : ""}`}>{w}</span>{" "}
             </span>
           ))}
         </p>

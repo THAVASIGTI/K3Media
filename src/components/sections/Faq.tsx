@@ -13,13 +13,13 @@ export default function Faq() {
     <section aria-labelledby="faq-title" className="pb-24 md:pb-36">
       <Container className="grid gap-10 md:grid-cols-12">
         <h2 id="faq-title" className="font-display text-[clamp(2rem,3.6vw,3.25rem)] font-semibold leading-none tracking-[-0.03em] md:col-span-4">
-          Questions, <span className="text-accent">answered.</span>
+          Questions, <span className="hl">answered.</span>
         </h2>
         <ul className="md:col-span-8">
           {FAQ.map((f, i) => {
             const isOpen = open === i;
             return (
-              <li key={f.q} className="border-t border-white/10 last:border-b">
+              <li key={f.q} className="border-t border-black/10 last:border-b">
                 <h3>
                   <button
                     type="button"
@@ -29,7 +29,7 @@ export default function Faq() {
                     className="flex min-h-16 w-full items-center gap-6 py-5 text-left text-lg md:text-xl"
                   >
                     <span className={clsx("transition-colors duration-300", isOpen ? "text-ink" : "text-ink/70")}>{f.q}</span>
-                    <Plus size={20} weight="light" className={clsx("ml-auto shrink-0 transition-transform duration-500 ease-premium", isOpen && "rotate-45 text-accent")} />
+                    <Plus size={20} weight="light" className={clsx("ml-auto shrink-0 transition-transform duration-500 ease-premium", isOpen && "rotate-45 text-accent-deep")} />
                   </button>
                 </h3>
                 <AnimatePresence initial={false}>

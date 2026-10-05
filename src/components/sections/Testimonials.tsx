@@ -11,9 +11,9 @@ export default function Testimonials() {
         <Reveal className="md:col-span-8">
           <figure>
             <blockquote className="font-display text-[clamp(1.8rem,3.6vw,3.25rem)] font-medium leading-[1.12] tracking-[-0.02em]">
-              <span className="text-accent">&ldquo;</span>
+              <span className="text-accent-deep">&ldquo;</span>
               {lead.quote}
-              <span className="text-accent">&rdquo;</span>
+              <span className="text-accent-deep">&rdquo;</span>
             </blockquote>
             <figcaption className="mt-8 text-sm">
               <span className="text-ink">{lead.name}</span>
@@ -24,11 +24,11 @@ export default function Testimonials() {
         <div className="grid gap-6 md:col-span-10 md:col-start-3 md:grid-cols-2">
           {rest.map((q, i) => (
             <Reveal key={q.name} delay={i * 0.1}>
-              <figure className="h-full rounded-[2rem] bg-white/5 p-1.5 ring-1 ring-white/10">
-                <div className="flex h-full flex-col justify-between gap-8 rounded-[calc(2rem-0.375rem)] bg-raised p-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+              <figure className="h-full rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/10">
+                <div className="flex h-full flex-col justify-between gap-8 rounded-[calc(2rem-0.375rem)] bg-surface p-8 shadow-[0_1px_2px_rgba(20,19,16,0.04),0_24px_48px_-24px_rgba(20,19,16,0.18)]">
                   <blockquote className="text-lg leading-relaxed text-ink/90">&ldquo;{q.quote}&rdquo;</blockquote>
                   <figcaption className="flex items-center gap-4 text-sm">
-                    <span aria-hidden className="grid size-11 place-items-center rounded-full bg-accent/15 font-display font-semibold text-accent">
+                    <span aria-hidden className="grid size-11 place-items-center rounded-full bg-accent/15 font-display font-semibold text-accent-deep">
                       {q.name.split(" ").map((n) => n[0]).join("")}
                     </span>
                     <span>

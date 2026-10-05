@@ -38,7 +38,7 @@ export default function Process() {
           <div className="md:sticky md:top-32">
             <Eyebrow>How we work</Eyebrow>
             <h2 className="mt-6 font-display text-[clamp(2.2rem,4.4vw,4rem)] font-semibold leading-[0.98] tracking-[-0.03em]">
-              Four steps. <span className="text-accent">Zero <span className="whitespace-nowrap">hand-offs.</span></span>
+              Four steps. <span className="hl">Zero <span className="whitespace-nowrap">hand-offs.</span></span>
             </h2>
             <p className="mt-6 max-w-sm text-muted">
               The same team plans the shoot, runs the event and builds the system behind it, so nothing gets lost between agencies.
@@ -49,10 +49,10 @@ export default function Process() {
         <ol className="space-y-6 md:col-span-8 md:space-y-[18vh]">
           {PROCESS.map((s, i) => (
             <li key={s.title} className="step-card origin-top md:sticky" style={{ top: `calc(7rem + ${i * 1.5}rem)` }}>
-              <div className="rounded-[2rem] bg-white/5 p-1.5 ring-1 ring-white/10">
-                <div className="relative grid min-h-[300px] gap-8 overflow-hidden rounded-[calc(2rem-0.375rem)] bg-raised p-8 shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)] md:grid-cols-[auto_1fr] md:p-12">
+              <div className="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/10">
+                <div className="relative grid min-h-[300px] gap-8 overflow-hidden rounded-[calc(2rem-0.375rem)] bg-surface p-8 shadow-[0_1px_2px_rgba(20,19,16,0.04),0_24px_48px_-24px_rgba(20,19,16,0.18)] md:grid-cols-[auto_1fr] md:p-12">
                   <span aria-hidden className="step-shade pointer-events-none absolute inset-0 z-10 bg-canvas opacity-0" />
-                  <span aria-hidden className="font-display text-7xl font-bold leading-none tracking-tighter text-accent md:text-8xl">
+                  <span aria-hidden className="font-display text-7xl font-bold leading-none tracking-tighter text-accent-deep md:text-8xl">
                     {i + 1}
                   </span>
                   <div>
@@ -60,7 +60,7 @@ export default function Process() {
                     <p className="mt-4 max-w-md leading-relaxed text-muted">{s.body}</p>
                     <ul className="mt-8 flex flex-wrap gap-2">
                       {s.tags.map((t) => (
-                        <li key={t} className="rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-[0.14em] text-ink/70 ring-1 ring-white/15">
+                        <li key={t} className="rounded-full px-4 py-1.5 font-mono text-xs uppercase tracking-[0.14em] text-ink/70 ring-1 ring-black/15">
                           {t}
                         </li>
                       ))}
