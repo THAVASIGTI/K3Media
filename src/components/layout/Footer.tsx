@@ -5,7 +5,7 @@ import Container from "@/components/ui/Container";
 const SOCIALS = [
   { label: "Instagram", href: "https://instagram.com" },
   { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "YouTube", href: "https://youtube.com" },
+  { label: "YouTube", href: "https://www.youtube.com/@k3mediaservices/shorts" },
   { label: "WhatsApp", href: CONTACT.whatsapp },
 ];
 
@@ -45,13 +45,12 @@ export default function Footer() {
           <p className="text-muted">{CONTACT.city}</p>
         </address>
       </Container>
-      <Container className="mt-20 flex flex-col justify-between gap-2 pb-6 text-xs text-faint md:flex-row">
-        <p>© {new Date().getFullYear()} K3 Media. All rights reserved.</p>
-        <p>k3media.in</p>
+      <Container className="mt-16">
+        <div className="flex flex-col justify-between gap-2 border-t border-black/10 pb-8 pt-6 text-xs text-faint md:flex-row">
+          <p>© {new Date().getFullYear()} K3 Media. All rights reserved.</p>
+          <p>k3media.in</p>
+        </div>
       </Container>
-      <p aria-hidden className="pointer-events-none select-none text-center font-display text-[26vw] font-bold leading-[0.75] tracking-tighter text-black/[0.04]">
-        K3 Media
-      </p>
     </footer>
   );
 }
