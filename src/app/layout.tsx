@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://k3media.in"),
   title: { default: "K3 Media | Media, Events & Software Studio", template: "%s | K3 Media" },
   description:
-    "Video editing, social media, photo shoots, ads, events, VIP management, CRM, ERP and automation. One team for the story and the system.",
+    "Video editing, social media, photo shoots, ads, events, VIP management, website development, custom CRM & ERP, WhatsApp CRM and automation. One team for the story and the system.",
   openGraph: {
     title: "K3 Media | Where stories meet systems",
     description: "A creative studio and a software lab under one roof.",

@@ -38,7 +38,7 @@ export const PILLARS: Record<Pillar, { name: string; tagline: string; blurb: str
   lab: {
     name: "Lab",
     tagline: "Software & Systems",
-    blurb: "CRM, ERP and automation that turn the attention we create into leads, orders and repeat customers.",
+    blurb: "Websites, custom CRM & ERP, WhatsApp CRM and automation that turn the attention we create into leads, orders and repeat customers.",
   },
 };
 
@@ -92,6 +92,30 @@ export const SERVICES: Service[] = [
     image: "vip-management",
   },
   {
+    slug: "website",
+    pillar: "lab",
+    title: "Website Development",
+    line: "Fast, mobile-first websites and online stores that turn visitors into enquiries.",
+    points: ["Business and corporate websites", "E-commerce stores and landing pages", "SEO setup, hosting and speed tuning"],
+    image: "website-dev",
+  },
+  {
+    slug: "crm-erp",
+    pillar: "lab",
+    title: "Custom CRM & ERP",
+    line: "Built around how your business actually works, not a one-size-fits-all template.",
+    points: ["Lead pipelines, follow-ups and sales reports", "Inventory, billing and GST invoicing", "Custom modules, roles and dashboards"],
+    image: "crm-erp",
+  },
+  {
+    slug: "whatsapp-crm",
+    pillar: "lab",
+    title: "WhatsApp CRM",
+    line: "Every WhatsApp chat, lead and order in one shared team inbox on the web.",
+    points: ["Official WhatsApp Business API", "Shared inbox for your whole team", "Broadcasts, chatbots and auto-replies"],
+    image: "whatsapp-crm",
+  },
+  {
     slug: "reviews",
     pillar: "lab",
     title: "Product Review Management",
@@ -100,19 +124,11 @@ export const SERVICES: Service[] = [
     image: "product-review",
   },
   {
-    slug: "crm-erp",
-    pillar: "lab",
-    title: "CRM & ERP",
-    line: "Leads, sales, stock and billing in one system your team will use.",
-    points: ["Lead pipelines and follow-up reminders", "Inventory, billing and GST invoicing", "Role-based dashboards"],
-    image: "crm-erp",
-  },
-  {
     slug: "automation",
     pillar: "lab",
     title: "Automation Systems",
-    line: "WhatsApp, email and workflow bots that work while you sleep.",
-    points: ["WhatsApp Business API flows", "Lead capture to CRM, no copy-paste", "Custom integrations and reports"],
+    line: "Workflows and bots that move data and follow up while you sleep.",
+    points: ["Lead capture from ads and forms straight to CRM", "Email, SMS and payment reminders", "Custom integrations and reports"],
     image: "automation",
   },
   {
@@ -174,6 +190,7 @@ export const QUOTES: Quote[] = [
 export const FAQ = [
   { q: "Do I have to hire both the Studio and the Lab?", a: "No. Most clients start with one service. The benefit of one team shows up when your campaign leads flow straight into a system we also built." },
   { q: "Where do you work?", a: "We are based in Tamil Nadu and run shoots and events across South India. Software and social media work is fully remote, anywhere in India." },
-  { q: "How fast can you start?", a: "Social media and video edits usually start within a week. Events need 2 to 6 weeks depending on size. CRM setups take 3 to 8 weeks." },
+  { q: "How fast can you start?", a: "Social media and video edits usually start within a week. Events need 2 to 6 weeks depending on size. Websites take 2 to 4 weeks, and custom CRM or ERP builds 3 to 8 weeks." },
+  { q: "Can you set up WhatsApp CRM on our existing number?", a: "Yes. We move your business number to the official WhatsApp Business API, connect it to a shared web inbox and your CRM, and train your team." },
   { q: "How is pricing done?", a: "Monthly retainers for social media and support, fixed quotes for events, shoots and software builds. Every quote is itemised." },
 ];

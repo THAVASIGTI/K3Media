@@ -9,7 +9,7 @@ import Container from "@/components/ui/Container";
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const TEXT =
-  "Most brands hire one agency to get noticed and another to handle what happens next. We do both. The Studio shoots, edits, promotes and runs your events. The Lab builds the CRM, ERP and automations that catch every lead it brings.";
+  "Most brands hire one agency to get noticed and another to handle what happens next. We do both. The Studio shoots, edits, promotes and runs your events. The Lab builds the websites, custom CRM & ERP, WhatsApp CRM and automations that catch every lead it brings.";
 
 export default function Manifesto() {
   const ref = useRef<HTMLElement>(null);

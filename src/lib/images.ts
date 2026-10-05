@@ -48,6 +48,8 @@ export const IMAGES = {
   "about-2": { src: u("1504384308090-c894fdcc538d"), alt: "Large open-plan office full of people working, industrial ceiling" },
   "texture-dark": { src: u("1678366633407-7f49da199a42"), alt: "Curved black ribbons with soft highlights on a dark background" },
   "texture-dark-2": { src: u("1709377195538-5522ed0f9e10"), alt: "Warm amber curves on black, abstract dark texture" },
+  "website-dev": { src: u("1518773553398-650c184e0bb3"), alt: "Screen showing HTML code and browser developer tools for a website build" },
+  "whatsapp-crm": { src: u("1726066012749-f81bf4422d4e"), alt: "Hand holding a smartphone with a chat app open in front of a laptop" },
 } satisfies Record<string, Img>;
 
 export type ImageKey = keyof typeof IMAGES;

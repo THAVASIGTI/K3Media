@@ -53,7 +53,7 @@ export default function Hero() {
               transition={{ duration: 1, ease, delay: 1 }}
               className="mt-7 max-w-xl text-base leading-relaxed text-white/75 md:text-lg"
             >
-              K3 Media is a creative studio and a software lab. Shoots, campaigns and events, plus the CRM that turns attention into sales.
+              K3 Media is a creative studio and a software lab. Shoots, campaigns and events, plus the websites and CRM that turn attention into sales.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
