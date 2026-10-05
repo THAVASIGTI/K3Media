@@ -11,8 +11,7 @@ import MagneticButton from "@/components/motion/MagneticButton";
 import Container from "@/components/ui/Container";
 
 const ease = [0.16, 1, 0.3, 1] as const;
-const wipe = [0.76, 0, 0.24, 1] as const;
-const SLIDE_MS = 5500;
+const SLIDE_MS = 1000;
 
 /**
  * Full-resolution JPEG source for a full-width banner. The shared IMAGES set is sized for cards, and
@@ -20,7 +19,7 @@ const SLIDE_MS = 5500;
  */
 const hiRes = (src: string) => src.replace("auto=format&fit=crop&w=1800&q=80", "fm=jpg&fit=crop&w=3200&q=90");
 
-/** Full-bleed framed banner: each topic's cover wipes in behind the headline. */
+/** Full-bleed framed banner: each topic's cover dissolves in (blur + zoom) behind the headline. */
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
@@ -56,10 +55,10 @@ export default function Hero() {
             <motion.div
               key={slide.main}
               className="absolute inset-0"
-              initial={{ clipPath: "inset(0% 0% 0% 100%)", scale: 1.12 }}
-              animate={{ clipPath: "inset(0% 0% 0% 0%)", scale: 1 }}
-              exit={{ scale: 1.04, transition: { duration: 1.2 } }}
-              transition={{ clipPath: { duration: 1.2, ease: wipe }, scale: { duration: 2, ease } }}
+              initial={{ opacity: 0, scale: 1.08, filter: "blur(14px)" }}
+              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+              exit={{ opacity: 0, transition: { duration: 0.7, ease } }}
+              transition={{ duration: 0.7, ease }}
             >
               <Image
                 src={hiRes(IMAGES[slide.main].src)}
