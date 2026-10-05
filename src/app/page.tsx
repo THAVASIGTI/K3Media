@@ -1,6 +1,5 @@
 import Hero from "@/components/sections/Hero";
 import ClientMarquee from "@/components/sections/ClientMarquee";
-import Manifesto from "@/components/sections/Manifesto";
 import Services from "@/components/sections/Services";
 import Events from "@/components/sections/Events";
 import Stats from "@/components/sections/Stats";
@@ -14,7 +13,6 @@ export default function Home() {
     <main className="w-full overflow-x-clip">
       <Hero />
       <ClientMarquee />
-      <Manifesto />
       <Services />
       <Events />
       <Stats />

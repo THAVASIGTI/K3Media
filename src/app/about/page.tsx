@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/sections/PageHero";
-import Manifesto from "@/components/sections/Manifesto";
 import Stats from "@/components/sections/Stats";
 import Process from "@/components/sections/Process";
 import Testimonials from "@/components/sections/Testimonials";
@@ -21,7 +20,6 @@ export default function AboutPage() {
         intro="K3 Media started with cameras and campaigns. Our clients kept asking what happens after the launch, so we built a software team to answer. Today one crew takes a brand from its first photo to its thousandth customer."
         image="studio-team"
       />
-      <Manifesto />
       <Stats />
       <Process />
       <Testimonials />
