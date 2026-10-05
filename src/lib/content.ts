@@ -154,6 +154,18 @@ export const SERVICES: Service[] = [
   },
 ];
 
+export type HeroSlide = { topic: string; caption: string; main: ImageKey; card: ImageKey; href: string };
+
+/** Hero slideshow: one paired photo set per service topic. */
+export const HERO_SLIDES: HeroSlide[] = [
+  { topic: "Photo & weddings", caption: "Wedding & event films", main: "hero-1", card: "hero-2", href: "/services/photo-shoot" },
+  { topic: "Social media", caption: "Reels & creator content", main: "social-media", card: "social-media-2", href: "/services/social-media" },
+  { topic: "CRM & WhatsApp", caption: "WhatsApp CRM inbox", main: "crm-erp", card: "whatsapp-crm", href: "/services/whatsapp-crm" },
+  { topic: "Events", caption: "Corporate events", main: "event-corporate", card: "event-corporate-2", href: "/services/events" },
+  { topic: "Video & ads", caption: "Ad campaigns", main: "video-editing", card: "advertising", href: "/services/advertising" },
+  { topic: "Websites & software", caption: "Websites that sell", main: "software-team", card: "website-dev", href: "/services/website" },
+];
+
 export type Stage = {
   key: string;
   title: string;
