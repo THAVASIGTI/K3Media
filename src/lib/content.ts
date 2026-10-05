@@ -154,18 +154,16 @@ export const SERVICES: Service[] = [
   },
 ];
 
-export type HeroGraphic = "social" | "ads" | "crm" | "video" | "schedule" | "web";
+export type HeroSlide = { topic: string; caption: string; main: ImageKey; card: ImageKey; href: string };
 
-export type HeroSlide = { topic: string; caption: string; main: ImageKey; card: ImageKey; href: string; graphic: HeroGraphic };
-
-/** Hero slideshow: one 3D platform graphic pair per topic, with matching floating UI. */
+/** Hero banner slideshow: one cover image per topic. */
 export const HERO_SLIDES: HeroSlide[] = [
-  { topic: "Instagram & reels", caption: "Reels that get shared", main: "g-instagram", card: "g-instagram-2", href: "/services/social-media", graphic: "social" },
-  { topic: "Meta ads", caption: "Facebook & Instagram ads", main: "g-meta", card: "g-messenger", href: "/services/advertising", graphic: "ads" },
-  { topic: "WhatsApp CRM", caption: "One shared inbox", main: "g-whatsapp", card: "g-whatsapp-2", href: "/services/whatsapp-crm", graphic: "crm" },
-  { topic: "YouTube & video", caption: "Shorts & brand films", main: "g-youtube", card: "g-youtube-2", href: "/services/video-editing", graphic: "video" },
-  { topic: "Social media handling", caption: "Every platform, daily", main: "g-social", card: "g-social-2", href: "/services/social-media", graphic: "schedule" },
-  { topic: "Brand & web design", caption: "Websites that sell", main: "g-design", card: "g-laptop", href: "/services/website", graphic: "web" },
+  { topic: "Instagram & reels", caption: "Reels that get shared", main: "g-instagram", card: "g-instagram-2", href: "/services/social-media" },
+  { topic: "Meta ads", caption: "Facebook & Instagram ads", main: "g-meta", card: "g-messenger", href: "/services/advertising" },
+  { topic: "WhatsApp CRM", caption: "One shared inbox", main: "g-whatsapp", card: "g-whatsapp-2", href: "/services/whatsapp-crm" },
+  { topic: "YouTube & video", caption: "Shorts & brand films", main: "g-youtube", card: "g-youtube-2", href: "/services/video-editing" },
+  { topic: "Social media handling", caption: "Every platform, daily", main: "g-social", card: "g-social-2", href: "/services/social-media" },
+  { topic: "Brand & web design", caption: "Websites that sell", main: "g-design", card: "g-laptop", href: "/services/website" },
 ];
 
 export type Stage = {
