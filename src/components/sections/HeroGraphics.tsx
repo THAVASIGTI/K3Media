@@ -35,37 +35,6 @@ function Float({ children, className, i, drift = 6 }: { children: React.ReactNod
   );
 }
 
-function Camera() {
-  return (
-    <>
-      <Float i={0} drift={0} className="left-[46%] top-[24%] h-[34%] w-[38%]">
-        <div className="relative size-full">
-          {["left-0 top-0 border-l-2 border-t-2", "right-0 top-0 border-r-2 border-t-2", "bottom-0 left-0 border-b-2 border-l-2", "bottom-0 right-0 border-b-2 border-r-2"].map((c) => (
-            <span key={c} className={clsx("absolute size-7 rounded-[4px] border-accent", c)} />
-          ))}
-          <span className="absolute left-1/2 top-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent" />
-          <span className="absolute -top-6 left-0 rounded-md bg-accent px-1.5 py-0.5 font-mono text-[10px] font-semibold text-accent-ink">AF · FACE</span>
-        </div>
-      </Float>
-      <Float i={1} className="left-4 top-4 md:left-5 md:top-5">
-        <div className={clsx(chip, "flex items-center gap-2 px-3 py-2 font-mono text-[11px]")}>
-          <span className="size-2 animate-pulse rounded-full bg-red-500" />
-          ISO 200 · f/2.8 · 1/250
-        </div>
-      </Float>
-      <Float i={2} className="right-4 top-[58%] md:right-5">
-        <div className={clsx(chip, "flex items-center gap-3 px-3.5 py-3")}>
-          <CheckCircle size={22} weight="fill" className="text-accent-deep" />
-          <div className="text-[12px] leading-tight">
-            <p className="font-semibold">Album delivered</p>
-            <p className="text-muted">186 edited photos</p>
-          </div>
-        </div>
-      </Float>
-    </>
-  );
-}
-
 function Social() {
   return (
     <>
@@ -134,31 +103,75 @@ function Crm() {
   );
 }
 
-function EventPass() {
+function Ads() {
   return (
     <>
       <Float i={0} className="left-4 top-4 md:left-5 md:top-5">
-        <div className="w-[180px] overflow-hidden rounded-2xl bg-ink text-canvas shadow-[0_18px_40px_-16px_rgba(20,19,16,0.6)]">
-          <div className="bg-accent px-3.5 py-2 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-accent-ink">VIP Pass</div>
-          <div className="px-3.5 py-3">
-            <p className="font-display text-[15px] font-semibold leading-tight">Dealer Meet 2026</p>
-            <p className="mt-1 text-[11px] text-canvas/60">Chennai Trade Centre</p>
-            <div className="mt-3 flex h-5 items-end gap-[2px]" aria-hidden>
-              {[3, 1, 2, 1, 3, 2, 1, 1, 3, 1, 2, 3, 1, 2, 1, 3, 2, 1, 2, 3].map((w, k) => (
-                <span key={k} className="h-full bg-canvas/80" style={{ width: w }} />
-              ))}
-            </div>
+        <div className={clsx(chip, "w-[200px] px-3.5 py-3")}>
+          <div className="flex items-center justify-between">
+            <span className="text-[11px] text-muted">Campaign · Diwali sale</span>
+            <span className="flex items-center gap-1 rounded-full bg-emerald-100 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-700">
+              <span className="size-1.5 rounded-full bg-emerald-500" /> Live
+            </span>
+          </div>
+          <p className="mt-1.5 font-display text-2xl font-semibold tracking-tight">4.2x ROAS</p>
+          <div className="mt-2 flex h-8 items-end gap-1" aria-hidden>
+            {[30, 45, 38, 60, 52, 75, 90].map((h, k) => (
+              <motion.span
+                key={k}
+                className="flex-1 origin-bottom rounded-sm bg-accent"
+                style={{ height: `${h}%` }}
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                transition={{ duration: 0.6, ease, delay: 0.9 + k * 0.06 }}
+              />
+            ))}
           </div>
         </div>
       </Float>
-      <Float i={1} className="right-4 top-[54%] md:right-5">
-        <div className={clsx(chip, "w-[180px] px-3.5 py-3")}>
-          <p className="text-[11px] text-muted">Checked in</p>
-          <p className="font-display text-xl font-semibold tabular-nums">
-            986 <span className="text-[12px] font-normal text-muted">/ 1,200</span>
-          </p>
-          <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-black/10">
-            <motion.div className="h-full origin-left rounded-full bg-accent" initial={{ scaleX: 0 }} animate={{ scaleX: 0.82 }} transition={{ duration: 1.4, ease, delay: 1 }} />
+      <Float i={2} className="right-4 top-[54%] md:right-5">
+        <div className={clsx(chip, "flex items-center gap-3 px-3.5 py-3")}>
+          <span className="grid size-8 place-items-center rounded-full bg-sky-100 text-sky-600">
+            <UsersThree size={16} weight="fill" />
+          </span>
+          <div className="text-[12px] leading-tight">
+            <p className="font-semibold">2.8L people reached</p>
+            <p className="text-muted">CPC ₹6.40 · 1,214 leads</p>
+          </div>
+        </div>
+      </Float>
+    </>
+  );
+}
+
+function Schedule() {
+  const posts = [
+    { time: "10:00", label: "Reel · Product launch", tone: "bg-rose-400" },
+    { time: "13:30", label: "Carousel · 5 tips", tone: "bg-sky-400" },
+    { time: "18:00", label: "Story · Behind the scenes", tone: "bg-accent" },
+  ];
+  return (
+    <>
+      <Float i={0} className="left-4 top-4 md:left-5 md:top-5">
+        <div className={clsx(chip, "w-[210px] px-3.5 py-3")}>
+          <p className="text-[11px] text-muted">Posting today</p>
+          <ul className="mt-2 space-y-1.5">
+            {posts.map((p) => (
+              <li key={p.time} className="flex items-center gap-2 text-[12px]">
+                <span className={clsx("h-6 w-1 rounded-full", p.tone)} />
+                <span className="font-mono text-[10px] text-muted">{p.time}</span>
+                <span className="truncate font-medium">{p.label}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Float>
+      <Float i={2} className="right-4 top-[56%] md:right-5">
+        <div className={clsx(chip, "flex items-center gap-3 px-3.5 py-3")}>
+          <CheckCircle size={22} weight="fill" className="text-emerald-500" />
+          <div className="text-[12px] leading-tight">
+            <p className="font-semibold">30 posts scheduled</p>
+            <p className="text-muted">for this month</p>
           </div>
         </div>
       </Float>
@@ -257,11 +270,11 @@ function Web() {
 }
 
 const MAP: Record<HeroGraphic, () => React.JSX.Element> = {
-  camera: Camera,
   social: Social,
+  ads: Ads,
   crm: Crm,
-  event: EventPass,
   video: Video,
+  schedule: Schedule,
   web: Web,
 };
 

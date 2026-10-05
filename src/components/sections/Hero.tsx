@@ -96,7 +96,7 @@ export default function Hero() {
                     fill
                     preload={index === 0}
                     sizes="(max-width: 768px) 100vw, 42vw"
-                    className="object-cover object-[35%_center]"
+                    className="object-cover"
                   />
                 </motion.div>
               </AnimatePresence>

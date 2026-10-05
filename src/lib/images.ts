@@ -52,6 +52,19 @@ export const IMAGES = {
   "whatsapp-crm": { src: u("1704088030734-96769c4593a2"), alt: "Woman in a pink sari reading messages on her phone" },
   "work-8": { src: u("1631005436794-ccaa79de61ba"), alt: "Model in a red and gold sari seated on stone steps, festive collection shoot" },
   "work-9": { src: u("1753453044684-e18b4ba82737"), alt: "Indian developer smiling at his desk while working on a CRM dashboard" },
+  // 3D app-icon renders (Unsplash) for the home hero slideshow
+  "g-instagram": { src: u("1611262588024-d12430b98920"), alt: "3D Instagram app icon glowing on a dark background" },
+  "g-instagram-2": { src: u("1634942536790-dad8f3c0d71b"), alt: "Glossy 3D Instagram logo in pink and orange gradient" },
+  "g-meta": { src: u("1665799871677-f1fd17338b43"), alt: "3D blue Meta infinity logo surrounded by floating app icons" },
+  "g-messenger": { src: u("1611162618071-b39a2ec055fb"), alt: "3D Messenger and Facebook app icons on a blue background" },
+  "g-whatsapp": { src: u("1633354931133-27ac1ee5d853"), alt: "Glossy green 3D WhatsApp icon" },
+  "g-whatsapp-2": { src: u("1636751364472-12bfad09b451"), alt: "3D WhatsApp app tile on a green background" },
+  "g-youtube": { src: u("1611162616475-46b635cb6868"), alt: "3D red YouTube play button on a dark blue background" },
+  "g-youtube-2": { src: u("1679094837433-32484a621c74"), alt: "3D YouTube play button tile on a red background" },
+  "g-social": { src: u("1683721003111-070bcc053d8b"), alt: "3D YouTube, Instagram, TikTok and Facebook icons grouped together" },
+  "g-social-2": { src: u("1689004624325-6edf074228dd"), alt: "Stack of cubes printed with social media app icons" },
+  "g-design": { src: u("1760008486699-dbc9c319691a"), alt: "Colourful 3D design shapes, pencil and charts floating on a platform" },
+  "g-laptop": { src: u("1777503812370-bcae5728b463"), alt: "3D laptop showing colourful design boards and emojis" },
 } satisfies Record<string, Img>;
 
 export type ImageKey = keyof typeof IMAGES;
