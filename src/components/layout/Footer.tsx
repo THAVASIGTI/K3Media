@@ -3,9 +3,9 @@ import { CONTACT, NAV_LINKS, SERVICES } from "@/lib/content";
 import Container from "@/components/ui/Container";
 
 const SOCIALS = [
-  { label: "Instagram", href: "https://instagram.com" },
+  { label: "Instagram", href: CONTACT.instagram },
   { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "YouTube", href: "https://www.youtube.com/@k3mediaservices/shorts" },
+  { label: "YouTube", href: CONTACT.youtube },
   { label: "WhatsApp", href: CONTACT.whatsapp },
 ];
 

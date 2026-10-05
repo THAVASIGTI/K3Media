@@ -6,7 +6,20 @@ export const CONTACT = {
   whatsapp: "https://wa.me/919047355000",
   email: "hello@k3media.in",
   city: "Tamil Nadu, India",
+  instagram: "https://www.instagram.com/k3mediaservices/",
+  instagramHandle: "@k3mediaservices",
+  youtube: "https://www.youtube.com/@k3mediaservices/shorts",
 };
+
+export type Short = { id: string; title: string; views: string; thumb: string };
+
+/** Latest Shorts from youtube.com/@k3mediaservices. Thumbnails come from YouTube's image CDN. */
+export const SHORTS: Short[] = [
+  { id: "hBP9IgewyDY", title: "Make your ads look and feel like real content", views: "531 views", thumb: "https://i.ytimg.com/vi/hBP9IgewyDY/hq720.jpg" },
+  { id: "yzr7qwDXcT8", title: "3 things every video editor must follow before editing social content", views: "986 views", thumb: "https://i.ytimg.com/vi/yzr7qwDXcT8/oardefault.jpg" },
+  { id: "vmSfoznhrVw", title: "Skip lookalike audiences in Meta ads. Use more creatives instead", views: "66 views", thumb: "https://i.ytimg.com/vi/vmSfoznhrVw/oardefault.jpg" },
+  { id: "LKQQ2IsmTOI", title: "No social media account yet? Create one and reach your customers", views: "490 views", thumb: "https://i.ytimg.com/vi/LKQQ2IsmTOI/oardefault.jpg" },
+];
 
 export const CTA_LABEL = "Book a call";
 
