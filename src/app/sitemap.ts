@@ -1,4 +1,6 @@
 import type { MetadataRoute } from "next";
+
+export const dynamic = "force-static";
 import { SERVICES, WORK } from "@/lib/content";
 
 const BASE = "https://k3media.in";
