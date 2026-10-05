@@ -7,7 +7,7 @@ import { IMAGES } from "@/lib/images";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/motion/Reveal";
 import PageHero from "@/components/sections/PageHero";
-import CtaBand from "@/components/sections/CtaBand";
+import ContactStrip from "@/components/sections/ContactStrip";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -49,7 +49,7 @@ export default function WorkPage() {
           ))}
         </Container>
       </section>
-      <CtaBand lines={["Your brand could be", "the next case study."]} />
+      <ContactStrip title="Your brand could be the next case study." sub="Share what you are working on. We reply within one working day." />
     </main>
   );
 }

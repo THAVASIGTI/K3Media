@@ -12,7 +12,7 @@ import Eyebrow from "@/components/ui/Eyebrow";
 import Reveal from "@/components/motion/Reveal";
 import SplitWords from "@/components/motion/SplitWords";
 import MagneticButton from "@/components/motion/MagneticButton";
-import CtaBand from "@/components/sections/CtaBand";
+import ContactStrip from "@/components/sections/ContactStrip";
 
 export const dynamicParams = false;
 
@@ -226,7 +226,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
         </Container>
       </section>
 
-      <CtaBand lines={["Let's talk about", `${service.title}.`]} />
+      <ContactStrip title={`Let's talk about ${service.title}.`} sub={`Tell us what you need from ${service.title.toLowerCase()} and we will reply with a plan and itemised quote.`} />
     </main>
   );
 }

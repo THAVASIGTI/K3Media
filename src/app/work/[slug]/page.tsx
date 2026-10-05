@@ -9,7 +9,7 @@ import Container from "@/components/ui/Container";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import Reveal from "@/components/motion/Reveal";
 import SplitWords from "@/components/motion/SplitWords";
-import CtaBand from "@/components/sections/CtaBand";
+import ContactStrip from "@/components/sections/ContactStrip";
 
 export const dynamicParams = false;
 
@@ -124,7 +124,7 @@ export default async function CasePage(props: PageProps<"/work/[slug]">) {
         </Container>
       </section>
 
-      <CtaBand />
+      <ContactStrip title="Want results like these?" sub="Tell us about your brand and goal. We will show you how we would approach it, with a timeline and itemised quote." />
     </main>
   );
 }
