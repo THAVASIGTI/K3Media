@@ -12,6 +12,7 @@ import Container from "@/components/ui/Container";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 const SLIDE_MS = 1000;
+const FADE_S = 0.6;
 
 /**
  * Full-resolution JPEG source for a full-width banner. The shared IMAGES set is sized for cards, and
@@ -23,7 +24,9 @@ const hiRes = (src: string) => src.replace("auto=format&fit=crop&w=1800&q=80", "
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useReducedMotion();
-  const [index, setIndex] = useState(0);
+  // `turn` only ever increases, so each new slide stacks above the previous one even when the index wraps.
+  const [{ index, turn }, setSlide] = useState({ index: 0, turn: 0 });
+  const goTo = (i: number) => setSlide((s) => (s.index === i ? s : { index: i, turn: s.turn + 1 }));
   const [paused, setPaused] = useState(false);
   const slide = HERO_SLIDES[index];
 
@@ -36,7 +39,7 @@ export default function Hero() {
   useEffect(() => {
     if (paused) return;
     const id = window.setTimeout(() => {
-      if (!document.hidden) setIndex((i) => (i + 1) % HERO_SLIDES.length);
+      if (!document.hidden) setSlide((s) => ({ index: (s.index + 1) % HERO_SLIDES.length, turn: s.turn + 1 }));
     }, SLIDE_MS);
     return () => window.clearTimeout(id);
   }, [index, paused]);
@@ -52,13 +55,17 @@ export default function Hero() {
       >
         <motion.div style={{ y: imgY, scale: imgScale }} className="absolute inset-0">
           <AnimatePresence initial={false}>
+            {/* Crossfade: the incoming slide fades in on top while the outgoing one stays fully opaque
+                underneath (no dip to black). Opacity + scale only, so it stays on the GPU. */}
             <motion.div
-              key={slide.main}
-              className="absolute inset-0"
-              initial={{ opacity: 0, scale: 1.08, filter: "blur(14px)" }}
-              animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, transition: { duration: 0.7, ease } }}
-              transition={{ duration: 0.7, ease }}
+              key={turn}
+              className="absolute inset-0 will-change-[opacity,transform]"
+              style={{ zIndex: turn + 1 }}
+              initial={{ opacity: 0, scale: 1.06 }}
+              animate={{ opacity: 1, scale: 1 }}
+              // Animate to a value that differs slightly: a no-op exit would complete instantly and unmount the old slide.
+              exit={{ opacity: 0.99, transition: { duration: FADE_S, ease: "linear" } }}
+              transition={{ opacity: { duration: FADE_S, ease: [0.4, 0, 0.2, 1] }, scale: { duration: SLIDE_MS / 1000 + FADE_S, ease: "linear" } }}
             >
               <Image
                 src={hiRes(IMAGES[slide.main].src)}
@@ -121,7 +128,7 @@ export default function Hero() {
                     type="button"
                     role="tab"
                     aria-selected={active}
-                    onClick={() => setIndex(i)}
+                    onClick={() => goTo(i)}
                     className="group text-left"
                   >
                     <span className="relative block h-0.5 overflow-hidden rounded-full bg-white/25">
