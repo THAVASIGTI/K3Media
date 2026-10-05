@@ -27,7 +27,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     idealFor: ["Fashion and jewellery brands launching a collection", "D2C and Amazon or Flipkart sellers", "Restaurants, clinics and showrooms refreshing their look"],
     faq: [
       { q: "How many photos do we get?", a: "It depends on the brief. A typical half-day product shoot delivers 40 to 60 retouched images." },
-      { q: "Can you shoot outside Chennai?", a: "Yes. We travel across Tamil Nadu and South India; travel is quoted separately." },
+      { q: "Can you shoot outside Madurai?", a: "Yes. We travel across Tamil Nadu and South India; travel is quoted separately." },
     ],
   },
   "video-editing": {

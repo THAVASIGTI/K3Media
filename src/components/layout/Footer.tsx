@@ -15,10 +15,10 @@ export default function Footer() {
       <Container className="grid gap-12 md:grid-cols-12">
         <div className="md:col-span-3">
           <p className="max-w-sm text-lg leading-relaxed text-muted">
-            A brand-building studio from Tamil Nadu. We make brands people remember, then build the systems that help them sell.
+            A brand-building studio from Madurai. We make brands people remember, then build the systems that help them sell.
           </p>
         </div>
-        <nav aria-label="Footer" className="md:col-span-2">
+        <nav aria-label="Footer" className="md:col-span-1">
           <ul className="space-y-3 text-sm">
             {NAV_LINKS.map((l) => (
               <li key={l.href}><Link className="text-muted transition-colors hover:text-ink" href={l.href}>{l.label}</Link></li>
@@ -39,10 +39,15 @@ export default function Footer() {
             </li>
           ))}
         </ul>
-        <address className="space-y-3 text-sm not-italic md:col-span-2">
+        <address className="space-y-3 text-sm not-italic md:col-span-3">
           <a href={CONTACT.tel} className="block text-ink">{CONTACT.phone}</a>
+          <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="block text-muted hover:text-ink">WhatsApp us</a>
           <a href={`mailto:${CONTACT.email}`} className="block text-muted hover:text-ink">{CONTACT.email}</a>
-          <p className="text-muted">{CONTACT.city}</p>
+          <a href={CONTACT.maps} target="_blank" rel="noopener noreferrer" className="block leading-relaxed text-muted hover:text-ink">
+            {CONTACT.address.map((l) => (
+              <span key={l} className="block">{l}</span>
+            ))}
+          </a>
         </address>
       </Container>
       <Container className="mt-16">

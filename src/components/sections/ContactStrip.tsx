@@ -1,4 +1,4 @@
-import { ArrowUpRight, EnvelopeSimple, Phone, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, EnvelopeSimple, MapPin, Phone, WhatsappLogo } from "@phosphor-icons/react/dist/ssr";
 import { CONTACT, CTA_LABEL } from "@/lib/content";
 import Container from "@/components/ui/Container";
 import MagneticButton from "@/components/motion/MagneticButton";
@@ -7,8 +7,9 @@ import MagneticButton from "@/components/motion/MagneticButton";
 export default function ContactStrip({ title, sub }: { title: string; sub: string }) {
   const ways = [
     { icon: Phone, label: "Call", value: CONTACT.phone, href: CONTACT.tel },
-    { icon: WhatsappLogo, label: "WhatsApp", value: "Chat with the team", href: CONTACT.whatsapp },
+    { icon: WhatsappLogo, label: "WhatsApp", value: CONTACT.phone, href: CONTACT.whatsapp },
     { icon: EnvelopeSimple, label: "Email", value: CONTACT.email, href: `mailto:${CONTACT.email}` },
+    { icon: MapPin, label: "Visit", value: "Vilangudi, Madurai - 625 018", href: CONTACT.maps },
   ];
   return (
     <section className="pb-24 md:pb-32">

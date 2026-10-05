@@ -6,7 +6,7 @@ import Faq from "@/components/sections/Faq";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Call +91 90473 55000, WhatsApp us or send an enquiry. K3 Media replies within one working day.",
+  description: "Call or WhatsApp +91 9047355000, email prem@k3media.in or visit us in Vilangudi, Madurai. K3 Media replies within one working day.",
 };
 
 export default function ContactPage() {

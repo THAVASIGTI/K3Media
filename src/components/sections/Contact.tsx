@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { EnvelopeSimple, Phone, WhatsappLogo } from "@phosphor-icons/react";
+import { EnvelopeSimple, MapPin, Phone, WhatsappLogo } from "@phosphor-icons/react";
 import clsx from "clsx";
 import { CONTACT, CTA_LABEL, SERVICES } from "@/lib/content";
 import Container from "@/components/ui/Container";
@@ -42,8 +42,9 @@ export default function Contact({ asPage = false }: { asPage?: boolean }) {
           <ul className="mt-10 space-y-3">
             {[
               { icon: Phone, label: CONTACT.phone, href: CONTACT.tel },
-              { icon: WhatsappLogo, label: "Chat on WhatsApp", href: CONTACT.whatsapp },
+              { icon: WhatsappLogo, label: `WhatsApp ${CONTACT.phone}`, href: CONTACT.whatsapp },
               { icon: EnvelopeSimple, label: CONTACT.email, href: `mailto:${CONTACT.email}` },
+              { icon: MapPin, label: CONTACT.addressLine, href: CONTACT.maps },
             ].map(({ icon: Icon, label, href }) => (
               <li key={label}>
                 <a
@@ -51,10 +52,10 @@ export default function Contact({ asPage = false }: { asPage?: boolean }) {
                   {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className="group inline-flex min-h-11 items-center gap-4 text-ink transition-colors hover:text-accent-deep"
                 >
-                  <span className="grid size-11 place-items-center rounded-full bg-black/5 ring-1 ring-black/10 transition-colors group-hover:bg-accent group-hover:text-accent-ink">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-full bg-black/5 ring-1 ring-black/10 transition-colors group-hover:bg-accent group-hover:text-accent-ink">
                     <Icon size={18} weight="light" />
                   </span>
-                  {label}
+                  <span className="max-w-xs leading-snug">{label}</span>
                 </a>
               </li>
             ))}

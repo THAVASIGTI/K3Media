@@ -1,11 +1,14 @@
 import type { ImageKey } from "./images";
 
 export const CONTACT = {
-  phone: "+91 90473 55000",
+  phone: "+91 9047355000",
   tel: "tel:+919047355000",
   whatsapp: "https://wa.me/919047355000",
-  email: "hello@k3media.in",
-  city: "Tamil Nadu, India",
+  email: "prem@k3media.in",
+  city: "Madurai, Tamil Nadu",
+  address: ["120, 1st floor, Bahathsingh Street,", "Ramamoorthy Nagar, Vilangudi,", "Madurai - 625 018"],
+  addressLine: "120, 1st floor, Bahathsingh Street, Ramamoorthy Nagar, Vilangudi, Madurai - 625 018",
+  maps: "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("120, Bahathsingh Street, Ramamoorthy Nagar, Vilangudi, Madurai 625018"),
   instagram: "https://www.instagram.com/k3mediaservices/",
   instagramHandle: "@k3mediaservices",
   youtube: "https://www.youtube.com/@k3mediaservices/shorts",
@@ -347,7 +350,7 @@ export const QUOTES: Quote[] = [
 
 export const FAQ = [
   { q: "Do I have to hire both the Studio and the Lab?", a: "No. Most clients start with one service. The benefit of one team shows up when your campaign leads flow straight into a system we also built." },
-  { q: "Where do you work?", a: "We are based in Tamil Nadu and run shoots and events across South India. Software and social media work is fully remote, anywhere in India." },
+  { q: "Where do you work?", a: "We are based in Vilangudi, Madurai and run shoots and events across South India. Software and social media work is fully remote, anywhere in India." },
   { q: "How fast can you start?", a: "Social media and video edits usually start within a week. Events need 2 to 6 weeks depending on size. Websites take 2 to 4 weeks, and custom CRM or ERP builds 3 to 8 weeks." },
   { q: "Can you set up WhatsApp CRM on our existing number?", a: "Yes. We move your business number to the official WhatsApp Business API, connect it to a shared web inbox and your CRM, and train your team." },
   { q: "How is pricing done?", a: "Monthly retainers for social media and support, fixed quotes for events, shoots and software builds. Every quote is itemised." },
