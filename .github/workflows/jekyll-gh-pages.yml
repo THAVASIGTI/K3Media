@@ -1,4 +1,4 @@
-name: Deploy Next.js Static Export
+name: Deploy K3Web (via next_js)
 
 on:
   push:
@@ -14,14 +14,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # Publishes the new theme from the k3web branch
+      # (next_js is the branch allowed to deploy to github-pages)
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: k3web
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
       - name: Install dependencies
-        run: npm install
+        run: npm install --no-audit --no-fund
       - name: Build static site
         run: npm run build
       - name: Upload artifact
