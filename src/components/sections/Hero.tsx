@@ -11,7 +11,7 @@ import MagneticButton from "@/components/motion/MagneticButton";
 import Container from "@/components/ui/Container";
 
 const ease = [0.16, 1, 0.3, 1] as const;
-const SLIDE_MS = 1000;
+const SLIDE_MS = 5500;
 const FADE_S = 0.55;
 const OUT_S = 0.2;
 
