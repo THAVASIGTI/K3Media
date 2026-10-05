@@ -10,7 +10,7 @@ import Container from "@/components/ui/Container";
 export default function Faq({ items = FAQ, title = "Questions," }: { items?: { q: string; a: string }[]; title?: string }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
-    <section aria-labelledby="faq-title" className="pb-24 md:pb-36">
+    <section aria-labelledby="faq-title" className="pb-16 md:pb-36">
       <Container className="grid gap-10 md:grid-cols-12">
         <h2 id="faq-title" className="font-display text-[clamp(2rem,3.6vw,3.25rem)] font-semibold leading-none tracking-[-0.03em] md:col-span-4">
           {title} <span className="hl">answered.</span>

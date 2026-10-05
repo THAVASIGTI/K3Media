@@ -96,7 +96,7 @@ export default async function CasePage(props: PageProps<"/work/[slug]">) {
         </Container>
       </section>
 
-      <section aria-label="Gallery" className="pb-24 md:pb-32">
+      <section aria-label="Gallery" className="pb-16 md:pb-32">
         <Container className="grid gap-4 md:grid-cols-12">
           {w.gallery.map((key, i) => (
             <Reveal key={key + i} y={50} delay={i * 0.08} className={["md:col-span-5", "md:col-span-7 md:mt-20", "md:col-span-12"][i] ?? "md:col-span-6"}>
@@ -108,7 +108,7 @@ export default async function CasePage(props: PageProps<"/work/[slug]">) {
         </Container>
       </section>
 
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-32">
         <Container>
           <Link href={`/work/${next.slug}`} className="group relative flex min-h-[300px] flex-col justify-between overflow-hidden rounded-[2rem] p-8 text-white md:p-12">
             <Image src={IMAGES[next.image].src} alt="" fill sizes="100vw" className="object-cover transition-transform duration-[1.4s] ease-premium group-hover:scale-105" />

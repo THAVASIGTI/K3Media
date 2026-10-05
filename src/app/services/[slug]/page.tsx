@@ -90,7 +90,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
       </section>
 
       {/* What's included */}
-      <section className="border-t border-black/10 py-24 md:py-32">
+      <section className="border-t border-black/10 py-16 md:py-32">
         <Container className="grid gap-14 md:grid-cols-12">
           <div className="md:col-span-4">
             <div className="md:sticky md:top-32">
@@ -121,7 +121,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
       </section>
 
       {/* Gallery */}
-      <section aria-label={`${service.title} in pictures`} className="pb-24 md:pb-32">
+      <section aria-label={`${service.title} in pictures`} className="pb-16 md:pb-32">
         <Container className="grid gap-4 md:grid-cols-12">
           {detail.gallery.map((key, i) => (
             <Reveal key={key} delay={i * 0.1} y={50} className={i === 0 ? "md:col-span-7" : "md:col-span-5 md:mt-24"}>
@@ -134,7 +134,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
       </section>
 
       {/* Ideal for + FAQ */}
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-32">
         <Container className="grid gap-6 md:grid-cols-12">
           <div className="rounded-[2rem] bg-ink p-8 text-canvas md:col-span-5 md:p-12">
             <h2 className="font-display text-3xl font-semibold tracking-tight">Ideal for</h2>
@@ -163,7 +163,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
 
       {/* Related work */}
       {work.length > 0 && (
-        <section className="pb-24 md:pb-32">
+        <section className="pb-16 md:pb-32">
           <Container>
             <h2 className="font-display text-[clamp(2rem,3.6vw,3.25rem)] font-semibold leading-none tracking-[-0.03em]">
               {service.title} <span className="hl">in action</span>
@@ -192,7 +192,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
       )}
 
       {/* Related services + next */}
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-32">
         <Container className="grid gap-4 md:grid-cols-12">
           {siblings.length > 0 && (
             <div className="rounded-[2rem] bg-surface p-8 ring-1 ring-black/5 md:col-span-5 md:p-10">

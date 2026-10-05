@@ -14,7 +14,7 @@ const ease = [0.16, 1, 0.3, 1] as const;
 /** Each event type in depth; photos wipe open from alternating sides. */
 export default function EventDetails() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-32">
       <Container className="space-y-24 md:space-y-36">
         {EVENT_DETAILS.map((e, i) => {
           const flip = i % 2 === 1;

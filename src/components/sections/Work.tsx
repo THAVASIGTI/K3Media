@@ -17,7 +17,7 @@ export default function Work() {
   const w = WORK[i];
 
   return (
-    <section id="work" className="py-24 md:py-36">
+    <section id="work" className="py-16 md:py-36">
       <Container>
         <h2 className="max-w-4xl font-display text-[clamp(2.2rem,5vw,4.5rem)] font-semibold leading-[0.98] tracking-[-0.03em]">
           <SplitWords lines={["Proof, not promises.", "A few recent rooms and rollouts."]} accentLine={0} />

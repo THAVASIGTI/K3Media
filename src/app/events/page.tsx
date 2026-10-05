@@ -37,7 +37,7 @@ export default function EventsPage() {
       <EventTimeline />
 
       {/* VIP & high-profile management */}
-      <section className="py-24 md:py-32">
+      <section className="py-16 md:py-32">
         <Container>
           <div className="grid overflow-hidden rounded-[2.5rem] bg-ink text-canvas md:grid-cols-2">
             <div className="relative min-h-[360px]">
@@ -67,7 +67,7 @@ export default function EventsPage() {
       <EventGallery />
 
       {caseStudy && (
-        <section className="pb-24 md:pb-32">
+        <section className="pb-16 md:pb-32">
           <Container>
             <Reveal>
               <Link href={`/work/${caseStudy.slug}`} className="group flex flex-col justify-between gap-8 border-y border-black/10 py-10 md:flex-row md:items-center">

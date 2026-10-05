@@ -19,14 +19,15 @@ const ease = [0.16, 1, 0.3, 1] as const;
 export default function ServiceCatalog() {
   const [filter, setFilter] = useState<Filter>("all");
   const list = SERVICES.filter((s) => filter === "all" || s.pillar === filter);
-  const tabs: { key: Filter; label: string; count: number }[] = [
-    { key: "all", label: "All services", count: SERVICES.length },
-    { key: "studio", label: PILLARS.studio.tagline, count: SERVICES.filter((s) => s.pillar === "studio").length },
-    { key: "lab", label: PILLARS.lab.tagline, count: SERVICES.filter((s) => s.pillar === "lab").length },
+  // `short` is shown on phones so all three tabs fit on one line.
+  const tabs: { key: Filter; label: string; short: string; count: number }[] = [
+    { key: "all", label: "All services", short: "All", count: SERVICES.length },
+    { key: "studio", label: PILLARS.studio.tagline, short: "Media & Events", count: SERVICES.filter((s) => s.pillar === "studio").length },
+    { key: "lab", label: PILLARS.lab.tagline, short: "Software", count: SERVICES.filter((s) => s.pillar === "lab").length },
   ];
 
   return (
-    <section className="pb-24 md:pb-32">
+    <section className="pb-16 md:pb-32">
       <Container>
         <div className="sticky top-24 z-30 -mx-2 mb-10 flex justify-center md:mb-14">
           <div role="tablist" aria-label="Filter services" className="flex rounded-full bg-surface/90 p-1.5 shadow-[0_12px_40px_-16px_rgba(20,19,16,0.35)] ring-1 ring-black/5 backdrop-blur-xl">
@@ -37,11 +38,12 @@ export default function ServiceCatalog() {
                 role="tab"
                 aria-selected={filter === t.key}
                 onClick={() => setFilter(t.key)}
-                className="relative min-h-11 rounded-full px-4 text-sm font-medium md:px-6"
+                className="relative min-h-11 whitespace-nowrap rounded-full px-3.5 text-[13px] font-medium sm:px-4 sm:text-sm md:px-6"
               >
                 {filter === t.key && <motion.span layoutId="cat-pill" className="absolute inset-0 rounded-full bg-ink" transition={{ type: "spring", stiffness: 380, damping: 32 }} />}
                 <span className={clsx("relative transition-colors duration-300", filter === t.key ? "text-canvas" : "text-muted")}>
-                  {t.label} <span className="font-mono text-[11px] opacity-60">{t.count}</span>
+                  <span className="sm:hidden">{t.short}</span>
+                  <span className="hidden sm:inline">{t.label}</span> <span className="font-mono text-[11px] opacity-60">{t.count}</span>
                 </span>
               </button>
             ))}

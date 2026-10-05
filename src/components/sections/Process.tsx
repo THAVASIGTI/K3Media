@@ -17,7 +17,7 @@ export default function Process() {
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+      mm.add("(prefers-reduced-motion: no-preference)", () => {
         const cards = gsap.utils.toArray<HTMLElement>(".step-card");
         cards.forEach((card, i) => {
           if (i === cards.length - 1) return;
@@ -32,7 +32,7 @@ export default function Process() {
   );
 
   return (
-    <section id="process" ref={ref} className="py-24 md:py-36">
+    <section id="process" ref={ref} className="py-16 md:py-36">
       <Container className="grid gap-12 md:grid-cols-12">
         <div className="md:col-span-4">
           <div className="md:sticky md:top-32">
@@ -48,7 +48,11 @@ export default function Process() {
 
         <ol className="space-y-6 md:col-span-8 md:space-y-[18vh]">
           {PROCESS.map((s, i) => (
-            <li key={s.title} className="step-card origin-top md:sticky" style={{ top: `calc(7rem + ${i * 1.5}rem)` }}>
+            <li
+              key={s.title}
+              className="step-card sticky top-[calc(5.5rem+var(--i)*0.75rem)] origin-top md:top-[calc(7rem+var(--i)*1.5rem)]"
+              style={{ "--i": i } as React.CSSProperties}
+            >
               <div className="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/10">
                 <div className="relative grid min-h-[300px] gap-8 overflow-hidden rounded-[calc(2rem-0.375rem)] bg-surface p-8 shadow-[0_1px_2px_rgba(20,19,16,0.04),0_24px_48px_-24px_rgba(20,19,16,0.18)] md:grid-cols-[auto_1fr] md:p-12">
                   <span aria-hidden className="step-shade pointer-events-none absolute inset-0 z-10 bg-canvas opacity-0" />

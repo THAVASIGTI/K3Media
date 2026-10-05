@@ -14,7 +14,7 @@ const SPANS = ["md:col-span-2 md:row-span-2", "md:col-span-2", "", "", "md:col-s
 
 export default function EventGallery() {
   return (
-    <section aria-label="Event gallery" className="py-24 md:py-32">
+    <section aria-label="Event gallery" className="py-16 md:py-32">
       <Container>
         <h2 className="font-display text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-[0.98] tracking-[-0.03em]">From our floor.</h2>
         <div className="mt-12 grid auto-rows-[220px] grid-cols-2 gap-3 md:grid-flow-dense md:auto-rows-[240px] md:grid-cols-4">

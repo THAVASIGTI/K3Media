@@ -7,7 +7,7 @@ import Reveal from "@/components/motion/Reveal";
 /** Ways to work with K3 Media. */
 export default function Engagements() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-32">
       <Container>
         <h2 className="max-w-3xl font-display text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-[0.98] tracking-[-0.03em]">
           Three ways to <span className="hl">work with us.</span>

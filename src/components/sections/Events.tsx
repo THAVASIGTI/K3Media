@@ -48,7 +48,7 @@ export default function Events() {
   );
 
   return (
-    <section id="events" ref={section} className="relative overflow-hidden py-24 md:motion-safe:flex md:motion-safe:h-[100dvh] md:motion-safe:flex-col md:motion-safe:justify-center md:motion-safe:py-0 md:motion-safe:pt-20">
+    <section id="events" ref={section} className="relative overflow-hidden py-16 md:motion-safe:flex md:motion-safe:h-[100dvh] md:motion-safe:flex-col md:motion-safe:justify-center md:motion-safe:py-0 md:motion-safe:pt-20">
       <div className="mx-auto w-full max-w-[1400px] px-5 md:px-10">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>

@@ -8,7 +8,7 @@ import Reveal from "@/components/motion/Reveal";
 /** Department cards: photos start grayscale and come alive on hover. */
 export default function Teams() {
   return (
-    <section className="py-24 md:py-32">
+    <section className="py-16 md:py-32">
       <Container>
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <h2 className="max-w-3xl font-display text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-[0.98] tracking-[-0.03em]">

@@ -12,17 +12,17 @@ export default function ContactStrip({ title, sub }: { title: string; sub: strin
     { icon: MapPin, label: "Visit", value: "Vilangudi, Madurai - 625 018", href: CONTACT.maps },
   ];
   return (
-    <section className="pb-24 md:pb-32">
+    <section className="pb-16 md:pb-32">
       <Container>
-        <div className="grid gap-10 overflow-hidden rounded-[2.5rem] bg-ink p-8 text-canvas md:grid-cols-12 md:p-14">
-          <div className="md:col-span-6">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-10 overflow-hidden rounded-[2.5rem] bg-ink p-6 text-canvas sm:p-8 md:grid-cols-12 md:p-14">
+          <div className="min-w-0 md:col-span-6">
             <h2 className="font-display text-[clamp(2rem,3.8vw,3.5rem)] font-semibold leading-[0.98] tracking-[-0.03em]">{title}</h2>
             <p className="mt-5 max-w-md text-canvas/65">{sub}</p>
             <div className="mt-8">
               <MagneticButton href="/contact">{CTA_LABEL}</MagneticButton>
             </div>
           </div>
-          <ul className="grid gap-3 self-end md:col-span-6">
+          <ul className="grid min-w-0 gap-3 self-end md:col-span-6">
             {ways.map(({ icon: Icon, label, value, href }) => (
               <li key={label}>
                 <a
@@ -37,7 +37,7 @@ export default function ContactStrip({ title, sub }: { title: string; sub: strin
                     <span className="block text-xs uppercase tracking-[0.14em] opacity-60">{label}</span>
                     <span className="block truncate font-medium">{value}</span>
                   </span>
-                  <ArrowUpRight size={18} className="transition-transform duration-500 ease-premium group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  <ArrowUpRight size={18} className="shrink-0 transition-transform duration-500 ease-premium group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
               </li>
             ))}

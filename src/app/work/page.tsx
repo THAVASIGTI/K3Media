@@ -24,7 +24,7 @@ export default function WorkPage() {
         accentLine={0}
         intro="Shoots, launches, events and systems we have delivered for brands across Tamil Nadu and South India."
       />
-      <section className="pb-24 md:pb-32">
+      <section className="pb-16 md:pb-32">
         <Container className="grid gap-x-6 gap-y-16 md:grid-cols-12">
           {WORK.map((w, i) => (
             <Reveal

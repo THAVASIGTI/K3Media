@@ -1,5 +1,6 @@
 "use client";
 
+import { Fragment } from "react";
 import { motion, type Variants } from "motion/react";
 
 const word: Variants = {
@@ -42,16 +43,20 @@ export default function SplitWords({
       {lines.map((line, li) => {
         const words = line.split(" ");
         return (
-          <span key={li} className="block overflow-hidden pb-[0.08em]">
+          // Phones: lines flow inline so words wrap naturally (no orphans); each word carries its own mask.
+          // md+: one masked block per authored line.
+          <span key={li} className="inline md:block md:overflow-hidden md:pb-[0.08em]">
             {/* one wrapper per line so a highlighter stroke runs continuously under the words */}
             <span className={li === accentLine ? accentClass : undefined}>
               {words.map((w, wi) => (
-                <span key={wi}>
-                  <motion.span variants={word} className="inline-block will-change-transform">
-                    {w}
-                  </motion.span>
+                <Fragment key={wi}>
+                  <span className="-mb-[0.08em] inline-block overflow-hidden pb-[0.08em] align-top md:mb-0 md:overflow-visible md:pb-0">
+                    <motion.span variants={word} className="inline-block will-change-transform">
+                      {w}
+                    </motion.span>
+                  </span>
                   {wi < words.length - 1 ? " " : ""}
-                </span>
+                </Fragment>
               ))}
             </span>{" "}
           </span>

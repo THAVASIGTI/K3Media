@@ -10,7 +10,7 @@ export default function CtaBand({
   lines?: string[];
 }) {
   return (
-    <section className="pb-24 md:pb-32">
+    <section className="pb-16 md:pb-32">
       <Container>
         <div className="relative overflow-hidden rounded-[2.5rem] bg-accent px-7 py-16 text-accent-ink md:px-16 md:py-24">
           <div aria-hidden className="pointer-events-none absolute -right-24 -top-24 size-[420px] rounded-full bg-white/25 blur-3xl" />

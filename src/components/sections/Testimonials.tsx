@@ -6,7 +6,7 @@ import Reveal from "@/components/motion/Reveal";
 export default function Testimonials() {
   const [lead, ...rest] = QUOTES;
   return (
-    <section aria-label="What clients say" className="py-24 md:py-36">
+    <section aria-label="What clients say" className="py-16 md:py-36">
       <Container className="grid gap-14 md:grid-cols-12">
         <Reveal className="md:col-span-8">
           <figure>

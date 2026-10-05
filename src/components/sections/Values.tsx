@@ -4,7 +4,7 @@ import Reveal from "@/components/motion/Reveal";
 
 export default function Values() {
   return (
-    <section className="bg-ink py-24 text-canvas md:py-32">
+    <section className="bg-ink py-16 text-canvas md:py-32">
       <Container>
         <h2 className="max-w-3xl font-display text-[clamp(2rem,4vw,3.6rem)] font-semibold leading-[0.98] tracking-[-0.03em]">
           What we <span className="text-accent">stand for.</span>

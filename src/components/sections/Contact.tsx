@@ -31,7 +31,7 @@ export default function Contact({ asPage = false }: { asPage?: boolean }) {
   };
 
   return (
-    <section id="contact" className={asPage ? "relative overflow-hidden pb-24 pt-10 md:pb-36 md:pt-14" : "relative overflow-hidden py-24 md:py-36"}>
+    <section id="contact" className={asPage ? "relative overflow-hidden pb-16 pt-10 md:pb-36 md:pt-14" : "relative overflow-hidden py-16 md:py-36"}>
       <div aria-hidden className="pointer-events-none absolute -right-40 -top-40 size-[640px] rounded-full bg-accent/10 blur-[140px]" />
       <Container className="relative grid gap-16 md:grid-cols-12">
         <div className="md:col-span-5">
@@ -63,7 +63,7 @@ export default function Contact({ asPage = false }: { asPage?: boolean }) {
         </div>
 
         <form onSubmit={onSubmit} className="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/10 md:col-span-7">
-          <div className="grid gap-6 rounded-[calc(2rem-0.375rem)] bg-surface p-6 shadow-[0_1px_2px_rgba(20,19,16,0.04),0_24px_48px_-24px_rgba(20,19,16,0.18)] md:grid-cols-2 md:p-10">
+          <div className="grid gap-6 rounded-[calc(2rem-0.375rem)] bg-surface p-5 shadow-[0_1px_2px_rgba(20,19,16,0.04),0_24px_48px_-24px_rgba(20,19,16,0.18)] sm:p-6 md:grid-cols-2 md:p-10">
             <fieldset className="md:col-span-2">
               <legend className="mb-3 text-sm text-muted">What do you need?</legend>
               <div className="flex flex-wrap gap-2">
@@ -76,7 +76,7 @@ export default function Contact({ asPage = false }: { asPage?: boolean }) {
                       aria-pressed={on}
                       onClick={() => toggle(s.title)}
                       className={clsx(
-                        "min-h-10 rounded-full px-4 text-sm ring-1 transition-colors duration-300",
+                        "min-h-10 rounded-full px-3.5 text-[13px] ring-1 transition-colors duration-300 md:px-4 md:text-sm",
                         on ? "bg-accent text-accent-ink ring-accent" : "text-ink/80 ring-black/15 hover:ring-black/40",
                       )}
                     >

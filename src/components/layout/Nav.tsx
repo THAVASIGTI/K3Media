@@ -18,12 +18,24 @@ export default function Nav() {
   const pathname = usePathname();
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
 
+  // Close the menu whenever the route changes (covers back/forward too).
+  const [menuPath, setMenuPath] = useState(pathname);
+  if (menuPath !== pathname) {
+    setMenuPath(pathname);
+    setOpen(false);
+  }
+
   useEffect(() => {
+    // Lenis only smooths the wheel; lock native touch scrolling behind the menu as well.
+    document.documentElement.style.overflow = open ? "hidden" : "";
     if (open) lenis?.stop();
     else lenis?.start();
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.documentElement.style.overflow = "";
+    };
   }, [open, lenis]);
 
   return (
@@ -76,28 +88,44 @@ export default function Nav() {
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.7, ease: [0.32, 0.72, 0, 1] }}
-            className="fixed inset-0 z-40 flex flex-col justify-between bg-surface px-6 pb-10 pt-32 md:hidden"
+            className="fixed inset-x-0 top-0 z-40 flex h-[100dvh] flex-col justify-between gap-10 overflow-y-auto overscroll-contain bg-surface px-6 pb-[max(2rem,env(safe-area-inset-bottom))] pt-28 md:hidden"
           >
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {NAV_LINKS.map((l, i) => (
-                <li key={l.href} className="overflow-hidden">
+                <li key={l.href} className="overflow-hidden border-b border-black/[0.06]">
                   <MotionLink
                     href={l.href}
                     onClick={() => setOpen(false)}
+                    aria-current={isActive(l.href) ? "page" : undefined}
                     initial={{ y: "100%" }}
                     animate={{ y: 0 }}
                     transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 + i * 0.06 }}
-                    className="block font-display text-5xl font-semibold tracking-tight"
+                    className={clsx(
+                      "flex items-baseline gap-4 py-3 font-display text-[clamp(2.25rem,11vw,3rem)] font-semibold leading-none tracking-tight",
+                      isActive(l.href) ? "text-ink" : "text-ink/55",
+                    )}
                   >
+                    <span className="font-mono text-xs font-normal tracking-normal text-accent-deep">{String(i + 1).padStart(2, "0")}</span>
                     {l.label}
                   </MotionLink>
                 </li>
               ))}
             </ul>
-            <div className="space-y-1 text-muted">
-              <a href={CONTACT.tel} className="block text-lg text-ink">{CONTACT.phone}</a>
-              <a href={`mailto:${CONTACT.email}`} className="block">{CONTACT.email}</a>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="space-y-6"
+            >
+              <div className="flex flex-wrap gap-3">
+                <MagneticButton href="/contact">{CTA_LABEL}</MagneticButton>
+                <MagneticButton href={CONTACT.whatsapp} variant="ghost" external>WhatsApp us</MagneticButton>
+              </div>
+              <div className="space-y-1 text-muted">
+                <a href={CONTACT.tel} className="block text-lg text-ink">{CONTACT.phone}</a>
+                <a href={`mailto:${CONTACT.email}`} className="block">{CONTACT.email}</a>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
