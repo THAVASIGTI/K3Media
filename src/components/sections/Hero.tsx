@@ -53,7 +53,9 @@ export default function Hero() {
         animate={{ clipPath: "inset(0.75rem 0.75rem 0.75rem 0.75rem round 2rem)" }}
         transition={{ duration: 1.6, ease, delay: 0.1 }}
       >
-        <motion.div style={{ y: imgY, scale: imgScale }} className="absolute inset-0">
+        {/* `isolate` keeps the slides' z-index inside this layer, so the shading below always sits on top
+            (without it the stacking changed once the scroll transform kicked in). */}
+        <motion.div style={{ y: imgY, scale: imgScale }} className="absolute inset-0 isolate">
           <AnimatePresence initial={false}>
             {/* Dark flash: the outgoing slide drops to dark, then the incoming one fades up from dark.
                 Opacity + scale only, so it stays on the GPU. */}
@@ -81,8 +83,8 @@ export default function Hero() {
             </motion.div>
           </AnimatePresence>
         </motion.div>
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/80 via-black/35 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20" />
+        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-black/65 via-black/20 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
       </motion.div>
 
       <Container className="relative">
