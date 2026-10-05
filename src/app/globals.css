@@ -81,6 +81,11 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+  /* The topics strip keeps moving (slower) as a deliberate brand element. */
+  .animate-marquee {
+    animation-duration: 90s !important;
+    animation-iteration-count: infinite !important;
+  }
 }
 
 /* yellow marker stroke behind dark text: brand yellow on light without losing contrast */
