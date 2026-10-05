@@ -66,6 +66,11 @@ export const IMAGES = {
   "g-design": { src: u("1760008486699-dbc9c319691a"), alt: "Colourful 3D design shapes, pencil and charts floating on a platform" },
   "g-analytics": { src: u("1674027392887-751d6396b710"), alt: "3D sales dashboard with charts, target and idea bulb beside a shopping basket and bag on a navy stage" },
   "g-laptop": { src: u("1777503812370-bcae5728b463"), alt: "3D laptop showing colourful design boards and emojis" },
+  // 3D concept covers for the Software & Systems cards on /services
+  "c-website": { src: u("1674027001838-09e049c47212"), alt: "3D website dashboard with charts, an SEO search bar and a launching rocket" },
+  "c-reviews": { src: u("1633613286991-611fe299c4be"), alt: "Row of glossy yellow 3D rating stars on a pink and blue background" },
+  "c-automation": { src: u("1686386084459-8d9d14400a4b"), alt: "Yellow 3D robot standing on a white surface" },
+  "c-support": { src: u("1737291937135-3a0fcb5e0c44"), alt: "Floating 3D headset on a soft neutral background" },
 } satisfies Record<string, Img>;
 
 export type ImageKey = keyof typeof IMAGES;
