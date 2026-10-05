@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion, useScroll, useTransform } from "motion/react";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
 import clsx from "clsx";
 import { IMAGES } from "@/lib/images";
 import { CONTACT, CTA_LABEL, HERO_SLIDES } from "@/lib/content";
@@ -24,7 +24,6 @@ const hiRes = (src: string) => src.replace("auto=format&fit=crop&w=1800&q=80", "
 /** Full-bleed framed banner: each topic's cover dissolves in (blur + zoom) behind the headline. */
 export default function Hero() {
   const ref = useRef<HTMLElement>(null);
-  const reduce = useReducedMotion();
   // `turn` only ever increases, so each new slide stacks above the previous one even when the index wraps.
   const [{ index, turn }, setSlide] = useState({ index: 0, turn: 0 });
   const goTo = (i: number) => setSlide((s) => (s.index === i ? s : { index: i, turn: s.turn + 1 }));
@@ -139,9 +138,10 @@ export default function Hero() {
                         <motion.span
                           key={`${index}-${paused}`}
                           className="absolute inset-0 origin-left bg-accent"
-                          initial={{ scaleX: reduce ? 1 : 0 }}
+                          // Same initial value on server and client; MotionConfig reducedMotion="user" fills it instantly when needed.
+                          initial={{ scaleX: 0 }}
                           animate={{ scaleX: 1 }}
-                          transition={{ duration: paused || reduce ? 0 : SLIDE_MS / 1000, ease: "linear" }}
+                          transition={{ duration: paused ? 0 : SLIDE_MS / 1000, ease: "linear" }}
                         />
                       )}
                     </span>
