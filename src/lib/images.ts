@@ -64,6 +64,7 @@ export const IMAGES = {
   "g-social": { src: u("1683721003111-070bcc053d8b"), alt: "3D YouTube, Instagram, TikTok and Facebook icons grouped together" },
   "g-social-2": { src: u("1689004624325-6edf074228dd"), alt: "Stack of cubes printed with social media app icons" },
   "g-design": { src: u("1760008486699-dbc9c319691a"), alt: "Colourful 3D design shapes, pencil and charts floating on a platform" },
+  "g-analytics": { src: u("1666875753105-c63a6f3bdc86"), alt: "3D data analytics graphics: bar charts, pie charts and dials on a dark background" },
   "g-laptop": { src: u("1777503812370-bcae5728b463"), alt: "3D laptop showing colourful design boards and emojis" },
 } satisfies Record<string, Img>;
 

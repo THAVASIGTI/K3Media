@@ -158,10 +158,10 @@ export type HeroSlide = { topic: string; caption: string; main: ImageKey; card: 
 
 /** Hero banner slideshow: one cover image per topic. */
 export const HERO_SLIDES: HeroSlide[] = [
-  { topic: "Instagram & reels", caption: "Reels that get shared", main: "g-instagram", card: "g-instagram-2", href: "/services/social-media" },
   { topic: "Meta ads", caption: "Facebook & Instagram ads", main: "g-meta", card: "g-messenger", href: "/services/advertising" },
+  { topic: "CRM & ERP", caption: "Custom CRM & ERP", main: "g-analytics", card: "g-laptop", href: "/services/crm-erp" },
+  { topic: "Instagram & reels", caption: "Reels that get shared", main: "g-instagram", card: "g-instagram-2", href: "/services/social-media" },
   { topic: "WhatsApp CRM", caption: "One shared inbox", main: "g-whatsapp", card: "g-whatsapp-2", href: "/services/whatsapp-crm" },
-  { topic: "YouTube & video", caption: "Shorts & brand films", main: "g-youtube", card: "g-youtube-2", href: "/services/video-editing" },
   { topic: "Social media handling", caption: "Every platform, daily", main: "g-social", card: "g-social-2", href: "/services/social-media" },
   { topic: "Brand & web design", caption: "Websites that sell", main: "g-design", card: "g-laptop", href: "/services/website" },
 ];
