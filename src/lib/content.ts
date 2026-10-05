@@ -141,6 +141,46 @@ export const SERVICES: Service[] = [
   },
 ];
 
+export type Stage = {
+  key: string;
+  title: string;
+  line: string;
+  image: ImageKey;
+  services: string[];
+};
+
+/** Services grouped as the brand-building journey, from first impression to repeat sale. */
+export const STAGES: Stage[] = [
+  {
+    key: "look",
+    title: "Look the part",
+    line: "Shoots and films that give your brand a face people recognise.",
+    image: "photo-shoot",
+    services: ["photo-shoot", "video-editing"],
+  },
+  {
+    key: "talk",
+    title: "Get talked about",
+    line: "Content, campaigns and reviews that keep your name in every feed.",
+    image: "social-media",
+    services: ["social-media", "advertising", "reviews"],
+  },
+  {
+    key: "live",
+    title: "Show up in person",
+    line: "Events and VIP moments people still mention a year later.",
+    image: "event-corporate",
+    services: ["events", "high-profile"],
+  },
+  {
+    key: "sell",
+    title: "Turn fans into customers",
+    line: "The website, CRM and WhatsApp systems that catch every lead your brand creates.",
+    image: "software-team",
+    services: ["website", "crm-erp", "whatsapp-crm", "automation", "software-support"],
+  },
+];
+
 export type EventType = { title: string; detail: string; image: ImageKey };
 
 export const EVENT_TYPES: EventType[] = [
@@ -148,7 +188,7 @@ export const EVENT_TYPES: EventType[] = [
   { title: "Meetings & Conferences", detail: "Dealer meets, summits and seminars for 50 to 2,000 guests.", image: "event-corporate-3" },
   { title: "Commercial Launches", detail: "Product launches, store openings and brand activations.", image: "event-commercial" },
   { title: "Concerts & Shows", detail: "Stage, sound, light and artist management for live nights.", image: "event-commercial-2" },
-  { title: "Galas & Celebrations", detail: "Weddings, private galas and milestone parties with full decor.", image: "work-1" },
+  { title: "Weddings & Celebrations", detail: "Weddings, private galas and milestone parties with full decor.", image: "hero-2" },
 ];
 
 export type Step = { title: string; body: string; tags: string[] };
@@ -166,7 +206,7 @@ export const WORK: Work[] = [
   { client: "Lakshmi Silks", tag: "Shoot + Social", title: "A bridal collection shot in two days", result: "4.1x reach in the launch month", image: "work-2" },
   { client: "Coastal Motors", tag: "Event", title: "A 1,200-guest dealer meet in Chennai", result: "Planned and delivered in 19 days", image: "work-4" },
   { client: "Brewhouse Co.", tag: "Ads + Video", title: "A summer drink launch built for reels", result: "2.3M views across 6 weeks", image: "work-6" },
-  { client: "Arun Exports", tag: "CRM + Automation", title: "WhatsApp follow-ups wired into a new CRM", result: "Lead response time from 6 hours to 4 minutes", image: "crm-erp-3" },
+  { client: "Arun Exports", tag: "WhatsApp CRM", title: "WhatsApp follow-ups wired into a new CRM", result: "Lead response time from 6 hours to 4 minutes", image: "work-9" },
   { client: "Metro Heritage Walk", tag: "Campaign", title: "A city night campaign for a heritage trail", result: "11,000 bookings in one season", image: "work-3" },
 ];
 

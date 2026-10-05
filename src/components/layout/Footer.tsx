@@ -14,7 +14,7 @@ export default function Footer() {
       <Container className="grid gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
           <p className="max-w-sm text-lg leading-relaxed text-muted">
-            A creative studio and a software lab under one roof. Stories that move people, systems that move business.
+            A brand-building studio from Tamil Nadu. We make brands people remember, then build the systems that help them sell.
           </p>
         </div>
         <nav aria-label="Footer" className="md:col-span-2">

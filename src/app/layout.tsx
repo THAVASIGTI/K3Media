@@ -11,12 +11,12 @@ const bricolage = Bricolage_Grotesque({ variable: "--font-bricolage", subsets: [
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://k3media.in"),
-  title: { default: "K3 Media | Media, Events & Software Studio", template: "%s | K3 Media" },
+  title: { default: "K3 Media | Brand Building Studio, Events & Software", template: "%s | K3 Media" },
   description:
     "Video editing, social media, photo shoots, ads, events, VIP management, website development, custom CRM & ERP, WhatsApp CRM and automation. One team for the story and the system.",
   openGraph: {
-    title: "K3 Media | Where stories meet systems",
-    description: "A creative studio and a software lab under one roof.",
+    title: "K3 Media | We build brands people remember",
+    description: "Brand building from first impression to final sale: shoots, social, events, websites and CRM.",
     url: "https://k3media.in",
     siteName: "K3 Media",
     locale: "en_IN",

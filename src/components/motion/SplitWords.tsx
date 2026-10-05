@@ -43,16 +43,17 @@ export default function SplitWords({
         const words = line.split(" ");
         return (
           <span key={li} className="block overflow-hidden pb-[0.08em]">
-            {words.map((w, wi) => (
-              <motion.span
-                key={wi}
-                variants={word}
-                className={`inline-block will-change-transform ${li === accentLine ? accentClass : ""}`}
-              >
-                {w}
-                {wi < words.length - 1 ? " " : ""}
-              </motion.span>
-            ))}{" "}
+            {/* one wrapper per line so a highlighter stroke runs continuously under the words */}
+            <span className={li === accentLine ? accentClass : undefined}>
+              {words.map((w, wi) => (
+                <span key={wi}>
+                  <motion.span variants={word} className="inline-block will-change-transform">
+                    {w}
+                  </motion.span>
+                  {wi < words.length - 1 ? " " : ""}
+                </span>
+              ))}
+            </span>{" "}
           </span>
         );
       })}
