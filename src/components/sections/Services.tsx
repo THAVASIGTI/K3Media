@@ -2,22 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
-import { AnimatePresence, motion, useMotionValue, useSpring } from "motion/react";
+import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { ArrowUpRight, InstagramLogo, Plus } from "@phosphor-icons/react";
-import clsx from "clsx";
-import { CONTACT, SERVICES, SHORTS, STAGES, type Stage } from "@/lib/content";
+import { ArrowUpRight, InstagramLogo } from "@phosphor-icons/react";
+import { CONTACT, SERVICES, STAGES, type Stage } from "@/lib/content";
 import { IMAGES } from "@/lib/images";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import ShortPlayer from "@/components/ui/ShortPlayer";
+import SplitWords from "@/components/motion/SplitWords";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const ease = [0.16, 1, 0.3, 1] as const;
 const bySlug = (slug: string) => SERVICES.find((s) => s.slug === slug)!;
 const num = (i: number) => String(i + 1).padStart(2, "0");
 
@@ -55,190 +53,116 @@ function InstagramCard() {
 }
 
 function StageMedia({ stage }: { stage: Stage }) {
-  if (stage.media.kind === "short") return <ShortPlayer id={stage.media.id} sizes="220px" />;
+  if (stage.media.kind === "short") return <ShortPlayer id={stage.media.id} sizes="200px" />;
   return <InstagramCard />;
 }
 
-/** Expanded panel under a row. */
-function Detail({ stage }: { stage: Stage }) {
+function StageCard({ stage, i }: { stage: Stage; i: number }) {
+  const dense = stage.services.length > 3;
   return (
-    <motion.div
-      initial={{ height: 0, opacity: 0 }}
-      animate={{ height: "auto", opacity: 1 }}
-      exit={{ height: 0, opacity: 0 }}
-      transition={{ duration: 0.7, ease }}
-      className="overflow-hidden"
+    <article
+      className="stack-card relative origin-top md:sticky"
+      style={{ top: `calc(6.5rem + ${i * 1.4}rem)` }}
     >
-      <div className="grid gap-10 pb-14 pt-4 md:grid-cols-12 md:gap-8">
-        <div className="md:col-span-5">
-          <p className="text-lg leading-relaxed text-muted">{stage.detail}</p>
-          <ul className="mt-7 flex flex-wrap gap-2">
-            {stage.services.map((slug, i) => (
-              <motion.li key={slug} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease, delay: 0.2 + i * 0.05 }}>
-                <Link
-                  href={`/services/${slug}`}
-                  className="group/c inline-flex min-h-11 items-center gap-2 rounded-full bg-surface py-2 pl-4 pr-2 text-sm font-medium ring-1 ring-black/10 transition-colors duration-300 hover:bg-ink hover:text-canvas"
-                >
-                  {bySlug(slug).title}
-                  <span className="grid size-7 place-items-center rounded-full bg-black/5 transition-colors duration-300 group-hover/c:bg-accent group-hover/c:text-accent-ink">
-                    <ArrowUpRight size={13} />
-                  </span>
-                </Link>
-              </motion.li>
-            ))}
-          </ul>
-          <p className="mt-9 border-t border-black/10 pt-6">
-            <span className="hl font-display text-5xl font-semibold tracking-tight">{stage.stat.value}</span>
-            <span className="mt-3 block text-muted">{stage.stat.label}</span>
-          </p>
+      <div className="relative grid overflow-hidden rounded-[2.25rem] bg-ink text-canvas shadow-[0_-30px_60px_-30px_rgba(20,19,16,0.5)] md:h-[min(78vh,700px)] md:grid-cols-2">
+        {/* Shade that deepens as the next card stacks on top */}
+        <span aria-hidden className="stack-shade pointer-events-none absolute inset-0 z-20 bg-black opacity-0" />
+
+        {/* Content */}
+        <div className="relative z-10 flex flex-col justify-between gap-10 p-7 md:p-11 lg:p-14">
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="grid h-10 min-w-10 place-items-center rounded-full bg-accent px-3 font-mono text-sm font-semibold text-accent-ink">{num(i)}</span>
+              <span className="h-px flex-1 bg-white/15" />
+              <span className="font-mono text-xs uppercase tracking-[0.16em] text-white/50">{stage.services.length} services</span>
+            </div>
+            <h3 className="mt-8 font-display text-[clamp(2.2rem,4vw,3.9rem)] font-semibold leading-[0.95] tracking-[-0.035em]">{stage.title}</h3>
+            <p className="mt-5 max-w-md leading-relaxed text-white/70">{stage.detail}</p>
+          </div>
+
+          <div>
+            <ul className={dense ? "grid grid-cols-2 gap-2" : "flex flex-wrap gap-2"}>
+              {stage.services.map((slug) => (
+                <li key={slug}>
+                  <Link
+                    href={`/services/${slug}`}
+                    className="group/c flex min-h-11 items-center justify-between gap-2 rounded-full bg-white/[0.07] py-2 pl-4 pr-2 text-sm font-medium ring-1 ring-white/10 transition-colors duration-300 hover:bg-accent hover:text-accent-ink"
+                  >
+                    <span className="truncate">{bySlug(slug).title}</span>
+                    <span className="grid size-7 shrink-0 place-items-center rounded-full bg-white/10 transition-colors group-hover/c:bg-accent-ink group-hover/c:text-accent">
+                      <ArrowUpRight size={13} />
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 flex items-baseline gap-4 border-t border-white/10 pt-6">
+              <span className="font-display text-5xl font-semibold leading-none tracking-tight text-accent">{stage.stat.value}</span>
+              <span className="text-sm text-white/60">{stage.stat.label}</span>
+            </p>
+          </div>
         </div>
-        <motion.div
-          initial={{ opacity: 0, y: 40, scale: 0.96 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 0.9, ease, delay: 0.15 }}
-          className="relative aspect-[4/3] overflow-hidden rounded-[2rem] md:col-span-4 md:aspect-auto md:min-h-[420px]"
-        >
-          <Image src={IMAGES[stage.image].src} alt={IMAGES[stage.image].alt} fill sizes="(max-width: 768px) 100vw, 34vw" className="object-cover" />
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, y: 60, rotate: 6 }}
-          animate={{ opacity: 1, y: 0, rotate: 2 }}
-          transition={{ duration: 0.9, ease, delay: 0.25 }}
-          className="mx-auto w-[220px] self-center md:col-span-3 md:mx-0 md:w-full md:max-w-[220px] md:justify-self-center"
-        >
-          <StageMedia stage={stage} />
-        </motion.div>
+
+        {/* Media */}
+        <div className="relative min-h-[420px] overflow-hidden md:min-h-0">
+          <div className="stack-img absolute inset-0">
+            <Image src={IMAGES[stage.image].src} alt={IMAGES[stage.image].alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+          </div>
+          <span className="absolute inset-0 bg-gradient-to-r from-ink via-ink/20 to-transparent md:via-transparent" />
+          <div className="absolute bottom-6 right-6 w-[170px] rotate-3 transition-transform duration-700 ease-premium hover:rotate-0 hover:scale-[1.03] md:bottom-10 md:right-10 md:w-[200px]">
+            <StageMedia stage={stage} />
+          </div>
+        </div>
       </div>
-    </motion.div>
+    </article>
   );
 }
 
 export default function Services({ heading = true }: { heading?: boolean }) {
   const ref = useRef<HTMLElement>(null);
-  const [open, setOpen] = useState<number | null>(0);
-  const [hover, setHover] = useState<number | null>(null);
-
-  // Cursor-following preview card (desktop pointers only).
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const x = useSpring(mx, { stiffness: 220, damping: 26, mass: 0.6 });
-  const y = useSpring(my, { stiffness: 220, damping: 26, mass: 0.6 });
 
   useGSAP(
     () => {
       const mm = gsap.matchMedia();
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
-        // Titles rise from behind their masks, row by row, as the index scrolls in.
-        gsap.fromTo(
-          ".row-title",
-          { yPercent: 110 },
-          { yPercent: 0, ease: "none", stagger: 0.15, scrollTrigger: { trigger: ".stage-index", start: "top 90%", end: "top 30%", scrub: 1 } },
-        );
-        gsap.fromTo(
-          ".row-line",
-          { scaleX: 0 },
-          { scaleX: 1, ease: "none", stagger: 0.15, scrollTrigger: { trigger: ".stage-index", start: "top 95%", end: "top 40%", scrub: 1 } },
-        );
+      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
+        const cards = gsap.utils.toArray<HTMLElement>(".stack-card");
+        cards.forEach((card, i) => {
+          // Photo drifts inside its frame while the card is on screen.
+          gsap.fromTo(card.querySelector(".stack-img"), { yPercent: -6, scale: 1.12 }, {
+            yPercent: 6,
+            scale: 1.02,
+            ease: "none",
+            scrollTrigger: { trigger: card, start: "top bottom", end: "bottom top", scrub: true },
+          });
+          if (i === cards.length - 1) return;
+          // When the next card slides over, this one recedes and darkens.
+          const st = { trigger: cards[i + 1], start: "top bottom", end: "top 20%", scrub: true };
+          gsap.to(card, { scale: 0.9, ease: "none", scrollTrigger: st });
+          gsap.to(card.querySelector(".stack-shade"), { opacity: 0.55, ease: "none", scrollTrigger: st });
+        });
       });
       return () => mm.revert();
     },
     { scope: ref },
   );
 
-  const hovered = hover !== null && hover !== open ? STAGES[hover] : null;
-
   return (
     <section ref={ref} id="services" className={heading ? "py-32 md:py-44" : "pb-32 md:pb-44"}>
       <Container>
         {heading && (
-          <div className="mb-14 md:mb-20">
+          <div className="mb-14 md:mb-16">
             <Eyebrow>Brand building, start to sale</Eyebrow>
-            <h2 className="mt-6 max-w-5xl font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-semibold leading-[1.02] tracking-[-0.03em]">
-              Four moves that turn a name into a brand that <span className="hl">sells.</span>
+            <h2 className="mt-6 max-w-5xl font-display text-[clamp(2.2rem,4.6vw,4.4rem)] font-semibold leading-[0.98] tracking-[-0.03em]">
+              <SplitWords lines={["Four moves that turn a name", "into a brand that sells."]} accentLine={1} />
             </h2>
           </div>
         )}
-
-        <div
-          className="stage-index"
-          onPointerMove={(e) => {
-            if (e.pointerType !== "mouse") return;
-            mx.set(e.clientX);
-            my.set(e.clientY);
-          }}
-          onPointerLeave={() => setHover(null)}
-        >
-          {STAGES.map((stage, i) => {
-            const isOpen = open === i;
-            return (
-              <div key={stage.key} className="relative">
-                <span className="row-line absolute inset-x-0 top-0 h-px origin-left bg-black/15" />
-                <button
-                  type="button"
-                  aria-expanded={isOpen}
-                  onClick={() => setOpen(isOpen ? null : i)}
-                  onPointerEnter={(e) => e.pointerType === "mouse" && setHover(i)}
-                  className="group relative isolate grid w-full grid-cols-[auto_1fr_auto] items-center gap-4 py-6 text-left md:grid-cols-[5rem_1fr_auto_auto] md:gap-8 md:py-8"
-                >
-                  {/* Yellow sweep on hover / open */}
-                  <span
-                    aria-hidden
-                    className={clsx(
-                      "absolute inset-0 -z-10 origin-left rounded-2xl bg-accent transition-transform duration-700 ease-premium",
-                      isOpen ? "scale-x-0" : "scale-x-0 group-hover:scale-x-100",
-                    )}
-                  />
-                  <span className="font-mono text-sm text-muted transition-colors group-hover:text-accent-ink md:pl-4">{num(i)}</span>
-                  <span className="block overflow-hidden pb-[0.08em]">
-                    <span className="row-title block font-display text-[clamp(1.9rem,5.1vw,5rem)] font-semibold leading-[0.95] tracking-[-0.04em] transition-transform duration-700 ease-premium group-hover:translate-x-3">
-                      {stage.title}
-                    </span>
-                  </span>
-                  <span className="hidden text-right md:block">
-                    <span className="block font-display text-2xl font-semibold tracking-tight">{stage.stat.value}</span>
-                    <span className="block max-w-[14rem] text-xs text-muted transition-colors group-hover:text-accent-ink/70">{stage.stat.label}</span>
-                  </span>
-                  <span
-                    className={clsx(
-                      "grid size-12 place-items-center rounded-full transition-all duration-500 ease-premium md:mr-4 md:size-14",
-                      isOpen ? "rotate-45 bg-ink text-canvas" : "bg-black/5 group-hover:bg-ink group-hover:text-canvas",
-                    )}
-                  >
-                    <Plus size={20} />
-                  </span>
-                </button>
-                <AnimatePresence initial={false}>{isOpen && <Detail key="d" stage={stage} />}</AnimatePresence>
-              </div>
-            );
-          })}
-          <span className="row-line block h-px origin-left bg-black/15" />
+        <div className="space-y-6 md:space-y-[12vh]">
+          {STAGES.map((s, i) => (
+            <StageCard key={s.key} stage={s} i={i} />
+          ))}
         </div>
       </Container>
-
-      {/* Floating preview that follows the cursor over closed rows */}
-      <motion.div aria-hidden style={{ x, y }} className="pointer-events-none fixed left-0 top-0 z-40 hidden md:block">
-        <AnimatePresence>
-          {hovered && (
-            <motion.div
-              key={hovered.key}
-              initial={{ opacity: 0, scale: 0.6, rotate: -12 }}
-              animate={{ opacity: 1, scale: 1, rotate: -6 }}
-              exit={{ opacity: 0, scale: 0.7, rotate: 4 }}
-              transition={{ duration: 0.45, ease }}
-              className="relative -translate-x-1/2 -translate-y-1/2"
-            >
-              <div className="relative h-64 w-52 overflow-hidden rounded-[1.5rem] shadow-[0_30px_60px_-20px_rgba(20,19,16,0.5)] ring-4 ring-surface">
-                <Image src={IMAGES[hovered.image].src} alt="" fill sizes="210px" className="object-cover" />
-              </div>
-              {hovered.media.kind === "short" && (
-                <div className="absolute -bottom-6 -right-14 h-36 w-[5.1rem] overflow-hidden rounded-xl ring-4 ring-ink">
-                  <Image src={SHORTS.find((sh) => sh.id === (hovered.media as { id: string }).id)?.thumb ?? ""} alt="" fill sizes="90px" className="object-cover" />
-                </div>
-              )}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.div>
     </section>
   );
 }
