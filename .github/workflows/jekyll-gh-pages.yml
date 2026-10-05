@@ -1,8 +1,7 @@
 name: Deploy K3Web (via next_js)
 
+# Old theme: manual only. The live site deploys from the k3web branch.
 on:
-  push:
-    branches: ["next_js"]  # set your custom branch here if needed
   workflow_dispatch:
 
 permissions:
