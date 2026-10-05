@@ -170,8 +170,12 @@ export type Stage = {
   key: string;
   title: string;
   line: string;
+  detail: string;
   image: ImageKey;
   services: string[];
+  stat: { value: string; label: string };
+  /** One of our own YouTube Shorts (SHORTS id) or the Instagram profile. */
+  media: { kind: "short"; id: string } | { kind: "instagram" };
 };
 
 /** Services grouped as the brand-building journey, from first impression to repeat sale. */
@@ -180,29 +184,45 @@ export const STAGES: Stage[] = [
     key: "look",
     title: "Look the part",
     line: "Shoots and films that give your brand a face people recognise.",
+    detail:
+      "First impressions are visual. Our photo crew and editors build a look that is yours alone, then cut it for every screen: catalogue, reel, billboard and big-screen brand film.",
     image: "photo-shoot",
     services: ["photo-shoot", "video-editing"],
+    stat: { value: "18K+", label: "reels and edits delivered" },
+    media: { kind: "short", id: "yzr7qwDXcT8" },
   },
   {
     key: "talk",
     title: "Get talked about",
     line: "Content, campaigns and reviews that keep your name in every feed.",
+    detail:
+      "We plan the calendar, make the content, run the ads and answer the reviews, so your brand shows up daily and every rupee of ad spend is tracked to leads.",
     image: "social-media",
     services: ["social-media", "advertising", "reviews"],
+    stat: { value: "4.2x", label: "average return on ad spend" },
+    media: { kind: "short", id: "hBP9IgewyDY" },
   },
   {
     key: "live",
     title: "Show up in person",
     line: "Events and VIP moments people still mention a year later.",
+    detail:
+      "Launches, dealer meets, conferences and celebrations, plus the celebrities and VIPs who make them headline. One crew runs the stage, the guests and the live coverage.",
     image: "event-corporate",
     services: ["events", "high-profile"],
+    stat: { value: "240+", label: "events delivered" },
+    media: { kind: "instagram" },
   },
   {
     key: "sell",
     title: "Turn fans into customers",
     line: "The website, CRM and WhatsApp systems that catch every lead your brand creates.",
+    detail:
+      "Attention only pays when someone follows up. We build the website, custom CRM & ERP, WhatsApp inbox and automations that turn every enquiry into a customer.",
     image: "software-team",
     services: ["website", "crm-erp", "whatsapp-crm", "automation", "software-support"],
+    stat: { value: "4 min", label: "average lead response with WhatsApp CRM" },
+    media: { kind: "short", id: "LKQQ2IsmTOI" },
   },
 ];
 

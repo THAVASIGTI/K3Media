@@ -1,39 +1,33 @@
 "use client";
 
-import { ReactLenis, type LenisRef } from "lenis/react";
+import { ReactLenis, useLenis } from "lenis/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { MotionConfig, useReducedMotion } from "motion/react";
 import PageCurtain from "./PageCurtain";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function SmoothScroll({ children }: { children: React.ReactNode }) {
-  const lenisRef = useRef<LenisRef>(null);
-  const reduce = useReducedMotion();
+/**
+ * Lives inside <ReactLenis>, so it receives the real instance once it exists.
+ * (Reading a ref in the parent's effect ran before Lenis was created, which left the RAF loop
+ * unstarted: Lenis swallowed wheel events and the page never scrolled.)
+ */
+function LenisBridge() {
   const pathname = usePathname();
+  const lenis = useLenis(() => ScrollTrigger.update());
 
   useEffect(() => {
-    const lenis = lenisRef.current?.lenis;
-    if (!lenis) return;
-    lenis.on("scroll", ScrollTrigger.update);
-    const tick = (t: number) => lenis.raf(t * 1000);
-    gsap.ticker.add(tick);
-    gsap.ticker.lagSmoothing(0);
     document.fonts?.ready.then(() => ScrollTrigger.refresh());
-    return () => {
-      lenis.off("scroll", ScrollTrigger.update);
-      gsap.ticker.remove(tick);
-    };
-  }, [reduce]);
+  }, []);
 
   // New page: re-measure scroll triggers for the new layout, then jump to top.
   // Order matters: refresh() restores its cached scroll position, so scrolling first gets undone.
   useEffect(() => {
     const toTop = () => {
-      lenisRef.current?.lenis?.scrollTo(0, { immediate: true, force: true });
+      lenis?.scrollTo(0, { immediate: true, force: true });
       window.scrollTo(0, 0);
     };
     toTop();
@@ -42,18 +36,23 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
       toTop();
     });
     return () => cancelAnimationFrame(id);
-  }, [pathname]);
+  }, [pathname, lenis]);
+
+  return <PageCurtain pathname={pathname} />;
+}
+
+export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+  const reduce = useReducedMotion();
 
   // Same tree on server and client (no remount after hydration); reduced motion just turns smoothing off.
   return (
     <MotionConfig reducedMotion="user">
       <ReactLenis
         root
-        ref={lenisRef}
-        options={{ autoRaf: false, lerp: reduce ? 1 : 0.085, smoothWheel: !reduce, anchors: { offset: -24 } }}
+        options={{ autoRaf: true, lerp: reduce ? 1 : 0.085, smoothWheel: !reduce, anchors: { offset: -24 } }}
       >
         {children}
-        <PageCurtain pathname={pathname} />
+        <LenisBridge />
       </ReactLenis>
     </MotionConfig>
   );
