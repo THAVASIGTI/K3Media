@@ -64,7 +64,7 @@ export const IMAGES = {
   "g-social": { src: u("1683721003111-070bcc053d8b"), alt: "3D YouTube, Instagram, TikTok and Facebook icons grouped together" },
   "g-social-2": { src: u("1689004624325-6edf074228dd"), alt: "Stack of cubes printed with social media app icons" },
   "g-design": { src: u("1760008486699-dbc9c319691a"), alt: "Colourful 3D design shapes, pencil and charts floating on a platform" },
-  "g-analytics": { src: "/hero/crm-isometric.jpg", alt: "Isometric CRM illustration: customer support, sales funnel, chat, email, analytics and reviews connected around the word CRM" },
+  "g-analytics": { src: u("1674027392887-751d6396b710"), alt: "3D sales dashboard with charts, target and idea bulb beside a shopping basket and bag on a navy stage" },
   "g-laptop": { src: u("1777503812370-bcae5728b463"), alt: "3D laptop showing colourful design boards and emojis" },
 } satisfies Record<string, Img>;
 
