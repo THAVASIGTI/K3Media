@@ -34,9 +34,20 @@ export default function ServicesCTA() {
                         }}>
                             Get a free consultation with our experts and discover exactly which channels and tactics will move the needle for your business.
                         </p>
-                        <a href="page-contact" className="theme-btn btn-style-one">
-                            <span className="btn-title">Get a Free Consultation</span>
-                        </a>
+                        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                            <a href="page-contact" className="theme-btn btn-style-one">
+                                <span className="btn-title">Get a Free Consultation</span>
+                            </a>
+                            <a href="/service/ai-assistant/" className="theme-btn btn-style-one">
+                                <span className="btn-title">🤖 AI Assistant</span>
+                            </a>
+                            <a href="/service/ai-assistant-uuid/" className="theme-btn btn-style-one">
+                                <span className="btn-title">💬 AI Chat Room</span>
+                            </a>
+                            <a href="/service/ai-assistant/admin" className="theme-btn btn-style-one">
+                                <span className="btn-title">🔐 Admin Console</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>

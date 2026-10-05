@@ -9,7 +9,7 @@ export default function Home2_Section10() {
       {/* Fun Fact Section */}
       <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="k-cDBWdP9kc" onClose={() => setOpen(false)} />
       <section className="fun-fact-section-two">
-        <div className="bg" style={{ backgroundImage: 'url(./images/background/9.png)' }} />
+        <div className="bg" style={{ backgroundImage: 'url(./images/background/reimg.jpeg)' }} />
         <div className="auto-container">
           <div className="outer-box">
             <div className="row">
