@@ -60,8 +60,8 @@ function ShortCard({ short, index }: { short: Short; index: number }) {
 export default function Reels() {
   return (
     <section aria-labelledby="reels-title" className="overflow-hidden py-16 md:py-36">
-      <Container className="grid gap-14 md:grid-cols-12 md:gap-10">
-        <div className="md:col-span-4">
+      <Container className="grid grid-cols-1 gap-14 md:grid-cols-12 md:gap-10">
+        <div className="min-w-0 md:col-span-4">
           <div className="md:sticky md:top-32">
             <Eyebrow>From our channels</Eyebrow>
             <h2 id="reels-title" className="mt-6 font-display text-[clamp(2.2rem,4.2vw,3.75rem)] font-semibold leading-[0.98] tracking-[-0.03em]">

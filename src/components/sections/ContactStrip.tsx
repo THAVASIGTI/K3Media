@@ -22,9 +22,9 @@ export default function ContactStrip({ title, sub }: { title: string; sub: strin
               <MagneticButton href="/contact">{CTA_LABEL}</MagneticButton>
             </div>
           </div>
-          <ul className="grid min-w-0 gap-3 self-end md:col-span-6">
+          <ul className="grid min-w-0 grid-cols-1 gap-3 self-end md:col-span-6">
             {ways.map(({ icon: Icon, label, value, href }) => (
-              <li key={label}>
+              <li key={label} className="min-w-0">
                 <a
                   href={href}
                   {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}

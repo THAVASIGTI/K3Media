@@ -67,9 +67,6 @@ body {
 .animate-marquee {
   animation: marquee 60s linear infinite;
 }
-.animate-marquee-reverse {
-  animation: marquee 60s linear infinite reverse;
-}
 
 @keyframes spin-slow {
   to { transform: rotate(360deg); }
@@ -85,8 +82,7 @@ body {
     transition-duration: 0.01ms !important;
   }
   /* The topics strip keeps moving (slower) as a deliberate brand element. */
-  .animate-marquee,
-  .animate-marquee-reverse {
+  .animate-marquee {
     animation-duration: 90s !important;
     animation-iteration-count: infinite !important;
   }

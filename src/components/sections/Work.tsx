@@ -34,7 +34,7 @@ export default function Work() {
           </div>
         </div>
 
-        <ul className="mt-10 grid gap-4 md:mt-16 md:gap-5 lg:grid-cols-12">
+        <ul className="mt-10 grid grid-cols-1 gap-4 md:mt-16 md:gap-5 lg:grid-cols-12">
           {WORK.map((w, i) => (
             <motion.li
               key={w.slug}
@@ -42,7 +42,7 @@ export default function Work() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.9, ease, delay: (i % 2) * 0.1 }}
-              className={SPAN[i % SPAN.length]}
+              className={clsx("min-w-0", SPAN[i % SPAN.length])}
             >
               {/* Display only: case cards do not link anywhere */}
               <article

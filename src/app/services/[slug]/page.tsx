@@ -224,9 +224,9 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
             <span aria-hidden className="absolute -bottom-24 -right-24 size-80 rounded-full border-[40px] border-white/10 transition-transform duration-1000 ease-premium group-hover:scale-110" />
             <span aria-hidden className="absolute -left-10 -top-10 size-48 rounded-full bg-white/10 blur-3xl" />
             <p className="relative font-mono text-xs uppercase tracking-[0.18em] text-white/70">Next service</p>
-            <p className="relative flex items-end justify-between gap-6 font-display text-[clamp(2rem,4vw,3.75rem)] font-semibold leading-none tracking-[-0.03em]">
-              {next.title}
-              <span className="grid size-14 shrink-0 place-items-center rounded-full bg-accent text-accent-ink transition-transform duration-500 ease-premium group-hover:translate-x-1">
+            <p className="relative flex items-end justify-between gap-4 font-display text-[clamp(1.7rem,4vw,3.75rem)] font-semibold leading-none tracking-[-0.03em] sm:gap-6">
+              <span className="min-w-0 [overflow-wrap:anywhere]">{next.title}</span>
+              <span className="grid size-12 shrink-0 sm:size-14 place-items-center rounded-full bg-accent text-accent-ink transition-transform duration-500 ease-premium group-hover:translate-x-1">
                 <ArrowRight size={22} />
               </span>
             </p>
