@@ -236,8 +236,6 @@ export type Work = {
   title: string;
   result: string;
   image: ImageKey;
-  /** 3D render shown on the home "Proof, not promises" cards */
-  art: ImageKey;
   gallery: ImageKey[];
   services: string[];
   challenge: string;
@@ -254,7 +252,6 @@ export const WORK: Work[] = [
     title: "A bridal collection shot in two days",
     result: "4.1x reach in the launch month",
     image: "work-2",
-    art: "g-instagram-2",
     gallery: ["work-8", "advertising", "work-1"],
     services: ["photo-shoot", "video-editing", "social-media"],
     challenge: "A family-run silk house was launching its biggest bridal collection in years, with old catalogue photos and a quiet Instagram page.",
@@ -268,7 +265,6 @@ export const WORK: Work[] = [
     title: "A summer drink launch built for reels",
     result: "2.3M views across 6 weeks",
     image: "work-6",
-    art: "g-youtube",
     gallery: ["social-media", "video-editing", "advertising"],
     services: ["advertising", "video-editing", "social-media"],
     challenge: "A new beverage brand had to win shelf attention in a crowded summer market with a modest budget.",
@@ -282,7 +278,6 @@ export const WORK: Work[] = [
     title: "WhatsApp follow-ups wired into a new CRM",
     result: "Lead response time from 6 hours to 4 minutes",
     image: "work-9",
-    art: "g-whatsapp",
     gallery: ["whatsapp-crm", "crm-erp", "software-team"],
     services: ["whatsapp-crm", "crm-erp", "automation"],
     challenge: "Enquiries from IndiaMART, ads and the website landed in three inboxes and two personal phones. Leads waited hours for a reply.",
@@ -296,7 +291,6 @@ export const WORK: Work[] = [
     title: "A city night campaign for a heritage trail",
     result: "11,000 bookings in one season",
     image: "work-3",
-    art: "c-website",
     gallery: ["website-dev", "advertising", "social-media-2"],
     services: ["advertising", "website", "social-media"],
     challenge: "A heritage tour operator wanted locals, not only tourists, to book its evening walks.",
