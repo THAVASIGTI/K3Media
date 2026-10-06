@@ -300,11 +300,16 @@ export const WORK: Work[] = [
 
 export const CLIENTS = ["Lakshmi Silks", "Coastal Motors", "Brewhouse Co.", "Arun Exports", "Nila Foods", "Vetri Hospitals", "Kaveri Realty", "Orbit Academy", "Sri Murugan Textiles", "Pixel Mart"];
 
-export type Quote = { quote: string; name: string; role: string; company: string };
+export type Quote = { quote: string; name: string };
 
+// Sample testimonials; replace with real client quotes before launch.
 export const QUOTES: Quote[] = [
-  { quote: "They shot our launch, ran the ads and then built the CRM that caught every lead. One team, no hand-offs.", name: "Priya Raman", role: "Marketing Head", company: "Lakshmi Silks" },
-  { quote: "Our WhatsApp flow now answers enquiries in minutes. Sales stopped losing leads over the weekend.", name: "Divya Narayanan", role: "Founder", company: "Arun Exports" },
+  { quote: "They shot our launch, ran the ads and then built the CRM that caught every lead. One team, no hand-offs.", name: "Priya Raman" },
+  { quote: "Our WhatsApp flow now answers enquiries in minutes. Sales stopped losing leads over the weekend.", name: "Divya Narayanan" },
+  { quote: "Our product photos finally look like the brand we wanted to be. Online sales went up the month we switched.", name: "Karthik Selvam" },
+  { quote: "The reels they edit for us get more views in a week than our old posts got in a month.", name: "Meena Sundar" },
+  { quote: "The custom ERP replaced four spreadsheets. Billing, stock and GST now sit in one place.", name: "Arjun Prakash" },
+  { quote: "Ads, reviews and the website are handled by one team, and every month we get a report we can actually read.", name: "Lakshmi Narayan" },
 ];
 
 export const FAQ = [
