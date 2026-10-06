@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { AnimatePresence, LayoutGroup, motion } from "motion/react";
@@ -8,8 +7,8 @@ import { ArrowUpRight, Check, Clock } from "@phosphor-icons/react";
 import clsx from "clsx";
 import { PILLARS, SERVICES, type Pillar } from "@/lib/content";
 import { SERVICE_DETAILS } from "@/lib/service-details";
-import { SERVICE_COVER, SERVICE_TURNAROUND } from "@/lib/page-content";
-import { IMAGES } from "@/lib/images";
+import { SERVICE_TURNAROUND } from "@/lib/page-content";
+import ServiceArt from "@/components/sections/ServiceArt";
 import Container from "@/components/ui/Container";
 
 type Filter = "all" | Pillar;
@@ -55,7 +54,6 @@ export default function ServiceCatalog() {
             <AnimatePresence mode="popLayout">
               {list.map((s) => {
                 const d = SERVICE_DETAILS[s.slug];
-                const cover = IMAGES[SERVICE_COVER[s.slug] ?? s.image];
                 return (
                   <motion.li
                     key={s.slug}
@@ -67,11 +65,11 @@ export default function ServiceCatalog() {
                   >
                     <Link href={`/services/${s.slug}`} className="group flex h-full flex-col overflow-hidden rounded-[2rem] bg-surface ring-1 ring-black/5 transition-shadow duration-500 hover:shadow-[0_30px_60px_-30px_rgba(20,19,16,0.35)]">
                       <div className="relative aspect-[16/10] overflow-hidden">
-                        <Image src={cover.src} alt={cover.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transition-transform duration-[1.2s] ease-premium group-hover:scale-105" />
-                        <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink backdrop-blur-md">
+                        <ServiceArt slug={s.slug} className="transition-transform duration-[1.2s] ease-premium group-hover:scale-105" />
+                        <span className="absolute left-4 top-4 z-10 rounded-full bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink backdrop-blur-md">
                           {PILLARS[s.pillar].name}
                         </span>
-                        <span className="absolute bottom-4 right-4 grid size-11 translate-y-2 place-items-center rounded-full bg-accent text-accent-ink opacity-0 transition-all duration-500 ease-premium group-hover:translate-y-0 group-hover:opacity-100">
+                        <span className="absolute bottom-4 right-4 z-10 grid size-11 translate-y-2 place-items-center rounded-full bg-accent text-accent-ink opacity-0 transition-all duration-500 ease-premium group-hover:translate-y-0 group-hover:opacity-100">
                           <ArrowUpRight size={18} />
                         </span>
                       </div>

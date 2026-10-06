@@ -3,15 +3,15 @@
 import { motion } from "motion/react";
 import { CalendarCheck, ChatCircleDots, Eye, Heart, MapPin, Play } from "@phosphor-icons/react";
 
-const loop = (duration: number, delay = 0, extra: object = {}) => ({ duration, delay, repeat: Infinity, ease: "easeInOut" as const, ...extra });
+export const loop = (duration: number, delay = 0, extra: object = {}) => ({ duration, delay, repeat: Infinity, ease: "easeInOut" as const, ...extra });
 
 /** Glossy highlight laid over a shape so it reads as a 3D object. */
-const Gloss = ({ className = "" }: { className?: string }) => (
+export const Gloss = ({ className = "" }: { className?: string }) => (
   <span aria-hidden className={`pointer-events-none absolute inset-0 rounded-[inherit] bg-gradient-to-br from-white/45 via-white/5 to-transparent ${className}`} />
 );
 
 /** Soft floor shadow under a floating object. */
-const Shadow = ({ className }: { className: string }) => (
+export const Shadow = ({ className }: { className: string }) => (
   <motion.span
     aria-hidden
     className={`absolute rounded-[50%] bg-black/35 blur-md ${className}`}
@@ -21,7 +21,7 @@ const Shadow = ({ className }: { className: string }) => (
 );
 
 /* ---------- Shoot + Social: camera, flash, posts and hearts ---------- */
-function ShootScene() {
+export function ShootScene() {
   return (
     <>
       <Shadow className="bottom-[10%] left-1/2 h-[7%] w-[44%] -translate-x-1/2" />
@@ -144,7 +144,7 @@ const CHAT = [
   { me: true, w: "w-[66%]" },
 ];
 
-function CrmScene() {
+export function CrmScene() {
   return (
     <>
       <Shadow className="bottom-[7%] left-[16%] h-[6%] w-[30%]" />
@@ -211,7 +211,7 @@ function CrmScene() {
 }
 
 /* ---------- Campaign + Website: booking site, map pin, chart ---------- */
-function WebScene() {
+export function WebScene() {
   return (
     <>
       <Shadow className="bottom-[8%] left-1/2 h-[6%] w-[54%] -translate-x-1/2" />

@@ -5,16 +5,6 @@ import type { ImageKey } from "./images";
 
 /* ---------- /services ---------- */
 
-/** Concept cover images for the /services catalogue cards (falls back to the service photo). */
-export const SERVICE_COVER: Partial<Record<string, ImageKey>> = {
-  website: "c-website",
-  "crm-erp": "g-analytics",
-  "whatsapp-crm": "g-whatsapp",
-  reviews: "c-reviews",
-  automation: "c-automation",
-  "software-support": "c-support",
-};
-
 export const SERVICE_TURNAROUND: Record<string, string> = {
   "video-editing": "Reels in 48 hours",
   "social-media": "Starts within 1 week",
@@ -33,7 +23,7 @@ export const ENGAGEMENTS = [
   {
     name: "Monthly retainer",
     for: "Social media, ads, video and review management",
-    from: "From ₹25,000 / month",
+    from: "Fixed monthly fee",
     points: ["Fixed monthly deliverables", "Dedicated account manager", "Monthly report and strategy call", "Pause or change scope with 30 days notice"],
     featured: false,
   },

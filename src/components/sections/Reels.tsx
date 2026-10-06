@@ -22,7 +22,7 @@ function ShortCard({ short, index }: { short: Short; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 1, ease, delay: index * 0.08 }}
-      className={clsx("w-[68vw] shrink-0 snap-start sm:w-[44vw] md:w-auto", index % 2 === 1 && "md:mt-16")}
+      className={clsx("min-w-0", index % 2 === 1 && "md:mt-16")}
     >
       <div className="relative aspect-[9/16] overflow-hidden rounded-[1.75rem] bg-ink ring-1 ring-black/10">
         {playing ? (
@@ -39,18 +39,18 @@ function ShortCard({ short, index }: { short: Short; index: number }) {
               src={short.thumb}
               alt=""
               fill
-              sizes="(max-width: 768px) 68vw, 18vw"
+              sizes="(max-width: 768px) 46vw, 18vw"
               className="object-cover transition-transform duration-[1.2s] ease-premium group-hover:scale-105"
             />
             <span className="absolute inset-0 bg-black/10 transition-colors duration-500 group-hover:bg-black/25" />
-            <span className="absolute left-1/2 top-1/2 grid size-16 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-accent text-accent-ink shadow-[0_12px_40px_-8px_rgba(0,0,0,0.5)] transition-transform duration-500 ease-premium group-hover:scale-110">
-              <Play size={22} weight="fill" />
+            <span className="absolute left-1/2 top-1/2 grid size-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-accent text-accent-ink shadow-[0_12px_40px_-8px_rgba(0,0,0,0.5)] transition-transform duration-500 ease-premium group-hover:scale-110 md:size-16">
+              <Play size={20} weight="fill" />
             </span>
           </button>
         )}
       </div>
       <figcaption className="mt-4 px-1">
-        <span className="line-clamp-2 block text-[0.95rem] font-medium leading-snug">{short.title}</span>
+        <span className="line-clamp-3 text-sm font-medium leading-snug md:line-clamp-2 md:text-[0.95rem]">{short.title}</span>
         <span className="mt-1.5 block font-mono text-[11px] uppercase tracking-[0.14em] text-faint">{short.views}</span>
       </figcaption>
     </motion.figure>
@@ -105,7 +105,8 @@ export default function Reels() {
           </div>
         </div>
 
-        <div className="-mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto px-5 pb-4 [scrollbar-width:none] md:col-span-8 md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0 md:pb-16">
+        {/* Phones: a two-column grid, so only the page scrolls (no sideways scroller). */}
+        <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-4 md:col-span-8 md:grid-cols-4 md:gap-y-0 md:pb-16">
           {SHORTS.map((s, i) => (
             <ShortCard key={s.id} short={s} index={i} />
           ))}
