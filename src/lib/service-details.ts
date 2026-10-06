@@ -1,9 +1,7 @@
-import type { ImageKey } from "./images";
 
 export type ServiceDetail = {
   headline: string;
   intro: string;
-  gallery: [ImageKey, ImageKey];
   included: { title: string; body: string }[];
   idealFor: string[];
   faq: { q: string; a: string }[];
@@ -15,7 +13,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     headline: "A shoot crew that makes your brand look the part.",
     intro:
       "Product, portrait, catalogue and campaign photography from one on-call crew. We plan the look, light the set, direct the talent and deliver retouched images ready for print, web and social.",
-    gallery: ["photo-shoot", "photo-shoot-2"],
     included: [
       { title: "Creative direction", body: "Moodboards, shot lists and styling notes agreed before anyone picks up a camera." },
       { title: "Studio and on-location", body: "Our studio setup or your store, factory, venue or street, with full lighting kits." },
@@ -34,7 +31,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     headline: "Edits that stop the scroll and hold the room.",
     intro:
       "Reels, shorts, brand films, ads and event aftermovies, cut to the rhythm of each platform. Send us raw footage or let our shoot crew capture it, and we handle the edit, grade, sound and subtitles.",
-    gallery: ["video-editing", "social-media"],
     included: [
       { title: "Short-form reels", body: "Hook-first edits for Instagram Reels, YouTube Shorts and Moj, delivered in batches." },
       { title: "Brand films", body: "60 to 180 second stories for your website, launches and investor decks." },
@@ -53,7 +49,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     headline: "Your feed, run every single day.",
     intro:
       "Strategy, calendars, content, posting and community management for Instagram, Facebook, YouTube and LinkedIn. You approve the plan once a month; we make sure your brand shows up daily.",
-    gallery: ["social-media", "social-media-2"],
     included: [
       { title: "Monthly strategy", body: "Content pillars, campaign themes and a calendar built around your sales goals." },
       { title: "Content production", body: "Posts, carousels, reels and stories designed and written in your brand voice." },
@@ -72,7 +67,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     headline: "Campaigns planned around real numbers.",
     intro:
       "Paid digital ads and traditional media under one plan. We write the creative, target the right audience, manage the budget and report every rupee in leads, calls and sales.",
-    gallery: ["advertising", "work-3"],
     included: [
       { title: "Meta and Google ads", body: "Lead, sales and awareness campaigns with weekly optimisation." },
       { title: "Creative that converts", body: "Ad copy, static and video creatives tested in multiple variations." },
@@ -91,7 +85,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     headline: "Discreet care for the people everyone is watching.",
     intro:
       "Celebrity, influencer and VIP management for launches, events and brand campaigns. From booking the right face to protocol, security and media handling on the day, nothing is left to chance.",
-    gallery: ["vip-management", "vip-management-2"],
     included: [
       { title: "Celebrity booking", body: "Film, sports and influencer talent matched to your audience and budget." },
       { title: "Contracts and riders", body: "Fees, deliverables, travel and hospitality negotiated and documented." },
@@ -110,7 +103,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     headline: "More five-star reviews, fewer surprises.",
     intro:
       "Your reputation lives on Google, Amazon, Flipkart and social media. We help you collect genuine reviews, respond to every one of them and spot problems before they spread.",
-    gallery: ["product-review", "product-review-2"],
     included: [
       { title: "Review requests", body: "Automatic WhatsApp and SMS requests after purchase or service." },
       { title: "Marketplace monitoring", body: "Amazon, Flipkart, Google and app store reviews in one view." },
@@ -129,7 +121,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     headline: "Websites that turn visitors into enquiries.",
     intro:
       "Fast, mobile-first business websites, landing pages and online stores, designed to look like your brand and built to bring in leads. Every site is connected to your CRM and WhatsApp from day one.",
-    gallery: ["website-dev", "software-team-2"],
     included: [
       { title: "Design that fits your brand", body: "Custom layouts, not recycled templates, with your photography and voice." },
       { title: "Business and corporate sites", body: "Company profiles, service pages and career pages your team can update." },
@@ -148,7 +139,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     headline: "Software built around how your business actually works.",
     intro:
       "Custom CRM and ERP systems for sales, inventory, billing and operations. Instead of forcing your team into a generic tool, we map your process first and build exactly what you need.",
-    gallery: ["crm-erp", "crm-erp-2"],
     included: [
       { title: "Process mapping", body: "We sit with your team, document the workflow and agree on what to automate." },
       { title: "Lead and sales CRM", body: "Pipelines, follow-up reminders, quotations and sales reports." },
@@ -167,7 +157,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     headline: "Every WhatsApp lead in one shared inbox.",
     intro:
       "A web-based WhatsApp CRM on the official WhatsApp Business API. Your whole team replies from one number, every chat is tagged and assigned, and nothing gets lost in someone's personal phone.",
-    gallery: ["whatsapp-crm", "social-media-2"],
     included: [
       { title: "Official Business API", body: "Verified business number with green-tick eligibility support." },
       { title: "Shared team inbox", body: "Multiple agents on one number, with chat assignment and notes." },
@@ -186,7 +175,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     headline: "Workflows that follow up while you sleep.",
     intro:
       "We connect your forms, ads, CRM, payments and messaging so data moves on its own. Your team stops copy-pasting and starts closing.",
-    gallery: ["automation", "automation-2"],
     included: [
       { title: "Lead capture", body: "Leads from Meta, Google, website and IndiaMART pushed straight to your CRM." },
       { title: "Follow-up sequences", body: "Timed WhatsApp, email and SMS follow-ups until a lead replies." },
@@ -205,7 +193,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     headline: "Support from a team that answers the phone.",
     intro:
       "Annual maintenance, hosting, security and feature updates for the websites and software we build, and for systems built by others. One call fixes it.",
-    gallery: ["software-team", "software-team-2"],
     included: [
       { title: "Annual maintenance", body: "Planned updates, bug fixes and health checks every month." },
       { title: "Hosting and backups", body: "Managed cloud hosting with daily backups and quick restores." },

@@ -5,6 +5,7 @@ import Values from "@/components/sections/Values";
 import Teams from "@/components/sections/Teams";
 import Process from "@/components/sections/Process";
 import ContactStrip from "@/components/sections/ContactStrip";
+import { AboutHeroArt } from "@/components/art/AboutArt";
 
 export const metadata: Metadata = {
   title: "About",
@@ -19,7 +20,7 @@ export default function AboutPage() {
         lines={["A studio and a lab", "under one roof."]}
         accentLine={1}
         intro="K3 Media started with cameras and campaigns. Our clients kept asking what happens after the launch, so we built a software team to answer. Today one crew takes a brand from its first photo to its thousandth customer."
-        image="studio-team"
+        art={<AboutHeroArt />}
       />
       <Milestones />
       <Values />

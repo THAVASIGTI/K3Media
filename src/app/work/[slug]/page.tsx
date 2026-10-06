@@ -36,7 +36,7 @@ export default async function CasePage(props: PageProps<"/work/[slug]">) {
     <main className="w-full overflow-x-clip">
       <section className="pb-14 pt-32 md:pt-44">
         <Container>
-          <Breadcrumb items={[{ label: "Work", href: "/work" }, { label: w.client }]} />
+          <Breadcrumb items={[{ label: "Case studies", href: "/#work" }, { label: w.client }]} />
           <p className="mt-10 font-mono text-xs uppercase tracking-[0.18em] text-accent-deep">{w.client} / {w.tag}</p>
           <h1 className="mt-4 max-w-5xl font-display text-[clamp(2.5rem,6vw,5.75rem)] font-semibold leading-[0.95] tracking-[-0.035em]">
             <SplitWords lines={[w.title]} delay={0.1} onMount />

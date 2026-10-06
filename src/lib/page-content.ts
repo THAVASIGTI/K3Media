@@ -1,5 +1,3 @@
-import type { ImageKey } from "./images";
-
 /* Content used only by inner pages (/services, /about), so they never repeat the home page.
    Figures, names and dates are sample content: replace with real details before launch. */
 
@@ -69,8 +67,8 @@ export const VALUES = [
 ];
 
 export const TEAMS = [
-  { name: "Production", people: "Photographers, cinematographers, editors", image: "photo-shoot-2" as ImageKey },
-  { name: "Content & ads", people: "Strategists, designers, copywriters, media buyers", image: "social-media-2" as ImageKey },
-  { name: "VIP & talent", people: "Celebrity booking, protocol, VIP and artist relations", image: "event-corporate-2" as ImageKey },
-  { name: "The Lab", people: "Developers, CRM consultants, support engineers", image: "software-team-2" as ImageKey },
+  { name: "Production", people: "Photographers, cinematographers, editors" },
+  { name: "Content & ads", people: "Strategists, designers, copywriters, media buyers" },
+  { name: "VIP & talent", people: "Celebrity booking, protocol, VIP and artist relations" },
+  { name: "The Lab", people: "Developers, CRM consultants, support engineers" },
 ];

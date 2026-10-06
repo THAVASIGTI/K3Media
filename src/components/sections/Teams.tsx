@@ -1,11 +1,10 @@
-import Image from "next/image";
 import { TEAMS } from "@/lib/page-content";
 import { CONTACT } from "@/lib/content";
-import { IMAGES } from "@/lib/images";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/motion/Reveal";
+import { TeamArt } from "@/components/art/AboutArt";
 
-/** Department cards: photos start grayscale and come alive on hover. */
+/** Department cards with an animated icon constellation per team. */
 export default function Teams() {
   return (
     <section className="py-16 md:py-32">
@@ -16,23 +15,19 @@ export default function Teams() {
           </h2>
           <p className="max-w-sm text-muted">Based in {CONTACT.city}, working with brands across South India and remotely across the country.</p>
         </div>
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-5 md:mt-14 lg:grid-cols-4">
           {TEAMS.map((t, i) => (
-            <Reveal key={t.name} delay={i * 0.07}>
-              <figure className="group">
-                <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem]">
-                  <Image
-                    src={IMAGES[t.image].src}
-                    alt={IMAGES[t.image].alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover grayscale transition-all duration-[1.2s] ease-premium group-hover:scale-105 group-hover:grayscale-0"
-                  />
-                  <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 font-mono text-xs text-ink backdrop-blur-md">{String(i + 1).padStart(2, "0")}</span>
+            <Reveal key={t.name} delay={i * 0.07} className="h-full">
+              <figure className="group flex h-full flex-col rounded-[1.75rem] bg-surface p-1.5 ring-1 ring-black/5 transition-shadow duration-500 hover:shadow-[0_30px_60px_-30px_rgba(20,19,16,0.35)] md:rounded-[2rem]">
+                <div className="relative aspect-square overflow-hidden rounded-[calc(1.75rem-0.375rem)] transition-transform duration-700 ease-premium group-hover:-translate-y-1 md:rounded-[calc(2rem-0.375rem)]">
+                  <TeamArt name={t.name} />
+                  <span className="absolute left-3 top-3 z-10 rounded-full bg-white/90 px-2.5 py-1 font-mono text-[10px] text-ink backdrop-blur-md md:left-4 md:top-4 md:px-3 md:text-xs">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
                 </div>
-                <figcaption className="mt-5">
-                  <span className="block font-display text-2xl font-semibold tracking-tight">{t.name}</span>
-                  <span className="mt-1 block text-sm text-muted">{t.people}</span>
+                <figcaption className="flex-1 px-3 pb-4 pt-4 md:px-5 md:pb-6">
+                  <span className="block font-display text-lg font-semibold tracking-tight md:text-2xl">{t.name}</span>
+                  <span className="mt-1 block text-xs leading-relaxed text-muted md:text-sm">{t.people}</span>
                 </figcaption>
               </figure>
             </Reveal>

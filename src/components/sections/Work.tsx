@@ -33,12 +33,6 @@ export default function Work() {
           </h2>
           <div className="md:col-span-4 md:justify-self-end md:text-right">
             <p className="max-w-xs text-muted md:ml-auto">Real briefs, real deadlines and the numbers they moved.</p>
-            <Link href="/work" className="group/a mt-4 inline-flex items-center gap-2 text-sm font-medium text-ink">
-              All case studies
-              <span className="grid size-8 place-items-center rounded-full bg-ink text-canvas transition-transform duration-500 ease-premium group-hover/a:rotate-45">
-                <ArrowUpRight size={14} />
-              </span>
-            </Link>
           </div>
         </div>
 

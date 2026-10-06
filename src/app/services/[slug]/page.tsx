@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, ArrowUpRight, Check } from "@phosphor-icons/react/dist/ssr";
@@ -13,6 +12,9 @@ import Reveal from "@/components/motion/Reveal";
 import SplitWords from "@/components/motion/SplitWords";
 import MagneticButton from "@/components/motion/MagneticButton";
 import ContactStrip from "@/components/sections/ContactStrip";
+import { ServiceHeroArt, ServicePanelArt } from "@/components/art/ServicePageArt";
+import { serviceTone } from "@/lib/service-tones";
+import { SERVICE_TURNAROUND } from "@/lib/page-content";
 
 export const dynamicParams = false;
 
@@ -81,7 +83,7 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
             <Reveal delay={0.2} y={60} className="md:col-span-5">
               <div className="rounded-[2rem] bg-black/5 p-1.5 ring-1 ring-black/5">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-[calc(2rem-0.375rem)]">
-                  <Image src={IMAGES[service.image].src} alt={IMAGES[service.image].alt} fill preload sizes="(max-width: 768px) 100vw, 40vw" className="object-cover" />
+                  <ServiceHeroArt slug={slug} badge={SERVICE_TURNAROUND[slug] ?? service.title} />
                 </div>
               </div>
             </Reveal>
@@ -123,10 +125,10 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
       {/* Gallery */}
       <section aria-label={`${service.title} in pictures`} className="pb-16 md:pb-32">
         <Container className="grid gap-4 md:grid-cols-12">
-          {detail.gallery.map((key, i) => (
-            <Reveal key={key} delay={i * 0.1} y={50} className={i === 0 ? "md:col-span-7" : "md:col-span-5 md:mt-24"}>
+          {([0, 1] as const).map((i) => (
+            <Reveal key={i} delay={i * 0.1} y={50} className={i === 0 ? "md:col-span-7" : "md:col-span-5 md:mt-24"}>
               <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem]">
-                <Image src={IMAGES[key].src} alt={IMAGES[key].alt} fill sizes="(max-width: 768px) 100vw, 55vw" className="object-cover" />
+                <ServicePanelArt slug={slug} i={i} />
               </div>
             </Reveal>
           ))}
@@ -170,15 +172,21 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
             </h2>
             <div className={`mt-12 grid gap-4 ${work.length > 1 ? "md:grid-cols-2" : ""}`}>
               {work.map((w) => (
-                <Link key={w.slug} href={`/work/${w.slug}`} className="group relative block overflow-hidden rounded-[2rem]">
-                  <div className={`relative ${work.length > 1 ? "aspect-[16/11]" : "aspect-[16/10] md:aspect-[21/9]"}`}>
-                    <Image src={IMAGES[w.image].src} alt={IMAGES[w.image].alt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition-transform duration-[1.4s] ease-premium group-hover:scale-105" />
+                <Link
+                  key={w.slug}
+                  href={`/work/${w.slug}`}
+                  className="group relative flex min-h-[260px] flex-col justify-between gap-10 overflow-hidden rounded-[2rem] bg-ink p-7 text-canvas md:p-9"
+                >
+                  <span aria-hidden className="absolute -right-16 -top-16 size-56 rounded-full bg-accent/20 blur-3xl transition-transform duration-1000 ease-premium group-hover:scale-125" />
+                  <div className="relative flex items-start justify-between gap-6">
+                    <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">{w.client}</p>
+                    <span className="rounded-full bg-white/10 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.14em] text-white/70 ring-1 ring-white/15">{w.tag}</span>
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-6 p-7 text-white md:p-9">
+                  <div className="relative flex items-end justify-between gap-6">
                     <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.16em] text-accent">{w.client}</p>
-                      <h3 className="mt-2 font-display text-2xl font-semibold tracking-tight md:text-3xl">{w.title}</h3>
+                      <p className="font-display text-[clamp(3rem,6vw,5rem)] font-semibold leading-none tracking-[-0.04em] text-accent">{w.results[0].value}</p>
+                      <p className="mt-1 text-sm text-white/60">{w.results[0].label}</p>
+                      <h3 className="mt-6 max-w-md font-display text-2xl font-semibold tracking-tight md:text-3xl">{w.title}</h3>
                     </div>
                     <span className="grid size-12 shrink-0 place-items-center rounded-full bg-accent text-accent-ink transition-transform duration-500 ease-premium group-hover:-rotate-45">
                       <ArrowRight size={18} />
@@ -211,10 +219,10 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
           )}
           <Link
             href={`/services/${next.slug}`}
-            className={`group relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-[2rem] p-8 text-white md:p-10 ${siblings.length ? "md:col-span-7" : "md:col-span-12"}`}
+            className={`group relative flex min-h-[260px] flex-col justify-between overflow-hidden rounded-[2rem] bg-gradient-to-br p-8 text-white md:p-10 ${serviceTone(next.slug)} ${siblings.length ? "md:col-span-7" : "md:col-span-12"}`}
           >
-            <Image src={IMAGES[next.image].src} alt="" fill sizes="(max-width: 768px) 100vw, 58vw" className="object-cover transition-transform duration-[1.4s] ease-premium group-hover:scale-105" />
-            <div className="absolute inset-0 bg-black/60 transition-colors duration-700 group-hover:bg-black/45" />
+            <span aria-hidden className="absolute -bottom-24 -right-24 size-80 rounded-full border-[40px] border-white/10 transition-transform duration-1000 ease-premium group-hover:scale-110" />
+            <span aria-hidden className="absolute -left-10 -top-10 size-48 rounded-full bg-white/10 blur-3xl" />
             <p className="relative font-mono text-xs uppercase tracking-[0.18em] text-white/70">Next service</p>
             <p className="relative flex items-end justify-between gap-6 font-display text-[clamp(2rem,4vw,3.75rem)] font-semibold leading-none tracking-[-0.03em]">
               {next.title}
