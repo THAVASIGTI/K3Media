@@ -87,25 +87,6 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       { q: "Do you charge a percentage of spend?", a: "We charge a fixed monthly management fee, so our advice is never tied to spending more." },
     ],
   },
-  events: {
-    headline: "Events people still mention a year later.",
-    intro:
-      "Corporate events, meetings, conferences, commercial launches and celebrations, managed end to end. Venue, stage, sound, light, guests, VIPs and live coverage are handled by one crew with one point of contact.",
-    gallery: ["event-corporate", "event-corporate-3"],
-    included: [
-      { title: "Concept and planning", body: "Theme, run of show, budget and timelines locked in the first week." },
-      { title: "Venue and production", body: "Venue booking, stage design, LED walls, sound and lighting." },
-      { title: "Guest management", body: "Invites, registrations, check-in desks, badges and hospitality." },
-      { title: "Corporate and meetings", body: "Annual days, dealer meets, AGMs, seminars and leadership offsites." },
-      { title: "Commercial launches", body: "Product launches, store openings and brand activations with press." },
-      { title: "Live coverage", body: "Photo, video and same-day edits for social while the event is still on." },
-    ],
-    idealFor: ["Companies hosting 50 to 2,000 guests", "Brands launching a product or store", "Families planning weddings and milestone celebrations"],
-    faq: [
-      { q: "How early should we book?", a: "Two to six weeks for most events. Large conferences and weddings benefit from two to three months." },
-      { q: "Do you work with our preferred venue?", a: "Yes. We can work with your venue or shortlist options within your budget." },
-    ],
-  },
   "high-profile": {
     headline: "Discreet care for the people everyone is watching.",
     intro:

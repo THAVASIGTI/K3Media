@@ -36,7 +36,7 @@ export default function Contact({ asPage = false }: { asPage?: boolean }) {
       <Container className="relative grid gap-16 md:grid-cols-12">
         <div className="md:col-span-5">
           <Heading className="font-display text-[clamp(2.6rem,6vw,5.5rem)] font-semibold leading-[0.95] tracking-[-0.035em]">
-            <SplitWords lines={["Got a launch,", "an event or a", "messy CRM?"]} accentLine={2} onMount={asPage} />
+            <SplitWords lines={["Got a launch,", "a campaign or a", "messy CRM?"]} accentLine={2} onMount={asPage} />
           </Heading>
           <p className="mt-6 max-w-sm text-lg text-muted">Tell us what you are planning. We reply within one working day.</p>
           <ul className="mt-10 space-y-3">

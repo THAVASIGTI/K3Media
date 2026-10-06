@@ -28,7 +28,6 @@ export const CTA_LABEL = "Book a call";
 
 export const NAV_LINKS = [
   { label: "Services", href: "/services" },
-  { label: "Events", href: "/events" },
   { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
@@ -48,8 +47,8 @@ export type Service = {
 export const PILLARS: Record<Pillar, { name: string; tagline: string; blurb: string }> = {
   studio: {
     name: "Studio",
-    tagline: "Media & Events",
-    blurb: "Cameras, edits, campaigns and stages. The crew that makes your brand seen, felt and remembered.",
+    tagline: "Media & Content",
+    blurb: "Cameras, edits, campaigns and the faces that front them. The crew that makes your brand seen, felt and remembered.",
   },
   lab: {
     name: "Lab",
@@ -90,14 +89,6 @@ export const SERVICES: Service[] = [
     line: "Paid campaigns and outdoor media planned around real numbers.",
     points: ["Meta and Google ads", "Outdoor, print and radio placements", "Launch and festive promotions"],
     image: "advertising",
-  },
-  {
-    slug: "events",
-    pillar: "studio",
-    title: "Event Organisation",
-    line: "Corporate meets, conferences and commercial launches, end to end.",
-    points: ["Venue, stage, sound and lighting", "Guest management and registrations", "Live coverage and same-day edits"],
-    image: "event-corporate",
   },
   {
     slug: "high-profile",
@@ -207,13 +198,13 @@ export const STAGES: Stage[] = [
   },
   {
     key: "live",
-    title: "Show up in person",
-    line: "Events and VIP moments people still mention a year later.",
+    title: "Bring in the big names",
+    line: "Celebrities, influencers and VIPs who make your launch headline.",
     detail:
-      "Launches, dealer meets, conferences and celebrations, plus the celebrities and VIPs who make them headline. One crew runs the stage, the guests and the live coverage.",
-    image: "event-corporate",
-    services: ["events", "high-profile"],
-    stat: { value: "240+", label: "events delivered" },
+      "The right face for your launch or campaign, booked, briefed and looked after. Protocol, security, transport and media are handled by one team.",
+    image: "vip-management",
+    services: ["high-profile"],
+    stat: { value: "1 desk", label: "for booking, protocol and media on the day" },
     media: { kind: "instagram" },
   },
   {
@@ -227,16 +218,6 @@ export const STAGES: Stage[] = [
     stat: { value: "4 min", label: "average lead response with WhatsApp CRM" },
     media: { kind: "short", id: "LKQQ2IsmTOI" },
   },
-];
-
-export type EventType = { title: string; detail: string; image: ImageKey };
-
-export const EVENT_TYPES: EventType[] = [
-  { title: "Corporate Events", detail: "Annual days, award nights and leadership offsites.", image: "event-corporate-2" },
-  { title: "Meetings & Conferences", detail: "Dealer meets, summits and seminars for 50 to 2,000 guests.", image: "event-corporate-3" },
-  { title: "Commercial Launches", detail: "Product launches, store openings and brand activations.", image: "event-commercial" },
-  { title: "Concerts & Shows", detail: "Stage, sound, light and artist management for live nights.", image: "event-commercial-2" },
-  { title: "Weddings & Celebrations", detail: "Weddings, private galas and milestone parties with full decor.", image: "hero-2" },
 ];
 
 export type Step = { title: string; body: string; tags: string[] };
@@ -255,6 +236,8 @@ export type Work = {
   title: string;
   result: string;
   image: ImageKey;
+  /** 3D render shown on the home "Proof, not promises" cards */
+  art: ImageKey;
   gallery: ImageKey[];
   services: string[];
   challenge: string;
@@ -271,24 +254,12 @@ export const WORK: Work[] = [
     title: "A bridal collection shot in two days",
     result: "4.1x reach in the launch month",
     image: "work-2",
+    art: "g-instagram-2",
     gallery: ["work-8", "advertising", "work-1"],
     services: ["photo-shoot", "video-editing", "social-media"],
     challenge: "A family-run silk house was launching its biggest bridal collection in years, with old catalogue photos and a quiet Instagram page.",
     approach: "We cast models, styled 42 sarees and shot stills and reels across two days, then ran a six-week launch calendar with reels, carousels and creator collaborations.",
     results: [{ value: "4.1x", label: "reach in launch month" }, { value: "312", label: "store visit enquiries" }, { value: "18", label: "reels delivered" }],
-  },
-  {
-    slug: "coastal-motors-dealer-meet",
-    client: "Coastal Motors",
-    tag: "Event",
-    title: "A 1,200-guest dealer meet in Chennai",
-    result: "Planned and delivered in 19 days",
-    image: "work-4",
-    gallery: ["event-corporate", "event-corporate-2", "vip-management"],
-    services: ["events", "high-profile", "video-editing"],
-    challenge: "An automobile distributor needed its annual dealer meet, awards and a new model reveal organised with less than three weeks to go.",
-    approach: "We locked the venue in two days, designed the stage and LED content, ran registrations and VIP hosting, and delivered a same-night highlight film.",
-    results: [{ value: "1,200", label: "guests hosted" }, { value: "19", label: "days from brief to show" }, { value: "0", label: "guest complaints logged" }],
   },
   {
     slug: "brewhouse-summer-launch",
@@ -297,6 +268,7 @@ export const WORK: Work[] = [
     title: "A summer drink launch built for reels",
     result: "2.3M views across 6 weeks",
     image: "work-6",
+    art: "g-youtube",
     gallery: ["social-media", "video-editing", "advertising"],
     services: ["advertising", "video-editing", "social-media"],
     challenge: "A new beverage brand had to win shelf attention in a crowded summer market with a modest budget.",
@@ -310,6 +282,7 @@ export const WORK: Work[] = [
     title: "WhatsApp follow-ups wired into a new CRM",
     result: "Lead response time from 6 hours to 4 minutes",
     image: "work-9",
+    art: "g-whatsapp",
     gallery: ["whatsapp-crm", "crm-erp", "software-team"],
     services: ["whatsapp-crm", "crm-erp", "automation"],
     challenge: "Enquiries from IndiaMART, ads and the website landed in three inboxes and two personal phones. Leads waited hours for a reply.",
@@ -323,6 +296,7 @@ export const WORK: Work[] = [
     title: "A city night campaign for a heritage trail",
     result: "11,000 bookings in one season",
     image: "work-3",
+    art: "c-website",
     gallery: ["website-dev", "advertising", "social-media-2"],
     services: ["advertising", "website", "social-media"],
     challenge: "A heritage tour operator wanted locals, not only tourists, to book its evening walks.",
@@ -331,27 +305,19 @@ export const WORK: Work[] = [
   },
 ];
 
-export const STATS = [
-  { value: 240, suffix: "+", label: "events delivered", pillar: "studio" as Pillar },
-  { value: 18, suffix: "K", label: "reels and edits shipped", pillar: "studio" as Pillar },
-  { value: 65, suffix: "+", label: "CRM and ERP rollouts", pillar: "lab" as Pillar },
-  { value: 1.4, suffix: "M", label: "automated messages a month", pillar: "lab" as Pillar, decimals: 1 },
-];
-
 export const CLIENTS = ["Lakshmi Silks", "Coastal Motors", "Brewhouse Co.", "Arun Exports", "Nila Foods", "Vetri Hospitals", "Kaveri Realty", "Orbit Academy", "Sri Murugan Textiles", "Pixel Mart"];
 
 export type Quote = { quote: string; name: string; role: string; company: string };
 
 export const QUOTES: Quote[] = [
   { quote: "They shot our launch, ran the ads and then built the CRM that caught every lead. One team, no hand-offs.", name: "Priya Raman", role: "Marketing Head", company: "Lakshmi Silks" },
-  { quote: "A 1,200-person dealer meet in under three weeks, and not one guest complaint. The VIP desk was flawless.", name: "Karthik Subramanian", role: "Regional Director", company: "Coastal Motors" },
   { quote: "Our WhatsApp flow now answers enquiries in minutes. Sales stopped losing leads over the weekend.", name: "Divya Narayanan", role: "Founder", company: "Arun Exports" },
 ];
 
 export const FAQ = [
   { q: "Do I have to hire both the Studio and the Lab?", a: "No. Most clients start with one service. The benefit of one team shows up when your campaign leads flow straight into a system we also built." },
-  { q: "Where do you work?", a: "We are based in Vilangudi, Madurai and run shoots and events across South India. Software and social media work is fully remote, anywhere in India." },
-  { q: "How fast can you start?", a: "Social media and video edits usually start within a week. Events need 2 to 6 weeks depending on size. Websites take 2 to 4 weeks, and custom CRM or ERP builds 3 to 8 weeks." },
+  { q: "Where do you work?", a: "We are based in Vilangudi, Madurai and run shoots across South India. Software and social media work is fully remote, anywhere in India." },
+  { q: "How fast can you start?", a: "Social media and video edits usually start within a week. Websites take 2 to 4 weeks, and custom CRM or ERP builds 3 to 8 weeks." },
   { q: "Can you set up WhatsApp CRM on our existing number?", a: "Yes. We move your business number to the official WhatsApp Business API, connect it to a shared web inbox and your CRM, and train your team." },
-  { q: "How is pricing done?", a: "Monthly retainers for social media and support, fixed quotes for events, shoots and software builds. Every quote is itemised." },
+  { q: "How is pricing done?", a: "Monthly retainers for social media and support, fixed quotes for shoots and software builds. Every quote is itemised." },
 ];

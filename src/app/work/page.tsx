@@ -11,7 +11,7 @@ import ContactStrip from "@/components/sections/ContactStrip";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Case studies from K3 Media: brand shoots, launch campaigns, corporate events, websites and WhatsApp CRM rollouts.",
+  description: "Case studies from K3 Media: brand shoots, launch campaigns, websites and WhatsApp CRM rollouts.",
 };
 
 /** Alternating large / offset case cards. */
@@ -22,7 +22,7 @@ export default function WorkPage() {
         crumbs={[{ label: "Work" }]}
         lines={["Proof, not promises."]}
         accentLine={0}
-        intro="Shoots, launches, events and systems we have delivered for brands across Tamil Nadu and South India."
+        intro="Shoots, launches and systems we have delivered for brands across Tamil Nadu and South India."
       />
       <section className="pb-16 md:pb-32">
         <Container className="grid gap-x-6 gap-y-16 md:grid-cols-12">

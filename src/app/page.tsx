@@ -1,8 +1,6 @@
 import Hero from "@/components/sections/Hero";
 import ClientMarquee from "@/components/sections/ClientMarquee";
 import Services from "@/components/sections/Services";
-import Events from "@/components/sections/Events";
-import Stats from "@/components/sections/Stats";
 import Work from "@/components/sections/Work";
 import Reels from "@/components/sections/Reels";
 import Testimonials from "@/components/sections/Testimonials";
@@ -14,8 +12,6 @@ export default function Home() {
       <Hero />
       <ClientMarquee />
       <Services />
-      <Events />
-      <Stats />
       <Work />
       <Reels />
       <Testimonials />

@@ -22,7 +22,7 @@ export default function ServiceCatalog() {
   // `short` is shown on phones so all three tabs fit on one line.
   const tabs: { key: Filter; label: string; short: string; count: number }[] = [
     { key: "all", label: "All services", short: "All", count: SERVICES.length },
-    { key: "studio", label: PILLARS.studio.tagline, short: "Media & Events", count: SERVICES.filter((s) => s.pillar === "studio").length },
+    { key: "studio", label: PILLARS.studio.tagline, short: "Media & Content", count: SERVICES.filter((s) => s.pillar === "studio").length },
     { key: "lab", label: PILLARS.lab.tagline, short: "Software", count: SERVICES.filter((s) => s.pillar === "lab").length },
   ];
 

@@ -5,7 +5,7 @@ import SplitWords from "@/components/motion/SplitWords";
 
 /** Closing call to action used at the bottom of every page. */
 export default function CtaBand({
-  lines = ["Got a launch, an event", "or a messy CRM?"],
+  lines = ["Got a launch, a campaign", "or a messy CRM?"],
 }: {
   lines?: string[];
 }) {

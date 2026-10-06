@@ -8,7 +8,7 @@ import ContactStrip from "@/components/sections/ContactStrip";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "K3 Media is a brand-building studio from Tamil Nadu: photo, video, social, ads and events, plus websites, CRM and WhatsApp systems, run by one team.",
+  description: "K3 Media is a brand-building studio from Tamil Nadu: photo, video, social, ads and VIP management, plus websites, CRM and WhatsApp systems, run by one team.",
 };
 
 export default function AboutPage() {

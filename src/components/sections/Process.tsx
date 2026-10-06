@@ -41,7 +41,7 @@ export default function Process() {
               Four steps. <span className="hl">Zero <span className="whitespace-nowrap">hand-offs.</span></span>
             </h2>
             <p className="mt-6 max-w-sm text-muted">
-              The same team plans the shoot, runs the event and builds the system behind it, so nothing gets lost between agencies.
+              The same team plans the shoot, runs the campaign and builds the system behind it, so nothing gets lost between agencies.
             </p>
           </div>
         </div>

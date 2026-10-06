@@ -20,7 +20,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 const bySlug = (slug: string) => SERVICES.find((s) => s.slug === slug)!;
 const num = (i: number) => String(i + 1).padStart(2, "0");
 
-/** Instagram profile preview used for the events stage. */
+/** Instagram profile preview used for the VIP stage. */
 function InstagramCard() {
   const grid = ["event-corporate", "event-commercial", "vip-management", "work-4", "event-corporate-3", "hero-2"] as const;
   return (
@@ -76,7 +76,7 @@ function StageCard({ stage, i }: { stage: Stage; i: number }) {
             <div className="flex items-center gap-3">
               <span className="grid h-10 min-w-10 place-items-center rounded-full bg-accent px-3 font-mono text-sm font-semibold text-accent-ink">{num(i)}</span>
               <span className="h-px flex-1 bg-white/15" />
-              <span className="font-mono text-xs uppercase tracking-[0.16em] text-white/50">{stage.services.length} services</span>
+              <span className="font-mono text-xs uppercase tracking-[0.16em] text-white/50">{stage.services.length} {stage.services.length === 1 ? "service" : "services"}</span>
             </div>
             <h3 className="mt-5 font-display text-[clamp(2.1rem,4vw,3.9rem)] font-semibold leading-[0.95] tracking-[-0.035em] md:mt-8">{stage.title}</h3>
             <p className="mt-4 line-clamp-4 max-w-md text-[15px] [@media(max-height:700px)]:line-clamp-3 leading-relaxed text-white/75 md:mt-5 md:line-clamp-none md:text-base md:text-white/70">{stage.detail}</p>

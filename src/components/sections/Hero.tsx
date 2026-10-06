@@ -99,7 +99,7 @@ export default function Hero() {
               transition={{ duration: 1, ease, delay: 1 }}
               className="mt-7 max-w-lg text-base leading-relaxed text-white/80 md:text-lg"
             >
-              Shoots, films, social, events, and the website and CRM behind them. One team from first impression to final sale.
+              Shoots, films, social, ads, and the website and CRM behind them. One team from first impression to final sale.
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -123,7 +123,7 @@ export default function Hero() {
             onPointerEnter={() => setPaused(true)}
             onPointerLeave={() => setPaused(false)}
           >
-            <div role="tablist" aria-label="Hero topics" className="grid grid-cols-3 gap-x-3 gap-y-4 md:grid-cols-2">
+            <div role="tablist" aria-label="Hero topics" className="flex flex-wrap gap-2 md:justify-end">
               {HERO_SLIDES.map((s, i) => {
                 const active = i === index;
                 return (
@@ -133,23 +133,24 @@ export default function Hero() {
                     role="tab"
                     aria-selected={active}
                     onClick={() => goTo(i)}
-                    className="group text-left"
+                    className={clsx(
+                      "relative isolate min-h-9 overflow-hidden whitespace-nowrap rounded-full px-3.5 text-xs font-medium ring-1 backdrop-blur-md transition-colors duration-300 md:min-h-10 md:px-4 md:text-sm",
+                      active ? "bg-white text-ink ring-white" : "bg-white/10 text-white/80 ring-white/20 hover:bg-white/20 hover:text-white",
+                    )}
                   >
-                    <span className="relative block h-0.5 overflow-hidden rounded-full bg-white/25">
-                      {active && (
-                        <motion.span
-                          key={`${index}-${paused}`}
-                          className="absolute inset-0 origin-left bg-accent"
-                          // Same initial value on server and client; MotionConfig reducedMotion="user" fills it instantly when needed.
-                          initial={{ scaleX: 0 }}
-                          animate={{ scaleX: 1 }}
-                          transition={{ duration: paused ? 0 : SLIDE_MS / 1000, ease: "linear" }}
-                        />
-                      )}
-                    </span>
-                    <span className={clsx("mt-2.5 block text-xs leading-snug transition-colors duration-300 md:text-sm", active ? "text-white" : "text-white/50 group-hover:text-white/80")}>
-                      {s.topic}
-                    </span>
+                    {/* Active badge fills with the slide's progress */}
+                    {active && (
+                      <motion.span
+                        key={`${index}-${paused}`}
+                        aria-hidden
+                        className="absolute inset-0 -z-10 origin-left bg-accent"
+                        // Same initial value on server and client; MotionConfig reducedMotion="user" fills it instantly when needed.
+                        initial={{ scaleX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ duration: paused ? 0 : SLIDE_MS / 1000, ease: "linear" }}
+                      />
+                    )}
+                    {s.topic}
                   </button>
                 );
               })}
