@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useStickyFit } from "@/components/motion/useStickyFit";
 import { PROCESS } from "@/lib/content";
 import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
@@ -13,6 +14,7 @@ gsap.registerPlugin(ScrollTrigger, useGSAP);
 /** Sticky card stack: each step pins, and the previous card recedes as the next slides over it. */
 export default function Process() {
   const ref = useRef<HTMLElement>(null);
+  useStickyFit(ref, ".step-card");
 
   useGSAP(
     () => {

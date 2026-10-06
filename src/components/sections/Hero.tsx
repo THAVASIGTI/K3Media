@@ -45,7 +45,7 @@ export default function Hero() {
   }, [index, paused]);
 
   return (
-    <section id="top" ref={ref} className="relative flex min-h-[100dvh] items-end overflow-hidden pb-10 pt-28 md:pb-14">
+    <section id="top" ref={ref} className="relative flex min-h-[100dvh] items-end overflow-hidden pb-9 pt-24 md:pb-14 md:pt-28">
       {/* Framed banner */}
       <motion.div
         className="absolute inset-0 overflow-hidden bg-ink"
@@ -88,7 +88,7 @@ export default function Hero() {
       </motion.div>
 
       <Container className="relative">
-        <motion.div style={{ y: textY }} className="grid items-end gap-10 md:grid-cols-12">
+        <motion.div style={{ y: textY }} className="grid items-end gap-7 md:grid-cols-12 md:gap-10">
           <div className="md:col-span-8">
             <h1 className="font-display text-[clamp(2.6rem,6.6vw,6.75rem)] font-semibold leading-[0.95] tracking-[-0.035em] text-white">
               <SplitWords lines={["We build brands", "people remember."]} accentLine={1} accentClass="text-accent" delay={0.5} onMount />
@@ -97,7 +97,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease, delay: 1 }}
-              className="mt-7 max-w-lg text-base leading-relaxed text-white/80 md:text-lg"
+              className="mt-5 max-w-lg text-[15px] leading-relaxed text-white/80 sm:text-base md:mt-7 md:text-lg"
             >
               Shoots, films, social, ads, and the website and CRM behind them. One team from first impression to final sale.
             </motion.p>
@@ -105,7 +105,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease, delay: 1.15 }}
-              className="mt-9 flex flex-wrap gap-3"
+              className="mt-7 flex flex-wrap gap-3 md:mt-9"
             >
               <MagneticButton href="/contact">{CTA_LABEL}</MagneticButton>
               <MagneticButton href={CONTACT.whatsapp} variant="glass" external>

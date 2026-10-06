@@ -14,6 +14,7 @@ import Container from "@/components/ui/Container";
 import Eyebrow from "@/components/ui/Eyebrow";
 import ShortPlayer from "@/components/ui/ShortPlayer";
 import SplitWords from "@/components/motion/SplitWords";
+import { useStickyFit } from "@/components/motion/useStickyFit";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -66,7 +67,7 @@ function StageCard({ stage, i }: { stage: Stage; i: number }) {
       style={{ "--i": i } as React.CSSProperties}
     >
       {/* Phones: one-screen card, photo behind the copy. md+: copy and photo side by side. */}
-      <div className="relative flex min-h-[min(calc(100svh-9rem),640px)] flex-col justify-end overflow-hidden rounded-[2rem] bg-ink text-canvas shadow-[0_-30px_60px_-30px_rgba(20,19,16,0.5)] md:grid md:h-[min(78vh,700px)] md:min-h-0 md:grid-cols-2 md:rounded-[2.25rem]">
+      <div className="relative flex min-h-[min(calc(100svh-9rem),640px)] flex-col justify-end overflow-hidden rounded-[2rem] bg-ink text-canvas shadow-[0_-30px_60px_-30px_rgba(20,19,16,0.5)] md:grid md:min-h-[min(78vh,700px)] md:grid-cols-2 md:rounded-[2.25rem]">
         {/* Shade that deepens as the next card stacks on top */}
         <span aria-hidden className="stack-shade pointer-events-none absolute inset-0 z-20 bg-black opacity-0" />
 
@@ -83,14 +84,14 @@ function StageCard({ stage, i }: { stage: Stage; i: number }) {
           </div>
 
           <div>
-            <ul className={clsx("flex flex-wrap gap-2", dense && "md:grid md:grid-cols-2")}>
+            <ul className={clsx("flex flex-wrap gap-2", dense && "lg:grid lg:grid-cols-2")}>
               {stage.services.map((slug) => (
                 <li key={slug}>
                   <Link
                     href={`/services/${slug}`}
                     className="group/c flex min-h-10 items-center justify-between gap-2 rounded-full bg-white/[0.09] py-1.5 pl-3.5 pr-3.5 text-[13px] font-medium ring-1 ring-white/10 backdrop-blur-sm transition-colors duration-300 hover:bg-accent hover:text-accent-ink md:min-h-11 md:bg-white/[0.07] md:py-2 md:pl-4 md:pr-2 md:text-sm md:backdrop-blur-none"
                   >
-                    <span className="whitespace-nowrap md:truncate">{bySlug(slug).title}</span>
+                    <span className="whitespace-nowrap lg:truncate">{bySlug(slug).title}</span>
                     <span className="hidden size-7 shrink-0 place-items-center rounded-full bg-white/10 transition-colors group-hover/c:bg-accent-ink group-hover/c:text-accent md:grid">
                       <ArrowUpRight size={13} />
                     </span>
@@ -123,6 +124,7 @@ function StageCard({ stage, i }: { stage: Stage; i: number }) {
 
 export default function Services({ heading = true }: { heading?: boolean }) {
   const ref = useRef<HTMLElement>(null);
+  useStickyFit(ref, ".stack-card");
 
   useGSAP(
     () => {
