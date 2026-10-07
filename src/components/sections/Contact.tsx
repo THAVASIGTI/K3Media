@@ -1,24 +1,43 @@
 "use client";
 
 import { useState } from "react";
-import { EnvelopeSimple, MapPin, Phone, WhatsappLogo } from "@phosphor-icons/react";
+import { CheckCircle, EnvelopeSimple, MapPin, Phone, WhatsappLogo } from "@phosphor-icons/react";
 import clsx from "clsx";
 import { CONTACT, CTA_LABEL, SERVICES } from "@/lib/content";
 import Container from "@/components/ui/Container";
 import SplitWords from "@/components/motion/SplitWords";
+import { googleFormReady, submitToGoogleForm } from "@/lib/google-form";
 
 const field =
   "w-full rounded-2xl bg-canvas px-5 py-4 text-ink ring-1 ring-black/10 placeholder:text-faint transition-shadow duration-300 focus:outline-none focus:ring-2 focus:ring-accent";
 
-/** No backend yet: the form composes an email to the studio inbox. */
+/** Sends enquiries to a Google Form (responses land in a Google Sheet); falls back to email until it is configured. */
 export default function Contact({ asPage = false }: { asPage?: boolean }) {
   const Heading = asPage ? "h1" : "h2";
   const [interest, setInterest] = useState<string[]>([]);
   const toggle = (t: string) => setInterest((v) => (v.includes(t) ? v.filter((x) => x !== t) : [...v, t]));
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const d = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const d = new FormData(form);
+    const str = (k: string) => String(d.get(k) ?? "").trim();
+
+    if (googleFormReady()) {
+      setStatus("sending");
+      try {
+        await submitToGoogleForm({ services: interest, name: str("name"), phone: str("phone"), company: str("company"), message: str("message") });
+        setStatus("sent");
+        form.reset();
+        setInterest([]);
+      } catch {
+        setStatus("error");
+      }
+      return;
+    }
+
     const body = [
       `Name: ${d.get("name")}`,
       `Phone: ${d.get("phone")}`,
@@ -102,16 +121,33 @@ export default function Contact({ asPage = false }: { asPage?: boolean }) {
               Tell us a little more
               <textarea name="message" rows={4} className={clsx(field, "mt-2 resize-none")} placeholder="Dates, guest count, goals, current tools..." />
             </label>
-            <div className="md:col-span-2">
+            <div className="space-y-4 md:col-span-2">
               <button
                 type="submit"
-                className="group inline-flex min-h-12 items-center gap-3 rounded-full bg-accent py-1.5 pl-6 pr-1.5 font-medium text-accent-ink transition-colors duration-500 ease-premium hover:bg-ink hover:text-canvas active:scale-[0.98]"
+                disabled={status === "sending"}
+                className="group inline-flex min-h-12 items-center gap-3 rounded-full bg-accent py-1.5 pl-6 pr-1.5 font-medium text-accent-ink transition-colors duration-500 ease-premium hover:bg-ink hover:text-canvas active:scale-[0.98] disabled:cursor-wait disabled:opacity-70"
               >
-                {CTA_LABEL}
+                {status === "sending" ? "Sending…" : CTA_LABEL}
                 <span className="grid size-9 place-items-center rounded-full bg-accent-ink text-accent transition-transform duration-500 ease-premium group-hover:translate-x-0.5">
                   <Phone size={16} />
                 </span>
               </button>
+              <p aria-live="polite" className="text-sm">
+                {status === "sent" && (
+                  <span className="flex items-center gap-2 text-emerald-700">
+                    <CheckCircle size={18} weight="fill" /> Thanks! We have your details and will reply within one working day.
+                  </span>
+                )}
+                {status === "error" && (
+                  <span className="text-rose-700">
+                    Something went wrong. Please try again, or message us on{" "}
+                    <a href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer" className="underline">
+                      WhatsApp
+                    </a>
+                    .
+                  </span>
+                )}
+              </p>
             </div>
           </div>
         </form>
