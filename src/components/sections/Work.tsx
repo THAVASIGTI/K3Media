@@ -6,16 +6,9 @@ import { WORK } from "@/lib/content";
 import Container from "@/components/ui/Container";
 import SplitWords from "@/components/motion/SplitWords";
 import CaseArt from "@/components/sections/CaseArt";
+import { caseTheme } from "@/lib/case-themes";
 
 const ease = [0.16, 1, 0.3, 1] as const;
-
-/** Card colour per case, matched to its scene. */
-const THEME: Record<string, string> = {
-  "lakshmi-silks-bridal-collection": "from-[#5c1424] via-[#8f2433] to-[#c2410c]",
-  "brewhouse-summer-launch": "from-[#082f49] via-[#0c4a6e] to-[#0e7490]",
-  "arun-exports-whatsapp-crm": "from-[#052e22] via-[#065f46] to-[#15803d]",
-  "metro-heritage-walk-campaign": "from-[#1e1b4b] via-[#3b2a8a] to-[#6d28d9]",
-};
 
 /** Bento layout: big/small alternating on desktop, stacked on phones. */
 const SPAN = ["lg:col-span-7", "lg:col-span-5", "lg:col-span-5", "lg:col-span-7"];
@@ -48,7 +41,7 @@ export default function Work() {
               <article
                 className={clsx(
                   "relative flex h-full flex-col overflow-hidden rounded-[2rem] bg-gradient-to-br p-5 text-white shadow-[0_30px_60px_-30px_rgba(20,19,16,0.55)] md:p-7",
-                  THEME[w.slug] ?? THEME["metro-heritage-walk-campaign"],
+                  caseTheme(w.slug),
                 )}
               >
                 <div className="relative z-10 flex items-center justify-between gap-3">
