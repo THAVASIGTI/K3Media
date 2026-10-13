@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Geist, Geist_Mono } from "next/font/google";
 import SmoothScroll from "@/components/motion/SmoothScroll";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
+import ChatAssistant from "@/components/assistant/ChatAssistant";
 import { CONTACT } from "@/lib/content";
 import "./globals.css";
 
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Nav />
           {children}
           <Footer />
+          <ChatAssistant />
         </SmoothScroll>
       </body>
     </html>

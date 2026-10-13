@@ -157,28 +157,30 @@ export function ChecklistScene({ title, items, icon: I }: { title: string; items
 }
 
 /* ---------- Steps: process stages lighting up in turn ---------- */
-export function StepsScene({ steps }: { steps: { label: string; icon: Icon }[] }) {
+export function StepsScene({ steps, compact = false }: { steps: { label: string; icon: Icon }[]; compact?: boolean }) {
   const n = steps.length;
+  // Sizes follow the viewport by default; `compact` pins them for small containers such as the chat panel.
+  const lineTop = compact ? "top-[22px]" : "top-[clamp(20px,5.5vw,46px)]";
   return (
     <>
       <div className="absolute inset-x-[8%] top-1/2 flex -translate-y-1/2 items-start justify-between">
-        <span aria-hidden className="absolute left-[10%] right-[10%] top-[clamp(20px,5.5vw,46px)] h-1 rounded-full bg-white/25" />
+        <span aria-hidden className={`absolute left-[10%] right-[10%] h-1 ${lineTop} rounded-full bg-white/25`} />
         <motion.span
           aria-hidden
-          className="absolute left-[10%] top-[clamp(20px,5.5vw,46px)] h-1 rounded-full bg-accent shadow-[0_0_12px_#fbba00]"
+          className={clsx("absolute left-[10%] h-1 rounded-full bg-accent shadow-[0_0_12px_#fbba00]", lineTop)}
           animate={{ width: ["0%", "80%", "80%", "0%"] }}
           transition={{ duration: n * 1.1 + 1.5, repeat: Infinity, ease: "linear", times: [0, 0.8, 0.95, 1] }}
         />
         {steps.map(({ label, icon: I }, i) => (
           <div key={label} className="relative flex w-[22%] flex-col items-center">
             <motion.span
-              className="grid aspect-square w-[clamp(40px,11vw,92px)] place-items-center rounded-[28%] bg-white/15 text-white ring-1 ring-white/25 backdrop-blur-sm"
+              className={clsx("grid aspect-square place-items-center", compact ? "w-[44px]" : "w-[clamp(40px,11vw,92px)]", "rounded-[28%] bg-white/15 text-white ring-1 ring-white/25 backdrop-blur-sm")}
               animate={{ backgroundColor: ["rgba(255,255,255,0.15)", "#fbba00", "#fbba00", "rgba(255,255,255,0.15)"], color: ["#ffffff", "#151003", "#151003", "#ffffff"], scale: [1, 1.12, 1, 1] }}
               transition={loop(n * 1.1 + 1.5, i * 1.1, { times: [0, 0.1, 0.85, 1] })}
             >
               <I weight="fill" className="size-1/2" />
             </motion.span>
-            <span className="mt-3 text-center text-[clamp(9px,1.4vw,14px)] font-semibold text-white">{label}</span>
+            <span className={clsx("mt-3 text-center font-semibold text-white", compact ? "text-[11px]" : "text-[clamp(9px,1.4vw,14px)]")}>{label}</span>
             <span className="mt-1 font-mono text-[8px] text-white/55 md:text-[10px]">{String(i + 1).padStart(2, "0")}</span>
           </div>
         ))}
