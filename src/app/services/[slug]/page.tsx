@@ -14,7 +14,8 @@ import MagneticButton from "@/components/motion/MagneticButton";
 import ContactStrip from "@/components/sections/ContactStrip";
 import { ServiceHeroArt, ServicePanelArt } from "@/components/art/ServicePageArt";
 import { serviceTone } from "@/lib/service-tones";
-import { SERVICE_TURNAROUND } from "@/lib/page-content";
+import { SERVICE_DEMOS, SERVICE_TURNAROUND } from "@/lib/page-content";
+import { LaptopScene, SceneFrame } from "@/components/art/SceneKit";
 
 export const dynamicParams = false;
 
@@ -198,6 +199,49 @@ export default async function ServicePage(props: PageProps<"/services/[slug]">) 
           </Container>
         </section>
       )}
+
+      {/* Live demos: static builds under /public/demo, opened in a new tab (plain <a>: they aren't app routes) */}
+      {SERVICE_DEMOS[slug]?.map((d) => (
+        <section key={d.href} aria-label={`${d.client} live demo`} className="pb-16 md:pb-32">
+          <Container>
+            <Reveal className="grid overflow-hidden rounded-[2rem] bg-ink text-canvas md:grid-cols-12">
+              <div className="flex flex-col justify-between gap-10 p-8 md:col-span-6 md:p-12">
+                <div>
+                  <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-accent">
+                    <span className="size-2 animate-pulse rounded-full bg-emerald-400" /> Live demo
+                  </p>
+                  <h2 className="mt-5 font-display text-[clamp(2rem,3.6vw,3.25rem)] font-semibold leading-none tracking-[-0.03em]">{d.client}</h2>
+                  <p className="mt-2 text-sm text-white/55">{d.kind}</p>
+                  <p className="mt-6 max-w-md leading-relaxed text-white/75">{d.line}</p>
+                  <ul className="mt-6 flex flex-wrap gap-2">
+                    {d.features.map((f) => (
+                      <li key={f} className="rounded-full bg-white/10 px-3 py-1.5 text-xs text-white/80 ring-1 ring-white/15">
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <a
+                  href={d.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="group inline-flex w-fit items-center gap-3 rounded-full bg-accent py-2 pl-6 pr-2 font-medium text-accent-ink transition-transform duration-500 ease-premium hover:scale-[1.03] active:scale-[0.98]"
+                >
+                  {d.label}
+                  <span className="grid size-10 place-items-center rounded-full bg-ink text-accent transition-transform duration-500 ease-premium group-hover:-rotate-45">
+                    <ArrowRight size={16} />
+                  </span>
+                </a>
+              </div>
+              <div className="relative min-h-[280px] md:col-span-6">
+                <SceneFrame bg="from-[#0f2e22] via-[#1f5135] to-[#c8a35a]">
+                  <LaptopScene title={d.client} metrics={[["Projects", "6"], ["Pages", "16"], ["Video reviews", "6"]]} />
+                </SceneFrame>
+              </div>
+            </Reveal>
+          </Container>
+        </section>
+      ))}
 
       {/* Related services + next */}
       <section className="pb-16 md:pb-32">

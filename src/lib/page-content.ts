@@ -72,3 +72,21 @@ export const TEAMS = [
   { name: "VIP & talent", people: "Celebrity booking, protocol, VIP and artist relations" },
   { name: "The Lab", people: "Developers, CRM consultants, support engineers" },
 ];
+
+/* ---------- Live demos (static builds served from /public/demo) ---------- */
+
+export type Demo = { client: string; kind: string; line: string; features: string[]; label: string; href: string };
+
+/** Live demo sites shown on a service page, keyed by Service.slug. Built by scripts/build-jainttc-demo.sh. */
+export const SERVICE_DEMOS: Record<string, Demo[]> = {
+  website: [
+    {
+      client: "Jaintt Constructions",
+      kind: "Real estate · Madurai",
+      line: "A cinematic website for a DTCP & RERA approved builder: projects, plot planner, gallery and a home buyer's guide.",
+      features: ["Project pages", "Plot planner", "Photo gallery", "Video reviews", "Buyer's guide"],
+      label: "Visit Construction Jaintt",
+      href: "/demo/jainttc/",
+    },
+  ],
+};
