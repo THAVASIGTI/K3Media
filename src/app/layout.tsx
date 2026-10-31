@@ -31,7 +31,8 @@ export const viewport: Viewport = { themeColor: "#f5f3ed" };
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${bricolage.variable} antialiased`}>
-      <body>
+      {/* Extensions such as Grammarly add attributes to <body> before React loads; ignore those (this element only). */}
+      <body suppressHydrationWarning>
         <script
           type="application/ld+json"
           // Local business details for search engines.
